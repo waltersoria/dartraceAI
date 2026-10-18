@@ -1,0 +1,14 @@
+{
+  "demo": true,
+  "source": "DATOS SINTÉTICOS PARA PROTOTIPO",
+  "siteName": "Operación demostrativa",
+  "dateAcquired": "2026-10-12",
+  "updated": "2026-10-18",
+  "cloudPercentage": 1.8,
+  "user": {
+    "name": "Usuario de demostración",
+    "role": "Analista ambiental"
+  },
+  "globalRisk": 60.1,
+  "previousGlobalRisk": 60.7
+}

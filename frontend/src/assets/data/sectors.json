@@ -1,0 +1,75 @@
+{
+  "demo": true,
+  "sectors": [
+    {
+      "code": "SEC-04",
+      "name": "Sector 04 — Botadero Norte",
+      "risk": 78,
+      "level": "Alto",
+      "areaHa": 16.8,
+      "elevationM": 2880,
+      "ironOxides": 1.42,
+      "ndvi": 0.12,
+      "ndwi": -0.18,
+      "signal": "Anomalía espectral de óxidos de hierro",
+      "trendPct": 14,
+      "recommendedAction": "Priorizar inspección y muestreo de agua, si existe flujo."
+    },
+    {
+      "code": "SEC-02",
+      "name": "Sector 02 — Talud Este",
+      "risk": 71,
+      "level": "Alto",
+      "areaHa": 12.4,
+      "elevationM": 2820,
+      "ironOxides": 1.27,
+      "ndvi": 0.18,
+      "ndwi": -0.11,
+      "signal": "Incremento de respuesta espectral férrica",
+      "trendPct": 9,
+      "recommendedAction": "Verificar materiales expuestos y drenajes cercanos."
+    },
+    {
+      "code": "SEC-07",
+      "name": "Sector 07 — Quebrada Sur",
+      "risk": 64,
+      "level": "Medio",
+      "areaHa": 10.2,
+      "elevationM": 2740,
+      "ironOxides": 1.08,
+      "ndvi": 0.21,
+      "ndwi": 0.06,
+      "signal": "Cambios espectrales próximos a una quebrada",
+      "trendPct": 0,
+      "recommendedAction": "Inspeccionar cauce y registrar observaciones."
+    },
+    {
+      "code": "SEC-01",
+      "name": "Sector 01 — Botadero Central",
+      "risk": 52,
+      "level": "Medio",
+      "areaHa": 24,
+      "elevationM": 2860,
+      "ironOxides": 0.94,
+      "ndvi": 0.29,
+      "ndwi": -0.08,
+      "signal": "Alteración espectral moderada",
+      "trendPct": -5,
+      "recommendedAction": "Mantener seguimiento periódico."
+    },
+    {
+      "code": "SEC-03",
+      "name": "Sector 03 — Quebrada Seca",
+      "risk": 28,
+      "level": "Bajo",
+      "areaHa": 8.7,
+      "elevationM": 2690,
+      "ironOxides": 0.63,
+      "ndvi": 0.36,
+      "ndwi": -0.14,
+      "signal": "Sin anomalías significativas en este escenario",
+      "trendPct": 0,
+      "recommendedAction": "Continuar seguimiento preventivo."
+    }
+  ]
+}

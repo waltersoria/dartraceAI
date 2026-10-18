@@ -6,10 +6,9 @@
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "build:production": "ng build --configuration production",
-    "test": "node scripts/validate-screens.mjs"
+    "test": "node scripts/validate-screens.mjs && node scripts/validate-demo.mjs"
   },
   "dependencies": {
-    "@angular/animations": "^20.3.0",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
     "@angular/core": "^20.3.0",

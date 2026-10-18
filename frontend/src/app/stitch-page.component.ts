@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
+import { DemoDataService, DemoData, DemoSector } from './services/demo-data.service';
 
 /**
  * Adaptación funcional de las vistas exportadas por Google Stitch.
@@ -32,6 +33,9 @@ import { Subscription } from 'rxjs';
 })
 export class StitchPageComponent implements OnInit, OnDestroy {
   private readonly http = inject(HttpClient);
+  private readonly demoService = inject(DemoDataService);
+  private demoData: DemoData | null = null;
+  private activeSectorCode = 'SEC-04';
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly sanitizer = inject(DomSanitizer);
@@ -69,8 +73,12 @@ export class StitchPageComponent implements OnInit, OnDestroy {
     this.safeMarkup = '';
     this.document.body.className = '';
     const screen = this.screen;
-    this.requestSubscription = this.http.get(`/assets/stitch/${screen}.html`, {responseType:'text'}).subscribe({
-      next: markup => {
+    this.requestSubscription = forkJoin({
+      markup: this.http.get(`/assets/stitch/${screen}.html`, {responseType:'text'}),
+      data: this.demoService.data$
+    }).subscribe({
+      next: ({markup, data}) => {
+        this.demoData = data;
         const match = markup.match(/<!-- STITCH_BODY_CLASS: ([^>]*?) -->/);
         this.document.body.className = match?.[1] || 'bg-background-secondary font-body-md text-on-surface antialiased';
         // Only trusted, locally shipped Stitch HTML is ever loaded from our static assets.
@@ -78,6 +86,7 @@ export class StitchPageComponent implements OnInit, OnDestroy {
         this.loading = false;
         this.cdr.detectChanges();
         this.decoratePage();
+        this.bindDemoData();
       },
       error: () => {
         this.loading = false;
@@ -117,9 +126,168 @@ export class StitchPageComponent implements OnInit, OnDestroy {
     }
   }
 
+
+  /**
+   * Datos cargados mediante HTTP exclusivamente desde JSON estáticos del build.
+   * Las ilustraciones cartográficas heredadas de Stitch siguen siendo esquemáticas.
+   */
+  private bindDemoData(): void {
+    const root = this.document.querySelector<HTMLElement>('.dar-stitch-view');
+    const demo = this.demoData;
+    if (!root || !demo) return;
+    if (!demo.context.demo || !demo.sectors.demo) {
+      this.loadError = 'El origen de los datos no está identificado como demostrativo.';
+      return;
+    }
+    const sectors = demo.sectors.sectors;
+    const current = sectors.find(s=>s.code===this.activeSectorCode) || sectors[0];
+    root.querySelectorAll<HTMLSelectElement>('header select').forEach(select=>{
+      select.replaceChildren(new Option(demo.context.siteName,'demo',true,true));
+      select.setAttribute('aria-label','Proyecto de demostración');
+    });
+    this.replaceExact(root,{
+      'Dra. Marcela Vega':demo.context.user.name,
+      'Superintendente ESG':demo.context.user.role
+    });
+    if(this.screen==='panel-general' || this.screen==='panel-general-notificaciones'){
+      const global=this.cardByLabel(root,'Índice de riesgo global');
+      const high=this.cardByLabel(root,'Zonas de alto riesgo');
+      const value=global?.querySelector<HTMLElement>('.font-kpi-metric');
+      if(value)value.textContent=demo.context.globalRisk.toFixed(1);
+      const variation=global?.querySelector<HTMLElement>('span.flex.items-center.gap-1');
+      const difference=demo.context.globalRisk-demo.context.previousGlobalRisk;
+      if(variation)variation.textContent=`${difference>0?'+':''}${difference.toFixed(1)} puntos vs. período anterior`;
+      const classification=Array.from(global?.querySelectorAll('span')||[]).find(el=>el.textContent?.trim().startsWith('Riesgo '));
+      if(classification)classification.textContent=`Riesgo ${demo.context.globalRisk>=75?'alto':demo.context.globalRisk>=40?'medio':'bajo'}`;
+      const count=high?.querySelector<HTMLElement>('.font-kpi-metric');
+      if(count)count.textContent=String(sectors.filter(s=>s.level==='Alto').length);
+      const highDescription=high?.querySelector('p');
+      if(highDescription)highDescription.textContent='Zonas priorizadas mediante indicadores simulados; requieren verificación de campo.';
+      this.renderSectorsTable(root.querySelector('table'),sectors.slice(0,3),'dashboard');
+      const metricLabel=Array.from(root.querySelectorAll('span')).find(el=>el.textContent?.trim()==='Índice de riesgo zonal de DAM');
+      const metricBox=metricLabel?.parentElement;
+      const metric=metricBox?.querySelector<HTMLElement>('.font-kpi-metric');
+      if(metric)metric.textContent=String(current.risk);
+      const level=metricBox?.querySelector<HTMLElement>('.font-badge');
+      if(level)level.textContent=`Prioridad ${current.level}`;
+      const fill=metricBox?.querySelector<HTMLElement>('[style*="width"]');
+      if(fill)fill.style.width=current.risk+'%';
+      const zoneHeading=Array.from(root.querySelectorAll('span')).find(el=>el.textContent?.trim().startsWith('Métricas de Zona:'));
+      if(zoneHeading)zoneHeading.textContent=`Métricas de Zona: ${current.name}`;
+      this.replaceExact(root,{
+        'Sector 04 - Cuenca Depósito Norte':current.name,
+        'Último pase: 18 Feb 2025 (10:42 UTC)':`Adquisición simulada: ${demo.context.dateAcquired}`,
+        'Nubosidad: 0.4%':`Nubosidad (ejemplo): ${demo.context.cloudPercentage}%`
+      });
+      const line=Array.from(root.querySelectorAll('svg')).find(svg=>svg.getAttribute('viewBox')==='0 0 520 150')?.querySelector('polyline');
+      const historical=demo.series.sectors[current.code]?.risk;
+      if(line && historical?.length===4){
+        line.setAttribute('points',historical.map((v,i)=>`${75+i*133},${140-v*1.25}`).join(' '));
+      }
+    }
+    if(this.screen==='sectores-priorizados'){
+      this.renderSectorsTable(root.querySelector('table'),sectors,'sectors');
+      const totals=[
+        ['Total sectores mapeados',sectors.length],
+        ['Prioridad Alta (Crítica)',sectors.filter(s=>s.level==='Alto').length],
+        ['Prioridad Media',sectors.filter(s=>s.level==='Medio').length],
+        ['Prioridad Baja / Estable',sectors.filter(s=>s.level==='Bajo').length]
+      ] as const;
+      for(const [label,number] of totals){
+        const heading=Array.from(root.querySelectorAll('p')).find(p=>p.textContent?.trim()===label);
+        const metric=heading?.parentElement?.querySelector<HTMLElement>('.font-kpi-metric');
+        if(metric)metric.textContent=String(number);
+      }
+      this.replaceExact(root,{
+        'Mostrando 6 de 24 sectores con priorización geoespacial activa':
+          `Mostrando ${sectors.length} de ${sectors.length} sectores simulados`,
+        'Ficha Técnica: Sector 04 — Cuenca Depósito Norte':`Ficha técnica: ${current.name}`
+      });
+    }
+    if(this.screen==='analisis-temporal'){
+      const selector=root.querySelector<HTMLSelectElement>('#sector-select');
+      if(selector)selector.replaceChildren(...sectors.map(s=>new Option(s.name,s.code,s.code===current.code,s.code===current.code)));
+      const series=demo.series.sectors[current.code];
+      if(series){
+        const title=Array.from(root.querySelectorAll('h3')).find(el=>el.textContent?.includes('Comportamiento Histórico'));
+        if(title)title.textContent=`Comportamiento histórico — ${current.name}`;
+        let panel=root.querySelector<HTMLElement>('#demo-series-values');
+        if(!panel){
+          panel=this.document.createElement('div');
+          panel.id='demo-series-values';
+          panel.className='p-4 my-4 bg-white border border-border-default rounded text-sm';
+          selector?.closest('section')?.after(panel);
+          if(!panel.isConnected)root.appendChild(panel);
+        }
+        panel.textContent=`JSON · ${current.code}: ${demo.series.months.map((month,i)=>
+          `${month} — óxidos ${series.ironOxides[i].toFixed(2)}, NDVI ${series.ndvi[i].toFixed(2)}, NDWI ${series.ndwi[i].toFixed(2)}`).join(' | ')}`;
+        const svg=Array.from(root.querySelectorAll('svg')).find(el=>el.getAttribute('viewBox')==='0 0 860 340');
+        const path=svg?.querySelector('path[stroke]');
+        if(path){
+          const v=series.ironOxides,min=Math.min(...v)-0.1,max=Math.max(...v)+0.1;
+          path.setAttribute('d',v.map((n,i)=>`${i?'L':'M'} ${70+i*235} ${290-220*(n-min)/(max-min)}`).join(' '));
+        }
+      }
+    }
+    if(this.screen==='rutas-de-inspeccion'){
+      for(const [kind,sel] of [['Dron','#view-drone'],['Terrestre','#view-ground']] as const){
+        const section=root.querySelector<HTMLElement>(sel);
+        const route=demo.inspections.routes.find(r=>r.type===kind);
+        if(section && route && !section.querySelector('[data-json-route]')){
+          const info=this.document.createElement('p');
+          info.setAttribute('data-json-route',route.id);
+          info.className='dar-placeholder-notice';
+          info.textContent=`Ruta sintética JSON ${route.id}: ${route.sectorCodes.join(', ')}. ${route.state}`;
+          section.prepend(info);
+        }
+      }
+    }
+    if(this.screen==='informes' && !root.querySelector('[data-json-reports]')){
+      const note=this.document.createElement('p');
+      note.setAttribute('data-json-reports','true');
+      note.className='dar-placeholder-notice';
+      note.textContent=`${demo.reports.reports.length} registros JSON de ejemplo; no son informes regulatorios.`;
+      root.querySelector('main')?.prepend(note);
+    }
+  }
+
+  private cardByLabel(root: HTMLElement,label:string):HTMLElement|null {
+    const heading=Array.from(root.querySelectorAll('span,h2,h3,p')).find(el=>el.textContent?.trim()===label);
+    let parent=heading?.parentElement;
+    while(parent && !Array.from(parent.classList).some(c=>c.includes('col-span')))parent=parent.parentElement;
+    return parent || null;
+  }
+
+  private replaceExact(root:HTMLElement,values:Record<string,string>):void {
+    const walker=this.document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    let node:Node|null;
+    while((node=walker.nextNode())){
+      const key=node.textContent?.trim();
+      if(key && Object.prototype.hasOwnProperty.call(values,key))node.textContent=values[key];
+    }
+  }
+
+  private renderSectorsTable(table:HTMLTableElement|null,sectors:DemoSector[],mode:'dashboard'|'sectors'):void {
+    const tbody=table?.querySelector('tbody');
+    const template=tbody?.querySelector('tr');
+    if(!tbody || !template)return;
+    tbody.replaceChildren();
+    sectors.forEach(sector=>{
+      const row=template.cloneNode(true) as HTMLTableRowElement;
+      row.dataset['demoSector']=sector.code;
+      const cells=Array.from(row.querySelectorAll<HTMLTableCellElement>('td'));
+      const values=mode==='dashboard'
+        ? [sector.name,String(sector.risk),sector.level]
+        : [sector.code,sector.name,sector.level,sector.signal,
+           `${sector.trendPct>0?'+':''}${sector.trendPct}%`,sector.recommendedAction];
+      values.forEach((text,index)=>{if(cells[index])cells[index].textContent=text;});
+      tbody.appendChild(row);
+    });
+  }
+
   handleClick(event: MouseEvent): void {
     const origin = event.target as HTMLElement;
-    const target = origin.closest<HTMLElement>('button, a, tr[data-stitch-action], [data-stitch-action], [role="button"]');
+    const target = origin.closest<HTMLElement>('button, a, tr[data-demo-sector], tr[data-stitch-action], [data-stitch-action], [role="button"]');
     if (!target) return;
 
     const anchor = target.closest<HTMLAnchorElement>('a[href]');
@@ -139,6 +307,13 @@ export class StitchPageComponent implements OnInit, OnDestroy {
       }
     }
 
+    const row = target.closest<HTMLTableRowElement>('tr[data-demo-sector]');
+    if (row && target.tagName !== 'BUTTON') {
+      this.activeSectorCode = row.dataset['demoSector'] || 'SEC-04';
+      this.bindDemoData();
+      this.selectSectorRow(row);
+      return;
+    }
     const action = target.getAttribute('data-stitch-action') || '';
     if (action.includes("switchMode('drone')")) { this.switchInspectionMode('drone'); return; }
     if (action.includes("switchMode('ground')")) { this.switchInspectionMode('ground'); return; }
@@ -220,6 +395,11 @@ export class StitchPageComponent implements OnInit, OnDestroy {
 
   handleChange(event: Event): void {
     const target=event.target as HTMLInputElement;
+    if(target.id === 'sector-select' && this.demoData) {
+      this.activeSectorCode = target.value;
+      this.bindDemoData();
+      return;
+    }
     if(target.type==='file') {
       const file = target.files?.[0];
       if(file) this.showToast(`Archivo seleccionado: ${file.name}. Para almacenarlo debe conectarse FastAPI.`);

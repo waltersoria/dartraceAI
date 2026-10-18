@@ -86,3 +86,7 @@ Las vistas originales se trasladaron a archivos HTML estáticos con su estructur
 Implementar una API versionada en `/api/v1`, definir contrato OpenAPI y reemplazar cada comportamiento de demostración por las llamadas correspondientes (autenticación, proyectos, índices, sectores, archivos, rutas, informes). Reemplazar las vistas exportadas por componentes Angular tipados por módulo a medida que se implemente lógica real; en esta entrega se ha priorizado conservar la fidelidad de Stitch y habilitar la navegación completa.
 
 La cabecera o nombres de proyectos incluidos en Stitch se conservan como datos de diseño, no están respaldados por una base de datos real.
+
+## Vercel y JSON
+
+Esta aplicación Angular se despliega como sitio estático. Consultar el README raíz sobre Root Directory, fallback SPA y datos JSON sintéticos. Los mapas Stitch son ilustrativos; no representan mediciones ambientales reales.

@@ -1,0 +1,21 @@
+{
+  "source": "DOCUMENTOS DE EJEMPLO, NO INFORMES DE CUMPLIMIENTO",
+  "reports": [
+    {
+      "code": "INF-001",
+      "date": "2026-10-13",
+      "sectorCode": "SEC-04",
+      "responsible": "Equipo de demostración",
+      "routeType": "Terrestre",
+      "status": "Ejemplo"
+    },
+    {
+      "code": "INF-002",
+      "date": "2026-09-21",
+      "sectorCode": "SEC-02",
+      "responsible": "Equipo de demostración",
+      "routeType": "Dron",
+      "status": "Ejemplo"
+    }
+  ]
+}
