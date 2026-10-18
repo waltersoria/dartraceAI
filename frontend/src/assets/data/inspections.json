@@ -1,0 +1,43 @@
+{
+  "source": "RECORRIDOS SIMULADOS - NO OPERATIVOS",
+  "routes": [
+    {
+      "id": "RT-DR-01",
+      "type": "Dron",
+      "sectorCodes": [
+        "SEC-04",
+        "SEC-02"
+      ],
+      "waypoints": [
+        [
+          -12.05,
+          -77.02
+        ],
+        [
+          -12.048,
+          -77.015
+        ]
+      ],
+      "state": "Propuesta sin validación de vuelo"
+    },
+    {
+      "id": "RT-TE-01",
+      "type": "Terrestre",
+      "sectorCodes": [
+        "SEC-04",
+        "SEC-07"
+      ],
+      "waypoints": [
+        [
+          -12.05,
+          -77.02
+        ],
+        [
+          -12.051,
+          -77.018
+        ]
+      ],
+      "state": "Propuesta sin verificación de accesos"
+    }
+  ]
+}

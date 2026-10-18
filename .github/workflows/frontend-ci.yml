@@ -2,18 +2,13 @@ name: Frontend Angular CI
 
 on:
   push:
-    branches: [feat/frontend-angular-stitch]
-    paths:
-      - 'frontend/**'
-      - '.github/workflows/frontend-ci.yml'
+    branches: [main, 'fix/vercel-angular-json-demo']
+    paths: ['frontend/**', 'vercel.json', '.github/workflows/frontend-ci.yml']
   pull_request:
-    paths:
-      - 'frontend/**'
-      - '.github/workflows/frontend-ci.yml'
+    paths: ['frontend/**', 'vercel.json', '.github/workflows/frontend-ci.yml']
 
 jobs:
   build:
-    name: Test and build frontend
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -25,7 +20,13 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
-      - name: Validate exported screens
+      - name: Validate screens and JSON
         run: npm test
-      - name: Build production application
+      - name: Production Angular build
         run: npm run build:production
+      - name: Validate static Vercel artifacts
+        run: |
+          test -f dist/dartrace-frontend/browser/index.html
+          for file in context sectors series inspections reports; do
+            test -f "dist/dartrace-frontend/browser/assets/data/${file}.json"
+          done
