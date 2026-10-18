@@ -1,0 +1,627 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased -->
+<aside class="fixed left-0 top-0 h-screen w-[232px] bg-surface-container-lowest border-r border-border-default z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-md border-b border-border-subtle gap-space-sm"><div class="flex items-center h-full w-full py-2"><img alt="DAR-Trace AI" class="h-9 w-auto max-w-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/></div></div><div class="px-space-md py-space-sm"><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs mb-space-xs">Operación y Análisis</div></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="panel-general" href="/app/panel-general"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="">Panel general</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg transition-colors font-label-md text-label-md bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]" data-path="sectores-priorizados" href="/app/sectores-priorizados"><span class="material-symbols-outlined text-[20px] text-primary-container">radar</span><span class="">Sectores priorizados</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rutas-de-inspeccion" href="/app/rutas-de-inspeccion"><span class="material-symbols-outlined text-[20px]">route</span><span class="">Rutas de inspección</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="analisis-temporal" href="/app/analisis-temporal"><span class="material-symbols-outlined text-[20px]">timeline</span><span class="">Análisis temporal</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="informes" href="/app/informes"><span class="material-symbols-outlined text-[20px]">description</span><span class="">Informes</span></a><div class="pt-space-sm pb-space-xs"><div class="border-t border-border-subtle my-space-xs"></div><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs my-space-xs">Sistema</div></div><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="configuracion" href="/app/configuracion"><span class="material-symbols-outlined text-[20px]">settings</span><span class="">Configuración</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="perfil" href="/app/perfil"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="">Perfil</span></a></nav></div><div class="p-space-sm border-t border-border-default bg-surface-container-lowest mt-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-status-error hover:bg-status-error-bg transition-colors font-label-md text-label-md" data-path="login" href="/login"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Salir</span></a></div></aside><div class="pl-[232px] min-h-screen flex flex-col"><header class="fixed top-0 left-[232px] right-0 h-16 bg-surface-container-lowest border-b border-border-default z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-muted px-space-sm py-1.5 rounded border border-border-default"><span class="material-symbols-outlined text-[18px] text-text-secondary">location_on</span><span class="font-caption text-caption text-text-secondary font-medium">Faena:</span><select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-space-xs"><option value="escondida">Minera Escondida Norte</option><option value="chuquicamata">Chuquicamata Subterránea</option><option value="centinela">Centinela Óxidos</option><option value="pelambres">Los Pelambres Cordillera</option></select></div></div><div class="flex items-center gap-space-md"><button aria-label="Notificaciones" class="relative p-2 rounded text-text-secondary hover:text-on-surface hover:bg-surface-hover transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden lg:block"><span class="font-label-sm text-label-sm text-on-surface leading-tight">Dra. Marcela Vega</span><span class="font-caption text-caption text-text-secondary leading-tight">Superintendente ESG</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-border-subtle"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 pt-16 bg-background-secondary w-full px-space-lg py-space-lg"><div class="flex flex-col w-full space-y-space-lg">
+<!-- Script de sincronización con Shell (Sidebar activo + Logo) -->
+
+<!-- Encabezado de página -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md pb-space-sm border-b border-border-default">
+<div class="flex flex-col space-y-1">
+<div class="flex items-center gap-space-xs text-text-secondary font-caption text-caption">
+<span>Faena Escondida Norte</span>
+<span>/</span>
+<span class="text-secondary font-semibold">Sectores priorizados</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary-container tracking-tight">Sectores priorizados</h1>
+<p class="font-body-md text-body-md text-text-secondary max-w-3xl">
+        Jerarquización de zonas operativas, monitoreo espectral y emisión de fichas técnicas de inspección.
+      </p>
+</div>
+<!-- Acciones rápidas y filtros de cabecera -->
+<div class="flex flex-wrap items-center gap-space-sm pt-2 lg:pt-0">
+<!-- Selector de filtro de criticidad -->
+<div class="flex items-center bg-surface-container-lowest border border-border-interactive rounded-xl px-space-sm h-[42px] focus-within:ring-2 focus-within:ring-focus-halo focus-within:border-secondary transition-all">
+<span class="material-symbols-outlined text-[18px] text-text-secondary mr-2">filter_alt</span>
+<label class="sr-only" for="criticidad-filter">Filtrar por criticidad</label>
+<select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-2" id="criticidad-filter">
+<option value="all">Todos los niveles</option>
+<option selected="" value="high">Prioridad Alta</option>
+<option value="medium">Prioridad Media</option>
+<option value="low">Prioridad Baja</option>
+</select>
+</div>
+<!-- Botón Secundario Exportar -->
+<button class="inline-flex items-center justify-center gap-2 h-[42px] px-space-md bg-surface-container-lowest text-secondary border border-secondary hover:bg-secondary-soft active:bg-focus-halo rounded-xl font-label-md text-label-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Exportar consolidado (CSV/Excel)</span>
+</button>
+</div>
+</div>
+<!-- Métricas Rápidas de Jerarquización (Analytical Bar) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest border border-border-default rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div>
+<p class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold">Total sectores mapeados</p>
+<p class="font-kpi-metric text-kpi-metric text-primary-container mt-1">24</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-muted flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined text-[22px]">grid_goldenratio</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-default rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div>
+<p class="font-caption text-caption text-status-error uppercase tracking-wider font-semibold">Prioridad Alta (Crítica)</p>
+<div class="flex items-baseline gap-2 mt-1">
+<p class="font-kpi-metric text-kpi-metric text-status-error">3</p>
+<span class="font-badge text-badge text-status-error bg-status-error-bg px-1.5 py-0.5 rounded">SLA 48h</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-status-error-bg flex items-center justify-center text-status-error">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-default rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div>
+<p class="font-caption text-caption text-status-warning uppercase tracking-wider font-semibold">Prioridad Media</p>
+<p class="font-kpi-metric text-kpi-metric text-status-warning mt-1">7</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-status-warning-bg flex items-center justify-center text-status-warning">
+<span class="material-symbols-outlined text-[22px]">error_outline</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-border-default rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div>
+<p class="font-caption text-caption text-status-success uppercase tracking-wider font-semibold">Prioridad Baja / Estable</p>
+<p class="font-kpi-metric text-kpi-metric text-status-success mt-1">14</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-status-success-bg flex items-center justify-center text-status-success">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+</div>
+</div>
+<!-- SECCIÓN A: TABLA DE SECTORES PRIORIZADOS -->
+<div class="bg-surface-container-lowest border border-border-default rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Header de la tabla -->
+<div class="px-space-lg py-space-md border-b border-border-subtle flex flex-col sm:flex-row sm:items-center sm:justify-between gap-space-sm bg-surface-container-lowest">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container">Jerarquización Multiespectral de Sectores</h2>
+<p class="font-body-sm text-body-sm text-text-secondary">Haga clic en una fila para desplegar la ficha técnica oficial y telemetría avanzada.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 font-caption text-caption text-text-secondary bg-surface-muted px-2.5 py-1 rounded border border-border-subtle">
+<span class="w-2 h-2 rounded-full bg-status-success animate-pulse"></span>
+          Sensor Sentinel-2 / Landsat 9 actualizado hace 3h
+        </span>
+</div>
+</div>
+<!-- Contenedor scrollable de tabla -->
+<div class="px-space-lg py-3 bg-surface-container-low border-b border-border-default flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-space-sm flex-1">
+<div class="relative flex items-center min-w-[240px] flex-1 sm:flex-initial">
+<span class="material-symbols-outlined text-[18px] text-text-secondary absolute left-3 pointer-events-none">search</span>
+<input class="w-full h-9 pl-9 pr-3 text-body-sm font-body-sm bg-surface-container-lowest border border-border-default rounded-lg text-on-surface placeholder:text-text-disabled outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Buscar por código o sector..." type="text"/>
+</div>
+<div class="flex items-center bg-surface-container-lowest border border-border-default rounded-lg px-2.5 h-9 focus-within:ring-1 focus-within:ring-secondary focus-within:border-secondary transition-all">
+<span class="material-symbols-outlined text-[16px] text-text-secondary mr-1.5">tune</span>
+<label class="sr-only" for="table-prioridad-filter">Filtrar por Prioridad</label>
+<select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-1" id="table-prioridad-filter">
+<option value="todas">Prioridad: Todas</option>
+<option value="alta">Alta</option>
+<option value="media">Media</option>
+<option value="baja">Baja</option>
+</select>
+</div>
+<div class="flex items-center bg-surface-container-lowest border border-border-default rounded-lg px-2.5 h-9 focus-within:ring-1 focus-within:ring-secondary focus-within:border-secondary transition-all">
+<span class="material-symbols-outlined text-[16px] text-text-secondary mr-1.5">satellite_alt</span>
+<label class="sr-only" for="table-spectral-filter">Filtrar por Señal Espectral</label>
+<select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-1" id="table-spectral-filter">
+<option value="todas">Señal: Todas</option>
+<option value="anomalia_ferrica">Anomalía férrica</option>
+<option value="concentracion_sulfatos">Concentración sulfatos</option>
+<option value="drenaje_acido">Drenaje ácido</option>
+<option value="vetas_oxidacion">Vetas de oxidación</option>
+<option value="alteracion_hidrotermal">Alteración hidrotermal</option>
+<option value="estable">Estable</option>
+</select>
+</div>
+<button class="inline-flex items-center gap-1 h-9 px-2.5 text-text-secondary hover:text-status-error hover:bg-status-error-bg/60 rounded-lg text-label-sm font-label-sm transition-colors" title="Restablecer filtros" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span class="">Limpiar filtros</span>
+</button>
+</div>
+<div class="relative inline-block text-left">
+<button class="inline-flex items-center justify-between gap-2 h-9 px-3 bg-surface-container-lowest hover:bg-surface-hover text-primary-container border border-border-default rounded-lg font-label-sm text-label-sm transition-colors shadow-sm" data-stitch-action="const menu = document.getElementById('column-menu-popover'); menu.classList.toggle('hidden');" id="column-dropdown-btn" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-secondary">view_column</span>
+<span class="">Columnas (7/10)</span>
+<span class="material-symbols-outlined text-[16px] text-text-secondary">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-64 bg-surface-container-lowest border border-border-default rounded-xl shadow-lg z-50 p-2 divide-y divide-border-subtle" id="column-menu-popover">
+<div class="pb-2 px-1 flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary-container">Personalizar columnas</span>
+<span class="text-[11px] font-caption text-text-secondary">7 activas</span>
+</div>
+<div class="py-2 space-y-1 max-h-56 overflow-y-auto text-body-sm font-body-sm text-on-surface">
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-primary-container focus:ring-secondary" disabled="" type="checkbox"/>
+<span class="text-primary-container font-medium">Código</span>
+<span class="ml-auto text-[10px] text-text-disabled uppercase font-semibold">Fijo</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-primary-container focus:ring-secondary" disabled="" type="checkbox"/>
+<span class="text-primary-container font-medium">Sector Operativo</span>
+<span class="ml-auto text-[10px] text-text-disabled uppercase font-semibold">Fijo</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="">Prioridad</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="">Señal espectral</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="">Tendencia</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="">Acción sugerida</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input checked="" class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="">Ficha PDF</span>
+</label>
+<div class="pt-1 border-t border-border-subtle my-1"></div>
+<span class="px-2 text-[11px] font-caption text-text-secondary uppercase tracking-wider block">Columnas opcionales</span>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-text-secondary">Superficie (ha)</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-text-secondary">pH Estimado</span>
+</label>
+<label class="flex items-center gap-2 px-2 py-1 rounded hover:bg-surface-hover cursor-pointer">
+<input class="rounded text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-text-secondary">Última pasada orbital</span>
+</label>
+</div>
+<div class="pt-2 px-1 flex items-center justify-between">
+<button class="inline-flex items-center gap-1 text-[12px] font-label-sm text-secondary hover:underline" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span class="">Agregar columna +</span>
+</button>
+<button class="text-[12px] font-label-sm text-text-secondary hover:text-on-surface px-2 py-0.5 rounded hover:bg-surface-hover transition-colors" data-stitch-action="document.getElementById('column-menu-popover').classList.add('hidden')" type="button">
+          Cerrar
+        </button>
+</div>
+</div>
+</div>
+</div><div class="overflow-x-auto w-full">
+<table class="w-full border-collapse text-left">
+<thead>
+<tr class="h-10 bg-surface-muted border-b border-border-default font-label-sm text-label-sm text-on-surface select-none">
+<th class="px-space-md w-24">Código</th>
+<th class="px-space-md">Sector Operativo</th>
+<th class="px-space-md w-32">Prioridad</th>
+<th class="px-space-md">Señal espectral</th>
+<th class="px-space-md w-44">Tendencia</th>
+<th class="px-space-md">Acción sugerida</th>
+<th class="px-space-md text-right w-36">Ficha</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle font-body-md text-body-md text-on-surface">
+<!-- FILA SELECCIONADA: SEC-04 (Cuenca Depósito Norte) -->
+<tr class="h-[52px] bg-secondary-soft hover:bg-secondary-soft transition-colors cursor-pointer border-l-4 border-l-primary-container" data-stitch-action="seleccionarSector('SEC-04')">
+<td class="px-space-md font-label-sm text-label-sm text-primary-container font-bold">
+              SEC-04
+            </td>
+<td class="px-space-md font-semibold text-primary-container">
+<div class="flex items-center gap-2">
+<span class="">Cuenca Depósito Norte</span>
+<span class="inline-flex items-center text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-primary-container text-on-primary">Activo</span>
+</div>
+</td>
+<td class="px-space-md">
+<span class="inline-flex items-center h-6 px-2 rounded font-badge text-badge bg-status-error-bg text-status-error">
+                Alta
+              </span>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+<span class="font-medium text-status-error">Anomalía férrica intensa</span> + pH bajo (&lt;3.5)
+            </td>
+<td class="px-space-md">
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-status-error">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">Ascendente (+14%)</span>
+</div>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Inspección urgente con dron y muestreo de pH
+            </td>
+<td class="px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 text-primary-container hover:bg-surface-container-lowest rounded text-label-sm font-label-sm transition-colors border border-primary-container" title="Descargar Ficha PDF" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+</td>
+</tr>
+<!-- FILA 2: SEC-02 -->
+<tr class="h-[52px] bg-surface-container-lowest hover:bg-background-secondary transition-colors cursor-pointer" data-stitch-action="seleccionarSector('SEC-02')">
+<td class="px-space-md font-label-sm text-label-sm text-on-surface font-semibold">
+              SEC-02
+            </td>
+<td class="px-space-md font-medium text-on-surface">
+              Relave Espesado B
+            </td>
+<td class="px-space-md">
+<span class="inline-flex items-center h-6 px-2 rounded font-badge text-badge bg-status-error-bg text-status-error">
+                Alta
+              </span>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Concentración sulfatos / copiapita
+            </td>
+<td class="px-space-md">
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-status-error">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span class="">Ascendente (+9%)</span>
+</div>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Revisión perimetral de pie de presa
+            </td>
+<td class="px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 text-secondary hover:bg-secondary-soft rounded text-label-sm font-label-sm transition-colors border border-border-default" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+</td>
+</tr>
+<!-- FILA 3: SEC-07 -->
+<tr class="h-[52px] bg-surface-container-lowest hover:bg-background-secondary transition-colors cursor-pointer" data-stitch-action="seleccionarSector('SEC-07')">
+<td class="px-space-md font-label-sm text-label-sm text-on-surface font-semibold">
+              SEC-07
+            </td>
+<td class="px-space-md font-medium text-on-surface">
+              Tranque de Relaves Sur
+            </td>
+<td class="px-space-md">
+<span class="inline-flex items-center h-6 px-2 rounded font-badge text-badge bg-status-warning-bg text-status-warning">
+                Media
+              </span>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Foco de drenaje ácido activo
+            </td>
+<td class="px-space-md">
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_flat</span>
+<span class="">Estable (0%)</span>
+</div>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Monitoreo perimetral y piezometría
+            </td>
+<td class="px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 text-secondary hover:bg-secondary-soft rounded text-label-sm font-label-sm transition-colors border border-border-default" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+</td>
+</tr>
+<!-- FILA 4: SEC-01 -->
+<tr class="h-[52px] bg-surface-container-lowest hover:bg-background-secondary transition-colors cursor-pointer" data-stitch-action="seleccionarSector('SEC-01')">
+<td class="px-space-md font-label-sm text-label-sm text-on-surface font-semibold">
+              SEC-01
+            </td>
+<td class="px-space-md font-medium text-on-surface">
+              Botadero Central
+            </td>
+<td class="px-space-md">
+<span class="inline-flex items-center h-6 px-2 rounded font-badge text-badge bg-status-warning-bg text-status-warning">
+                Media
+              </span>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Vetas de oxidación moderada
+            </td>
+<td class="px-space-md">
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-status-success">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="">Descendente (-5%)</span>
+</div>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Vigilancia mensual satelital
+            </td>
+<td class="px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 text-secondary hover:bg-secondary-soft rounded text-label-sm font-label-sm transition-colors border border-border-default" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+</td>
+</tr>
+<!-- FILA 5: SEC-03 -->
+<tr class="h-[52px] bg-surface-container-lowest hover:bg-background-secondary transition-colors cursor-pointer" data-stitch-action="seleccionarSector('SEC-03')">
+<td class="px-space-md font-label-sm text-label-sm text-on-surface font-semibold">
+              SEC-03
+            </td>
+<td class="px-space-md font-medium text-on-surface">
+              Cuenca Quebrada Seca
+            </td>
+<td class="px-space-md">
+<span class="inline-flex items-center h-6 px-2 rounded font-badge text-badge bg-status-success-bg text-status-success">
+                Baja
+              </span>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Leve alteración hidrotermal
+            </td>
+<td class="px-space-md">
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_flat</span>
+<span class="">Estable (0%)</span>
+</div>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Monitoreo preventivo estándar
+            </td>
+<td class="px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 text-secondary hover:bg-secondary-soft rounded text-label-sm font-label-sm transition-colors border border-border-default" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+</td>
+</tr>
+<!-- FILA 6: SEC-09 -->
+<tr class="h-[52px] bg-surface-container-lowest hover:bg-background-secondary transition-colors cursor-pointer" data-stitch-action="seleccionarSector('SEC-09')">
+<td class="px-space-md font-label-sm text-label-sm text-on-surface font-semibold">
+              SEC-09
+            </td>
+<td class="px-space-md font-medium text-on-surface">
+              Pila de Lixiviación 02
+            </td>
+<td class="px-space-md">
+<span class="inline-flex items-center h-6 px-2 rounded font-badge text-badge bg-status-success-bg text-status-success">
+                Baja
+              </span>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Estable / sin alteraciones
+            </td>
+<td class="px-space-md">
+<div class="inline-flex items-center gap-1 font-label-sm text-label-sm text-status-success">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="">Descendente (-8%)</span>
+</div>
+</td>
+<td class="px-space-md font-body-sm text-body-sm text-on-surface">
+              Monitoreo preventivo estándar
+            </td>
+<td class="px-space-md text-right">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 text-secondary hover:bg-secondary-soft rounded text-label-sm font-label-sm transition-colors border border-border-default" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span class="">PDF</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Paginación y estado -->
+<div class="px-space-md py-3 bg-surface-container-lowest border-t border-border-subtle flex items-center justify-between font-caption text-caption text-text-secondary">
+<span class="">Mostrando 6 de 24 sectores con priorización geoespacial activa</span>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-text-disabled hover:text-on-surface" disabled=""><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<span class="px-2 py-0.5 bg-secondary-soft text-primary-container font-semibold rounded">1</span>
+<button class="p-1 rounded text-text-secondary hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- SECCIÓN B: FICHA TÉCNICA DESCARGABLE DEL SECTOR SELECCIONADO (SEC-04) -->
+<div class="bg-surface-container-lowest border border-border-default rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Encabezado de la Ficha -->
+<div class="p-space-lg border-b border-border-default bg-surface-container-lowest flex flex-col md:flex-row md:items-center md:justify-between gap-space-md">
+<div class="flex flex-col space-y-1">
+<div class="flex flex-wrap items-center gap-space-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary-container">
+            Ficha Técnica: Sector 04 — Cuenca Depósito Norte
+          </h2>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded font-badge text-badge bg-status-error-bg text-status-error border border-status-error/20">
+            Prioridad 1 (Crítica)
+          </span>
+<span class="font-caption text-caption text-text-secondary border-l border-border-default pl-2">
+            ID Catastral: MIN-ESC-Z4-2025
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">
+          Registro técnico automatizado según algoritmos de detección espectral y modelos hidrológicos DAR-Trace AI.
+        </p>
+</div>
+<!-- Botón de descarga destacado -->
+<button class="inline-flex items-center justify-center gap-2 h-11 px- space-md px-5 bg-primary-container text-on-primary hover:bg-primary-hover active:bg-primary-active rounded-xl font-label-md text-label-md transition-colors shadow whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+<span>Descargar Ficha Técnica Oficial (PDF)</span>
+</button>
+</div>
+<!-- Contenido y Cuadrícula de Datos de la Ficha -->
+<div class="p-space-lg grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Columna Izquierda: Parámetros y Telemetría Espectral (7 cols) -->
+<div class="lg:col-span-7 flex flex-col space-y-space-md">
+<!-- Tarjeta de Nivel de Prioridad y SLA -->
+<div class="bg-status-error-bg/60 border border-status-error/30 rounded-xl p-space-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-status-error text-[24px] mt-0.5">notification_important</span>
+<div class="flex-1">
+<span class="font-label-sm text-label-sm text-status-error uppercase tracking-wider block">1. Nivel de prioridad</span>
+<p class="font-headline-sm text-headline-sm text-status-error mt-0.5">
+              Prioridad 1 — Crítica (Respuesta inmediata requerida SLA 48h)
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              La tasa de formación de óxidos supera los umbrales de seguridad establecidos en la RCA ambiental. Requiere intervención en terreno antes del próximo ciclo hidrológico.
+            </p>
+</div>
+</div>
+<!-- Métricas físicas del sector: Superficie, Elevación, Óxidos de hierro -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<!-- Campo 2: Superficie -->
+<div class="bg-surface-muted border border-border-default rounded-xl p-space-md">
+<div class="flex items-center gap-1.5 text-text-secondary font-caption text-caption mb-1">
+<span class="material-symbols-outlined text-[16px]">crop_square</span>
+<span>2. Superficie</span>
+</div>
+<p class="font-headline-md text-headline-md text-primary-container">42.8 ha</p>
+<p class="font-caption text-caption text-text-secondary mt-1">Área total de afectación</p>
+</div>
+<!-- Campo 3: Elevación media -->
+<div class="bg-surface-muted border border-border-default rounded-xl p-space-md">
+<div class="flex items-center gap-1.5 text-text-secondary font-caption text-caption mb-1">
+<span class="material-symbols-outlined text-[16px]">landscape</span>
+<span>3. Elevación media</span>
+</div>
+<p class="font-headline-md text-headline-md text-primary-container">3,140 m</p>
+<p class="font-caption text-caption text-text-secondary mt-1">s.n.m. (Coord: 68°54'W / 24°16'S)</p>
+</div>
+<!-- Campo 4: Índice de óxidos de hierro -->
+<div class="bg-surface-muted border border-border-default rounded-xl p-space-md">
+<div class="flex items-center gap-1.5 text-text-secondary font-caption text-caption mb-1">
+<span class="material-symbols-outlined text-[16px]">science</span>
+<span>4. Índice FeOx</span>
+</div>
+<div class="flex items-baseline gap-1">
+<p class="font-headline-md text-headline-md text-status-error">0.82</p>
+<span class="font-caption text-caption text-text-secondary">/ 1.00</span>
+</div>
+<p class="font-caption text-caption text-status-error font-medium mt-1">Anomalía espectral severa</p>
+</div>
+</div>
+<!-- Campo 5: Señales detectadas -->
+<div class="border border-border-default rounded-xl p-space-md bg-surface-container-lowest">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">radar</span>
+<h3 class="font-label-md text-label-md text-primary-container">5. Señales detectadas</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Anomalía multiespectral en bandas SWIR/VNIR; persistencia de precipitados férricos (jarosita/goethita); infiltración potencial hacia efluente secundario de la quebrada.
+          </p>
+<!-- Mini breakdown de firmas espectrales -->
+<div class="mt-3 pt-3 border-t border-border-subtle grid grid-cols-2 sm:grid-cols-3 gap-2">
+<div class="bg-background-secondary p-2 rounded text-left">
+<span class="text-[11px] font-caption text-text-secondary block">Banda SWIR 2 (2.2 µm)</span>
+<span class="font-label-sm text-label-sm text-primary-container">Absorción alta</span>
+</div>
+<div class="bg-background-secondary p-2 rounded text-left">
+<span class="text-[11px] font-caption text-text-secondary block">Mineral principal</span>
+<span class="font-label-sm text-label-sm text-status-error">Jarosita + Schwertmannita</span>
+</div>
+<div class="bg-background-secondary p-2 rounded text-left">
+<span class="text-[11px] font-caption text-text-secondary block">Estimación pH efluente</span>
+<span class="font-label-sm text-label-sm text-status-error">2.8 - 3.2</span>
+</div>
+</div>
+</div>
+<!-- Campo 6: Interpretación preliminar -->
+<div class="border border-border-default rounded-xl p-space-md bg-surface-muted">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">assignment_turned_in</span>
+<h3 class="font-label-md text-label-md text-primary-container">6. Interpretación preliminar</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Riesgo alto de drenaje ácido de roca (DAM) con acidificación acelerada por escorrentía superficial. Se sugiere validar in situ con espectrómetro de campo y toma de muestras de agua para ensayo de acidez y metales disueltos.
+          </p>
+</div>
+</div>
+<!-- Columna Derecha: Vista Cartográfica y Telemetría de Ubicación (5 cols) -->
+<div class="lg:col-span-5 flex flex-col space-y-space-md">
+<!-- Cartografía con data-location -->
+<div class="border border-border-default rounded-xl overflow-hidden bg-surface-container-lowest flex flex-col h-full shadow-sm">
+<!-- Top bar del mapa -->
+<div class="px-space-md py-2.5 bg-surface-muted border-b border-border-default flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary-container">map</span>
+<span class="font-label-sm text-label-sm text-primary-container">Polígono Espectral SEC-04</span>
+</div>
+<span class="font-caption text-caption text-text-secondary">WGS84 / UTM 19S</span>
+</div>
+<!-- Contenedor Mapa Georreferenciado -->
+<div class="relative w-full h-64 sm:h-72 bg-surface-dim" data-location="Minera Escondida Norte, Antofagasta, Chile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDIeVBsMOleymm4ah9cHD4xb66z-cni1EYt0-HVlGyVHjJCsvwxG6qg61CZPu4CXq9SixNgs_5doD5EeLshMFsDV4pYXpabvhgziwIikfnp5nCTZ-EZ5xuujO89NhEuOmM0lcnc4NwXOG3b_ugE8MVj0X9E_g-OqA3NCEzVA5g_y4moj_zB6bPL03HJA6WzrVa6Ww5D2dRizqnJmTX2k0tKsNqOyM3ttOidoEgK0fPGOL1nugjKUZKk')">
+<!-- Overlay con polígono visual y leyendas geoespaciales -->
+<div class="absolute inset-0 bg-primary/10 flex flex-col justify-between p-3 pointer-events-none">
+<!-- Badges de capa superpuesta -->
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2 py-1 bg-surface-container-lowest/95 rounded text-[11px] font-semibold text-primary-container shadow-sm border border-border-subtle">
+<span class="w-2 h-2 rounded-full bg-status-error"></span>
+                  Capa: Ratio FeOx (B4/B2)
+                </span>
+<div class="flex flex-col gap-1 pointer-events-auto">
+<button class="w-7 h-7 bg-surface-container-lowest border border-border-default rounded shadow flex items-center justify-center text-primary-container hover:bg-surface-hover" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+<button class="w-7 h-7 bg-surface-container-lowest border border-border-default rounded shadow flex items-center justify-center text-primary-container hover:bg-surface-hover" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+</div>
+</div>
+<!-- Indicador central de polígono crítico -->
+<div class="flex items-center justify-center">
+<div class="bg-status-error/25 border-2 border-status-error rounded-lg px-3 py-2 backdrop-blur-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-status-error text-[18px]">warning</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Zona de Infiltración Norte</span>
+</div>
+</div>
+<!-- Leyenda espectral al pie del mapa -->
+<div class="bg-surface-container-lowest/95 rounded p-2 border border-border-subtle flex items-center justify-between text-[11px] font-caption text-text-secondary">
+<span>Intensidad DAM:</span>
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-3 h-2 rounded-xs bg-status-success"></span>
+<span>Bajo</span>
+<span class="inline-block w-3 h-2 rounded-xs bg-status-warning"></span>
+<span>Medio</span>
+<span class="inline-block w-3 h-2 rounded-xs bg-status-error"></span>
+<span class="font-bold text-status-error">Crítico (0.82)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Datos de registro y validación interna -->
+<div class="p-space-md bg-surface-container-lowest flex-1 flex flex-col justify-between space-y-3">
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-text-secondary">Inspector Asignado:</span>
+<span class="font-semibold text-on-surface">Equipo de Drones ESG - Zona 4</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-text-secondary">Última pasada orbital:</span>
+<span class="text-on-surface">14 de Octubre 2025, 11:28 CLT</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-text-secondary">Próximo sobrevuelo programado:</span>
+<span class="text-status-error font-semibold">16 de Octubre 2025 (En 36 hrs)</span>
+</div>
+</div>
+<!-- Botones secundarios de acción rápida de la ficha -->
+<div class="pt-2 border-t border-border-subtle flex items-center gap-2">
+<button class="flex-1 inline-flex items-center justify-center gap-1.5 h-9 bg-secondary-soft hover:bg-focus-halo text-secondary rounded-lg font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">route</span>
+<span>Generar ruta de vuelo dron</span>
+</button>
+<button class="inline-flex items-center justify-center w-9 h-9 border border-border-interactive text-text-secondary hover:text-on-surface hover:bg-surface-hover rounded-lg transition-colors" title="Compartir ficha con equipo técnico" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Barra de trazabilidad / footer de la ficha -->
+<div class="px-space-lg py-3 bg-surface-muted border-t border-border-default flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-caption font-caption text-text-secondary">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-status-success">verified_user</span>
+<span>Certificación de cálculo criptográfico DAR-Trace Hash: <code>7f8a9...b401c</code></span>
+</div>
+<div>
+<span>Revisado por: Dra. Marcela Vega (Superintendente ESG)</span>
+</div>
+</div>
+</div>
+<!-- Script interactivo de selección de filas -->
+
+</div></main></div>

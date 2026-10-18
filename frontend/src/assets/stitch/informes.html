@@ -1,0 +1,771 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased -->
+<aside class="fixed left-0 top-0 h-screen w-[232px] bg-surface-container-lowest border-r border-border-default z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-md border-b border-border-subtle gap-space-sm"><div class="flex items-center h-full w-full py-2"><img alt="DAR-Trace AI" class="h-9 w-auto max-w-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/></div></div><div class="px-space-md py-space-sm"><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs mb-space-xs">Operación y Análisis</div></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="panel-general" href="/app/panel-general"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="">Panel general</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="sectores-priorizados" href="/app/sectores-priorizados"><span class="material-symbols-outlined text-[20px]">radar</span><span class="">Sectores priorizados</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rutas-de-inspeccion" href="/app/rutas-de-inspeccion"><span class="material-symbols-outlined text-[20px]">route</span><span class="">Rutas de inspección</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg transition-colors font-label-md text-label-md bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]" data-path="analisis-temporal" href="/app/analisis-temporal"><span class="material-symbols-outlined text-[20px] text-primary-container">timeline</span><span class="">Análisis temporal</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="informes" href="/app/informes"><span class="material-symbols-outlined text-[20px]">description</span><span class="">Informes</span></a><div class="pt-space-sm pb-space-xs"><div class="border-t border-border-subtle my-space-xs"></div><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs my-space-xs">Sistema</div></div><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="configuracion" href="/app/configuracion"><span class="material-symbols-outlined text-[20px]">settings</span><span class="">Configuración</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="perfil" href="/app/perfil"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="">Perfil</span></a></nav></div><div class="p-space-sm border-t border-border-default bg-surface-container-lowest mt-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-status-error hover:bg-status-error-bg transition-colors font-label-md text-label-md" data-path="login" href="/login"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Salir</span></a></div></aside><div class="pl-[232px] min-h-screen flex flex-col"><header class="fixed top-0 left-[232px] right-0 h-16 bg-surface-container-lowest border-b border-border-default z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-muted px-space-sm py-1.5 rounded border border-border-default"><span class="material-symbols-outlined text-[18px] text-text-secondary">location_on</span><span class="font-caption text-caption text-text-secondary font-medium">Faena:</span><select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-space-xs"><option selected="" value="escondida">Minera Escondida Norte</option><option value="chuquicamata">Chuquicamata Subterránea</option><option value="centinela">Centinela Óxidos</option><option value="pelambres">Los Pelambres Cordillera</option></select></div></div><div class="flex items-center gap-space-md"><button aria-label="Notificaciones" class="relative p-2 rounded text-text-secondary hover:text-on-surface hover:bg-surface-hover transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden lg:block"><span class="font-label-sm text-label-sm text-on-surface leading-tight">Dra. Marcela Vega</span><span class="font-caption text-caption text-text-secondary leading-tight">Superintendente ESG</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-border-subtle"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 pt-16 bg-background-secondary w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Script para sincronizar el estado activo en el sidebar existente -->
+
+<!-- 1. Encabezado de Página (Sección 3.5) -->
+<header class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-border-default gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold">Módulo de Cumplimiento Ambiental</span>
+<span class="text-text-disabled">•</span>
+<span class="font-caption text-caption text-secondary font-medium">Faena Escondida Norte</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">Informes</h1>
+<p class="font-body-md text-text-body mt-1 max-w-4xl">
+        Registro cronológico de inspecciones de terreno, generación automatizada de reportes geoquímicos y exportación de datos técnicos para cumplimiento ambiental.
+      </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="inline-flex items-center gap-2 bg-primary-container hover:bg-primary-hover active:bg-primary-active text-on-primary font-label-md text-label-md px-4 py-2.5 rounded shadow-sm transition-colors" data-stitch-action="document.getElementById('modal-nuevo-informe').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[20px]">note_add</span>
+<span>+ Generar Nuevo Informe</span>
+</button>
+</div>
+</header>
+<!-- 2. Resumen de KPIs / Estado de Informes -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-text-secondary">Total Informes Emitidos</span>
+<span class="material-symbols-outlined text-[20px] text-text-secondary">library_books</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">28</span>
+<p class="font-caption text-caption text-text-secondary mt-1 flex items-center gap-1">
+<span class="font-semibold text-primary">12</span> este trimestre
+        </p>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-text-secondary">Inspecciones Verificadas</span>
+<span class="material-symbols-outlined text-[20px] text-status-success">verified</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-xl text-headline-xl text-status-success font-bold">24</span>
+<p class="font-caption text-caption text-status-success mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>92% de cumplimiento</span>
+</p>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-text-secondary">Pendientes de Validación</span>
+<span class="material-symbols-outlined text-[20px] text-status-warning">pending_actions</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-xl text-headline-xl text-status-warning font-bold">4</span>
+<p class="font-caption text-caption text-status-warning mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Requiere firma responsable</span>
+</p>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-text-secondary">Última Emisión</span>
+<span class="material-symbols-outlined text-[20px] text-secondary">update</span>
+</div>
+<div class="mt-3">
+<span class="font-headline-md text-headline-md text-primary font-semibold">14 Oct 2025</span>
+<p class="font-caption text-caption text-text-secondary mt-1 truncate" title="Sector 04 — Cuenca Depósito Norte">
+          Sector 04 — Cuenca Dep. Norte
+        </p>
+</div>
+</div>
+</section>
+<!-- 3. Sección 3.5.B: Generación y Subida de Informes -->
+<section class="mt-6 bg-surface-container-lowest border border-border-default rounded shadow-sm p-6">
+<div class="border-b border-border-subtle pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">post_add</span>
+          Generación de Informes y Plantillas
+        </h2>
+<p class="font-body-sm text-text-secondary mt-0.5">
+          Complete los parámetros de la inspección o cargue una ficha técnica estándar para su procesamiento algorítmico.
+        </p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-soft text-primary-container font-label-sm text-label-sm font-medium self-start sm:self-auto">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+        Plantilla DAR-Trace v3.2 Activa
+      </span>
+</div>
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6" data-stitch-submit="event.preventDefault(); alert('Informe parametrizado exitosamente y enviado a procesamiento geoquímico.');">
+<!-- Selector de Parámetros -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Sector -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface mb-1.5 flex items-center gap-1" for="sector-select">
+            Sector para emisión
+            <span class="text-status-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-[42px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-md text-on-surface focus:border-secondary focus:ring-2 focus:ring-focus-halo outline-none appearance-none cursor-pointer" id="sector-select" required="">
+<option disabled="" selected="" value="">Seleccione el sector...</option>
+<option value="S04">Sector 04 — Cuenca Depósito Norte</option>
+<option value="S02">Sector 02 — Relave Espesado B</option>
+<option value="S07">Sector 07 — Tranque Sur</option>
+<option value="S01">Sector 01 — Talud Oeste</option>
+<option value="S05">Sector 05 — Canal Perimetral</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-text-secondary absolute right-3 top-3 pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption text-caption text-text-secondary mt-1">Identificador espacial de la concesión</span>
+</div>
+<!-- Tipo de Recorrido -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface mb-1.5 flex items-center gap-1" for="tipo-recorrido">
+            Tipo de recorrido
+            <span class="text-status-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-[42px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-md text-on-surface focus:border-secondary focus:ring-2 focus:ring-focus-halo outline-none appearance-none cursor-pointer" id="tipo-recorrido" required="">
+<option value="dron">Dron (UAV) Multi-Espectral</option>
+<option value="terrestre">Patrullaje Terrestre Geológico</option>
+<option value="mixto">Mixto (Vuelo Dron + Muestreo)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-text-secondary absolute right-3 top-3 pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption text-caption text-text-secondary mt-1">Metodología de captura de datos</span>
+</div>
+<!-- Responsable Técnico -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface mb-1.5 flex items-center gap-1" for="responsable-select">
+            Responsable técnico
+            <span class="text-status-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full h-[42px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-md text-on-surface focus:border-secondary focus:ring-2 focus:ring-focus-halo outline-none appearance-none cursor-pointer" id="responsable-select" required="">
+<option value="marcela">Dra. Marcela Vega (Superintendente ESG)</option>
+<option value="carlos">Ing. Carlos Mendoza (Geólogo Senior)</option>
+<option value="fernando">Tec. Fernando Ríos (Piloto UAV)</option>
+<option value="patricia">Ing. Patricia Soto (Hidroquímica)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-text-secondary absolute right-3 top-3 pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption text-caption text-text-secondary mt-1">Autoridad validante de los resultados</span>
+</div>
+<!-- Fecha Inspección -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface mb-1.5 flex items-center gap-1" for="fecha-inspeccion">
+            Fecha de ejecución en terreno
+            <span class="text-status-error">*</span>
+</label>
+<input class="w-full h-[42px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-md text-on-surface focus:border-secondary focus:ring-2 focus:ring-focus-halo outline-none cursor-pointer" id="fecha-inspeccion" type="date" value="2025-10-16"/>
+<span class="font-caption text-caption text-text-secondary mt-1">Fecha efectiva de registro</span>
+</div>
+<!-- Observación rápida -->
+<div class="md:col-span-2 flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface mb-1.5" for="obs-rapida">Nota técnica preliminar</label>
+<input class="w-full h-[42px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-md text-on-surface focus:border-secondary focus:ring-2 focus:ring-focus-halo outline-none" id="obs-rapida" placeholder="Ej. Medición piezométrica con alteración en cota 2450 msnm..." type="text"/>
+</div>
+</div>
+<!-- Zona Drag & Drop -->
+<div class="lg:col-span-5 flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface mb-1.5">Subir formato de informe / Planilla (.xlsx, .docx, .kml)</label>
+<div class="flex-1 min-h-[160px] border-2 border-dashed border-border-interactive hover:border-secondary rounded bg-background-secondary p-5 flex flex-col items-center justify-center text-center cursor-pointer transition-colors group" id="drop-zone">
+<div class="w-12 h-12 rounded-full bg-secondary-soft flex items-center justify-center text-secondary mb-3 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[26px]">cloud_upload</span>
+</div>
+<p class="font-label-md text-label-md text-primary font-medium">
+            Haga clic para examinar o arrastre los archivos aquí
+          </p>
+<p class="font-caption text-caption text-text-secondary mt-1">
+            Compatible con Plantillas Oficiales DAR-Trace, Excel (.xlsx) y Word (.docx) hasta 50MB
+          </p>
+<div class="mt-3 flex items-center gap-2">
+<span class="font-caption text-[11px] text-text-secondary bg-surface-container px-2 py-0.5 rounded">.XLSX</span>
+<span class="font-caption text-[11px] text-text-secondary bg-surface-container px-2 py-0.5 rounded">.DOCX</span>
+<span class="font-caption text-[11px] text-text-secondary bg-surface-container px-2 py-0.5 rounded">.ZIP (DATALOG)</span>
+</div>
+<input accept=".xlsx,.xls,.docx,.pdf,.zip,.kml" class="hidden" id="file-input" type="file"/>
+</div>
+</div>
+<!-- Barra de acciones del formulario -->
+<div class="lg:col-span-12 flex items-center justify-between pt-4 border-t border-border-subtle mt-1">
+<div class="flex items-center gap-2 text-text-secondary font-caption text-caption">
+<span class="material-symbols-outlined text-[18px] text-secondary">info</span>
+          Los reportes generados aplican automáticamente las firmas criptográficas de auditoría DAR-Trace.
+        </div>
+<div class="flex items-center gap-3">
+<button class="px-4 h-[42px] rounded border border-border-default bg-surface-container-lowest hover:bg-surface-hover text-on-surface font-label-md text-label-md transition-colors" type="reset">
+            Limpiar campos
+          </button>
+<button class="px-5 h-[42px] rounded bg-primary hover:bg-primary-hover active:bg-primary-active text-on-primary font-label-md text-label-md flex items-center gap-2 shadow-sm transition-colors" type="submit">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+            Procesar y Emitir Informe
+          </button>
+</div>
+</div>
+</form>
+</section>
+<!-- 4. Sección 3.5.A: Historial de Informes -->
+<section class="mt-6 bg-surface-container-lowest border border-border-default rounded shadow-sm overflow-hidden">
+<!-- Cabecera de la tabla y filtros -->
+<div class="p-5 border-b border-border-default flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">history</span>
+          Historial de Inspecciones y Reportes Emitidos
+        </h2>
+<p class="font-body-sm text-text-secondary mt-0.5">
+          Trazabilidad completa de auditorías ambientales en faena y dictámenes geoquímicos validados.
+        </p>
+</div>
+<!-- Barra de Filtros -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Búsqueda rápida -->
+<div class="relative min-w-[220px]">
+<span class="material-symbols-outlined text-[18px] text-text-secondary absolute left-3 top-3">search</span>
+<input class="w-full h-[38px] pl-9 pr-3 bg-surface-container-lowest border border-border-interactive rounded font-body-sm text-body-sm text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary outline-none" id="table-search" placeholder="Buscar por código o nota..." type="text"/>
+</div>
+<!-- Filtro Sector -->
+<select class="h-[38px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-sm text-body-sm text-on-surface focus:border-secondary outline-none cursor-pointer">
+<option value="all">Todos los sectores</option>
+<option value="S04">Sector 04</option>
+<option value="S02">Sector 02</option>
+<option value="S07">Sector 07</option>
+<option value="S01">Sector 01</option>
+</select>
+<!-- Filtro Recorrido -->
+<select class="h-[38px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-sm text-body-sm text-on-surface focus:border-secondary outline-none cursor-pointer">
+<option value="all">Todo tipo de recorrido</option>
+<option value="uav">Dron (UAV)</option>
+<option value="terrestre">Patrullaje Terrestre</option>
+<option value="mixto">Mixto</option>
+</select>
+<!-- Filtro Estado -->
+<select class="h-[38px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-sm text-body-sm text-on-surface focus:border-secondary outline-none cursor-pointer">
+<option value="all">Todos los estados</option>
+<option value="completado">Completado</option>
+<option value="revision">En Revisión</option>
+<option value="validado">Validado</option>
+</select>
+<button aria-label="Exportar vista filtrada" class="h-[38px] px-3 rounded border border-border-default hover:bg-surface-hover text-text-secondary hover:text-on-surface flex items-center justify-center transition-colors" title="Exportar vista">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Tabla Técnica -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-muted border-b border-border-default h-10 font-label-sm text-label-sm text-text-body">
+<th class="py-2.5 px-4 font-semibold">Fecha</th>
+<th class="py-2.5 px-4 font-semibold">Sector inspeccionado</th>
+<th class="py-2.5 px-4 font-semibold">Responsable</th>
+<th class="py-2.5 px-4 font-semibold">Tipo de recorrido</th>
+<th class="py-2.5 px-4 font-semibold">Estado de inspección</th>
+<th class="py-2.5 px-4 font-semibold">Observaciones y fotografías adjuntas</th>
+<th class="py-2.5 px-4 font-semibold text-right">Ficha de inspección</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle font-body-sm text-body-sm">
+<!-- Fila 1 -->
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="py-3 px-4 font-medium text-primary whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">calendar_today</span>
+<span>14 Oct 2025</span>
+</div>
+<span class="font-caption text-[11px] text-text-secondary block">10:45 CLT • ID: REP-2025-089</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-semibold text-primary block">Sector 04 — Cuenca Depósito Norte</span>
+<span class="font-caption text-[11px] text-text-secondary">Piezómetros PZ-04A a PZ-04D</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-soft text-secondary font-semibold text-[11px] flex items-center justify-center">CM</span>
+<div>
+<span class="font-medium block text-primary leading-tight">Ing. Carlos Mendoza</span>
+<span class="font-caption text-[11px] text-text-secondary">Geólogo Senior</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-muted text-text-body font-label-sm text-label-sm border border-border-default">
+<span class="material-symbols-outlined text-[15px] text-secondary">flight</span>
+                Dron (UAV)
+              </span>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-soft text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Validado
+              </span>
+</td>
+<td class="py-3 px-4 max-w-xs">
+<div class="flex items-start gap-2">
+<!-- Miniatura con fotos adjuntas -->
+<button class="relative shrink-0 group rounded overflow-hidden border border-border-default" data-stitch-action="mostrarModalFoto('Evidencia de efluente con pH 3.1 en pie de tranque', '14 Oct 2025 - Sector 04')" title="Ver 3 fotografías adjuntas">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary-soft transition-colors">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[9px] font-bold px-1 rounded-tl">3</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-sm text-text-body truncate" title="Evidencia de efluente con pH 3.1 en pie de tranque">
+                    Evidencia de efluente con pH 3.1 en pie de tranque
+                  </p>
+<span class="font-caption text-[11px] text-status-warning flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                    Alerta de acidez en drenaje
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 text-right whitespace-nowrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold transition-colors" data-stitch-action="descargarFicha('REP-2025-089')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                Descargar ficha
+              </button>
+</td>
+</tr>
+<!-- Fila 2 -->
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="py-3 px-4 font-medium text-primary whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">calendar_today</span>
+<span>08 Oct 2025</span>
+</div>
+<span class="font-caption text-[11px] text-text-secondary block">16:20 CLT • ID: REP-2025-088</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-semibold text-primary block">Sector 02 — Relave Espesado B</span>
+<span class="font-caption text-[11px] text-text-secondary">Canaleta vertedero central</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-soft text-secondary font-semibold text-[11px] flex items-center justify-center">MV</span>
+<div>
+<span class="font-medium block text-primary leading-tight">Dra. Marcela Vega</span>
+<span class="font-caption text-[11px] text-text-secondary">Superintendente ESG</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-muted text-text-body font-label-sm text-label-sm border border-border-default">
+<span class="material-symbols-outlined text-[15px] text-secondary">alt_route</span>
+                Mixto
+              </span>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-status-success-bg text-status-success font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+                Completado
+              </span>
+</td>
+<td class="py-3 px-4 max-w-xs">
+<div class="flex items-start gap-2">
+<button class="relative shrink-0 group rounded overflow-hidden border border-border-default" data-stitch-action="mostrarModalFoto('Estabilidad geomorfológica óptima en talud este.', '08 Oct 2025 - Sector 02')" title="Ver 2 fotografías adjuntas">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary-soft transition-colors">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[9px] font-bold px-1 rounded-tl">2</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-sm text-text-body truncate" title="Disipación de humedad normalizada; sin grietas estructurales">
+                    Disipación de humedad normalizada; sin grietas estructurales
+                  </p>
+<span class="font-caption text-[11px] text-status-success flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">check</span>
+                    Dentro de parámetros RCA
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 text-right whitespace-nowrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold transition-colors" data-stitch-action="descargarFicha('REP-2025-088')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                Descargar ficha
+              </button>
+</td>
+</tr>
+<!-- Fila 3 -->
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="py-3 px-4 font-medium text-primary whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">calendar_today</span>
+<span>29 Sep 2025</span>
+</div>
+<span class="font-caption text-[11px] text-text-secondary block">09:15 CLT • ID: REP-2025-085</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-semibold text-primary block">Sector 07 — Tranque Sur</span>
+<span class="font-caption text-[11px] text-text-secondary">Muro de contención principal</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-soft text-secondary font-semibold text-[11px] flex items-center justify-center">FR</span>
+<div>
+<span class="font-medium block text-primary leading-tight">Tec. Fernando Ríos</span>
+<span class="font-caption text-[11px] text-text-secondary">Piloto UAV</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-muted text-text-body font-label-sm text-label-sm border border-border-default">
+<span class="material-symbols-outlined text-[15px] text-secondary">flight</span>
+                Dron (UAV)
+              </span>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-status-warning-bg text-status-warning font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-warning"></span>
+                En Revisión
+              </span>
+</td>
+<td class="py-3 px-4 max-w-xs">
+<div class="flex items-start gap-2">
+<button class="relative shrink-0 group rounded overflow-hidden border border-border-default" data-stitch-action="mostrarModalFoto('Saturación por surgencia en coronamiento.', '29 Sep 2025 - Sector 07')" title="Ver 5 fotografías adjuntas">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary-soft transition-colors">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[9px] font-bold px-1 rounded-tl">5</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-sm text-text-body truncate" title="Línea de humedecimiento detectada en cota media del dique">
+                    Línea de humedecimiento detectada en cota media del dique
+                  </p>
+<span class="font-caption text-[11px] text-status-warning flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">hourglass_top</span>
+                    Revisión de piezometría en curso
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 text-right whitespace-nowrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold transition-colors" data-stitch-action="descargarFicha('REP-2025-085')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                Descargar ficha
+              </button>
+</td>
+</tr>
+<!-- Fila 4 -->
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="py-3 px-4 font-medium text-primary whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">calendar_today</span>
+<span>15 Sep 2025</span>
+</div>
+<span class="font-caption text-[11px] text-text-secondary block">14:00 CLT • ID: REP-2025-081</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-semibold text-primary block">Sector 01 — Talud Oeste</span>
+<span class="font-caption text-[11px] text-text-secondary">Estación Geomecánica ST-12</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-soft text-secondary font-semibold text-[11px] flex items-center justify-center">PS</span>
+<div>
+<span class="font-medium block text-primary leading-tight">Ing. Patricia Soto</span>
+<span class="font-caption text-[11px] text-text-secondary">Hidroquímica</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-muted text-text-body font-label-sm text-label-sm border border-border-default">
+<span class="material-symbols-outlined text-[15px] text-secondary">directions_walk</span>
+                Patrullaje Terrestre
+              </span>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-soft text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Validado
+              </span>
+</td>
+<td class="py-3 px-4 max-w-xs">
+<div class="flex items-start gap-2">
+<button class="relative shrink-0 group rounded overflow-hidden border border-border-default" data-stitch-action="mostrarModalFoto('Toma de muestras hidroquímicas en canal este.', '15 Sep 2025 - Sector 01')" title="Ver 1 fotografía adjunta">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary-soft transition-colors">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[9px] font-bold px-1 rounded-tl">1</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-sm text-text-body truncate" title="Muestreo de sulfatos y metales pesados en zanja">
+                    Muestreo de sulfatos y metales pesados en zanja
+                  </p>
+<span class="font-caption text-[11px] text-text-secondary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">science</span>
+                    Laboratorio externo certificado
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 text-right whitespace-nowrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold transition-colors" data-stitch-action="descargarFicha('REP-2025-081')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                Descargar ficha
+              </button>
+</td>
+</tr>
+<!-- Fila 5 -->
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="py-3 px-4 font-medium text-primary whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">calendar_today</span>
+<span>02 Sep 2025</span>
+</div>
+<span class="font-caption text-[11px] text-text-secondary block">11:30 CLT • ID: REP-2025-077</span>
+</td>
+<td class="py-3 px-4">
+<span class="font-semibold text-primary block">Sector 04 — Cuenca Depósito Norte</span>
+<span class="font-caption text-[11px] text-text-secondary">Plataforma de coronamiento</span>
+</td>
+<td class="py-3 px-4 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-secondary-soft text-secondary font-semibold text-[11px] flex items-center justify-center">CM</span>
+<div>
+<span class="font-medium block text-primary leading-tight">Ing. Carlos Mendoza</span>
+<span class="font-caption text-[11px] text-text-secondary">Geólogo Senior</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-muted text-text-body font-label-sm text-label-sm border border-border-default">
+<span class="material-symbols-outlined text-[15px] text-secondary">flight</span>
+                Dron (UAV)
+              </span>
+</td>
+<td class="py-3 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-status-success-bg text-status-success font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+                Completado
+              </span>
+</td>
+<td class="py-3 px-4 max-w-xs">
+<div class="flex items-start gap-2">
+<button class="relative shrink-0 group rounded overflow-hidden border border-border-default" data-stitch-action="mostrarModalFoto('Inspección de microfisuras por fotogrametría.', '02 Sep 2025 - Sector 04')" title="Ver 4 fotografías adjuntas">
+<div class="w-10 h-10 bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary-soft transition-colors">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</div>
+<span class="absolute -bottom-1 -right-1 bg-primary text-on-primary text-[9px] font-bold px-1 rounded-tl">4</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-sm text-text-body truncate" title="Levantamiento fotogramétrico de alta resolución">
+                    Levantamiento fotogramétrico de alta resolución
+                  </p>
+<span class="font-caption text-[11px] text-text-secondary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[13px]">straighten</span>
+                    Sin desplazamientos mm detectados
+                  </span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 text-right whitespace-nowrap">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold transition-colors" data-stitch-action="descargarFicha('REP-2025-077')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                Descargar ficha
+              </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Paginación de la tabla -->
+<div class="p-4 bg-surface-container-lowest border-t border-border-default flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-text-secondary font-caption text-caption">
+<span>Mostrando <strong>1 - 5</strong> de <strong>28</strong> inspecciones registradas</span>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1.5 rounded border border-border-default text-text-disabled cursor-not-allowed">Anterior</button>
+<button class="px-2.5 py-1.5 rounded bg-primary-container text-on-primary font-semibold">1</button>
+<button class="px-2.5 py-1.5 rounded border border-border-default hover:bg-surface-hover text-on-surface">2</button>
+<button class="px-2.5 py-1.5 rounded border border-border-default hover:bg-surface-hover text-on-surface">3</button>
+<button class="px-2.5 py-1.5 rounded border border-border-default hover:bg-surface-hover text-on-surface">Siguiente</button>
+</div>
+</div>
+</section>
+<!-- 5. Sección 3.5.C: Descargables (Paquete de Exportación Técnica) -->
+<section class="mt-6 mb-8">
+<div class="mb-4">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">folder_zip</span>
+        Paquete de Exportación Técnica Especializada
+      </h2>
+<p class="font-body-sm text-text-secondary mt-0.5">
+        Descarga directa de entregables oficiales para comités de fiscalización ambiental, Sernageomin y auditorías ESG.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Tarjeta 1: Informe Técnico Completo -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm hover:border-secondary transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-secondary-soft text-primary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<span class="font-caption text-caption text-secondary font-semibold uppercase tracking-wider">Documento Oficial</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Informe Técnico Completo</h3>
+<p class="font-body-sm text-text-body mt-2 text-[13px] leading-relaxed">
+            Formato PDF oficial con dictamen geoquímico, gráficas de dispersión mineral, trazabilidad de acidez y firma de validación.
+          </p>
+</div>
+<div class="mt-5 pt-4 border-t border-border-subtle">
+<button class="w-full h-[40px] rounded bg-primary-container hover:bg-primary-hover active:bg-primary-active text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center gap-2 transition-colors" data-stitch-action="descargarRecurso('Informe_Tecnico_Completo_Oct2025.pdf')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Descargar PDF (14.2 MB)
+          </button>
+</div>
+</div>
+<!-- Tarjeta 2: Tabla de Indicadores Espectrales -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm hover:border-secondary transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-secondary-soft text-primary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[24px]">table_chart</span>
+</div>
+<span class="font-caption text-caption text-secondary font-semibold uppercase tracking-wider">Series Temporales</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Tabla de Indicadores Espectrales</h3>
+<p class="font-body-sm text-text-body mt-2 text-[13px] leading-relaxed">
+            Formato Excel (.xlsx / .csv) con series temporales FeOx, NDVI, NDWI, anomalías de humedad y coordenadas geodésicas UTM.
+          </p>
+</div>
+<div class="mt-5 pt-4 border-t border-border-subtle">
+<button class="w-full h-[40px] rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold flex items-center justify-center gap-2 transition-colors" data-stitch-action="descargarRecurso('Indicadores_Espectrales_Faena_2025.xlsx')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Descargar Excel (3.8 MB)
+          </button>
+</div>
+</div>
+<!-- Tarjeta 3: Mapa de Riesgo DAM Georreferenciado -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm hover:border-secondary transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-secondary-soft text-primary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[24px]">map</span>
+</div>
+<span class="font-caption text-caption text-secondary font-semibold uppercase tracking-wider">Cartografía 300 DPI</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Mapa de Riesgo DAM Georreferenciado</h3>
+<p class="font-body-sm text-text-body mt-2 text-[13px] leading-relaxed">
+            Formato PNG de alta resolución (300 DPI) y PDF vectorial para presentaciones ante comités ESG y autoridades reguladoras.
+          </p>
+</div>
+<div class="mt-5 pt-4 border-t border-border-subtle">
+<button class="w-full h-[40px] rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold flex items-center justify-center gap-2 transition-colors" data-stitch-action="descargarRecurso('Mapa_Riesgo_DAM_AltaRes.zip')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Descargar PNG/PDF (28.4 MB)
+          </button>
+</div>
+</div>
+<!-- Tarjeta 4: Datos Geoespaciales y Rutas -->
+<div class="bg-surface-container-lowest border border-border-default rounded p-5 flex flex-col justify-between shadow-sm hover:border-secondary transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-secondary-soft text-primary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[24px]">polyline</span>
+</div>
+<span class="font-caption text-caption text-secondary font-semibold uppercase tracking-wider">Capas GIS SIG</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mt-1">Datos Geoespaciales y Rutas</h3>
+<p class="font-body-sm text-text-body mt-2 text-[13px] leading-relaxed">
+            Capas vectoriales KML / GeoJSON con polígonos de subsidencia, isolíneas de escorrentía ácida y waypoints de vuelo UAV.
+          </p>
+</div>
+<div class="mt-5 pt-4 border-t border-border-subtle">
+<button class="w-full h-[40px] rounded border border-secondary text-secondary hover:bg-secondary-soft active:bg-focus-halo font-label-sm text-label-sm font-semibold flex items-center justify-center gap-2 transition-colors" data-stitch-action="descargarRecurso('Capas_Vectoriales_KML_GeoJSON.zip')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Descargar KML / GeoJSON (1.6 MB)
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- MODAL: Preview de Fotografías de Terreno -->
+<div class="fixed inset-0 z-50 bg-[#0B1220]/45 flex items-center justify-center p-4 hidden" id="modal-foto-preview">
+<div class="bg-surface-container-lowest border border-border-default rounded-md shadow-xl w-full max-w-2xl overflow-hidden flex flex-col">
+<div class="p-4 border-b border-border-default flex items-center justify-between bg-surface-muted">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary" id="modal-foto-titulo">Evidencia de Terreno</h4>
+<span class="font-caption text-caption text-text-secondary" id="modal-foto-subtitulo">14 Oct 2025 - Sector 04</span>
+</div>
+<button class="text-text-secondary hover:text-on-surface p-1 rounded hover:bg-surface-hover" data-stitch-action="cerrarModalFoto()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-5 flex flex-col items-center bg-background-secondary">
+<!-- Contenedor de imagen de inspección técnica -->
+<div class="w-full h-72 rounded border border-border-default bg-surface-container flex flex-col items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High resolution technical inspection ground photograph of an open pit copper mine tailings dam footing with acidic drainage seeping through crushed rock and piezometer instrumentation under crisp desert morning sunlight with clear scientific precision" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2bqCMKRHiH3qn1gXHoFAnh2jYb7aZLPFzv1W1JYrRDVs1TH5PQQd7QFGBRffdlaaYMDCJvVWzhL05ga7l7bS78REXpM8pHVecNH6cXKz1rSoBzMbMPiZraAXCVg4aFJEGLHaho1SCDK0zHu0OszkrXGcSF7gUWT5TDrOHP6IjhAuojPBF4yOpEe2bKActtpS9ouOVKOH1ZV0IaKkhYyfGZ7QbVGgrZFwHPNihqUst6Bg-uI3q4ZdK"/>
+<div class="absolute bottom-2 left-2 bg-primary/80 backdrop-blur-sm text-on-primary font-caption text-caption px-2.5 py-1 rounded">
+            Piezómetro PZ-04A • Sensor pH 3.1 • 2,450 msnm
+          </div>
+</div>
+<div class="w-full mt-3 p-3 bg-surface-container-lowest border border-border-default rounded flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-status-warning shrink-0 mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-text-body">
+<strong>Dictamen de campo:</strong> Afloramiento de solución con alto contenido férrico y bajo pH en el pie del tranque. Se activó protocolo de contención en zanja perimetral y recirculación hacia la planta de neutralización.
+          </p>
+</div>
+</div>
+<div class="p-4 border-t border-border-default flex justify-end gap-2 bg-surface-container-lowest">
+<button class="px-4 py-2 rounded border border-border-default text-text-body hover:bg-surface-hover font-label-sm text-label-sm" data-stitch-action="cerrarModalFoto()">
+          Cerrar vista previa
+        </button>
+<button class="px-4 py-2 rounded bg-primary-container text-on-primary hover:bg-primary-hover font-label-sm text-label-sm flex items-center gap-1.5" data-stitch-action="descargarRecurso('Evidencia_Fotografica_Completa.zip')">
+<span class="material-symbols-outlined text-[16px]">download</span>
+          Descargar lote de fotos (HD)
+        </button>
+</div>
+</div>
+</div>
+<!-- MODAL: Generar Nuevo Informe Rápido -->
+<div class="fixed inset-0 z-50 bg-[#0B1220]/45 flex items-center justify-center p-4 hidden" id="modal-nuevo-informe">
+<div class="bg-surface-container-lowest border border-border-default rounded-md shadow-xl w-full max-w-lg overflow-hidden flex flex-col">
+<div class="p-4 border-b border-border-default flex items-center justify-between bg-surface-muted">
+<h4 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">add_circle</span>
+          Generar Nuevo Informe Geoquímico
+        </h4>
+<button class="text-text-secondary hover:text-on-surface p-1 rounded hover:bg-surface-hover" data-stitch-action="document.getElementById('modal-nuevo-informe').classList.add('hidden')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="p-5 space-y-4" data-stitch-submit="event.preventDefault(); document.getElementById('modal-nuevo-informe').classList.add('hidden'); alert('Nuevo informe iniciado en cola de procesamiento algorítmico.');">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Nombre o código del informe</label>
+<input class="w-full h-[40px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-sm text-on-surface focus:border-secondary outline-none" required="" type="text" value="REP-2025-090 — Auditoría Trimestral Octubre"/>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Sector prioritario</label>
+<select class="w-full h-[40px] px-3 bg-surface-container-lowest border border-border-interactive rounded font-body-sm text-on-surface focus:border-secondary outline-none cursor-pointer" required="">
+<option value="S04">Sector 04 — Cuenca Depósito Norte</option>
+<option value="S02">Sector 02 — Relave Espesado B</option>
+<option value="S07">Sector 07 — Tranque Sur</option>
+<option value="S01">Sector 01 — Talud Oeste</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1">Algoritmo espectral a compilar</label>
+<div class="space-y-1.5 pt-1">
+<label class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface cursor-pointer">
+<input checked="" class="rounded border-border-interactive text-secondary focus:ring-focus-halo w-4 h-4" type="checkbox"/>
+<span>Índice FeOx (Óxidos de Hierro / Drenaje Ácido)</span>
+</label>
+<label class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface cursor-pointer">
+<input checked="" class="rounded border-border-interactive text-secondary focus:ring-focus-halo w-4 h-4" type="checkbox"/>
+<span>Humedad superficial NDWI y escorrentía</span>
+</label>
+<label class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface cursor-pointer">
+<input checked="" class="rounded border-border-interactive text-secondary focus:ring-focus-halo w-4 h-4" type="checkbox"/>
+<span>Análisis InSAR de subsidencia milimétrica</span>
+</label>
+</div>
+</div>
+<div class="pt-4 border-t border-border-default flex justify-end gap-2">
+<button class="px-4 py-2 rounded border border-border-default text-text-body hover:bg-surface-hover font-label-sm text-label-sm" data-stitch-action="document.getElementById('modal-nuevo-informe').classList.add('hidden')" type="button">
+            Cancelar
+          </button>
+<button class="px-4 py-2 rounded bg-primary text-on-primary hover:bg-primary-hover font-label-sm text-label-sm font-semibold flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-[16px]">check</span>
+            Confirmar y Ejecutar
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Micro-interacciones JavaScript simples -->
+
+</div></main></div>

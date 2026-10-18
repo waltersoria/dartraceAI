@@ -1,0 +1,350 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased -->
+<aside class="fixed left-0 top-0 h-screen w-[232px] bg-surface-container-lowest border-r border-border-default z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-md border-b border-border-subtle gap-space-sm"><div class="flex items-center h-full w-full py-2"><img alt="DAR-Trace AI" class="h-9 w-auto max-w-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/></div></div><div class="px-space-md py-space-sm"><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs mb-space-xs">Operación y Análisis</div></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="panel-general" href="/app/panel-general"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="">Panel general</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="sectores-priorizados" href="/app/sectores-priorizados"><span class="material-symbols-outlined text-[20px]">radar</span><span class="">Sectores priorizados</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rutas-de-inspeccion" href="/app/rutas-de-inspeccion"><span class="material-symbols-outlined text-[20px]">route</span><span class="">Rutas de inspección</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg transition-colors font-label-md text-label-md bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]" data-path="analisis-temporal" href="/app/analisis-temporal"><span class="material-symbols-outlined text-[20px] text-primary-container">timeline</span><span class="">Análisis temporal</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="informes" href="/app/informes"><span class="material-symbols-outlined text-[20px]">description</span><span class="">Informes</span></a><div class="pt-space-sm pb-space-xs"><div class="border-t border-border-subtle my-space-xs"></div><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs my-space-xs">Sistema</div></div><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="configuracion" href="/app/configuracion"><span class="material-symbols-outlined text-[20px]">settings</span><span class="">Configuración</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="perfil" href="/app/perfil"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="">Perfil</span></a></nav></div><div class="p-space-sm border-t border-border-default bg-surface-container-lowest mt-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-status-error hover:bg-status-error-bg transition-colors font-label-md text-label-md" data-path="login" href="/login"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Salir</span></a></div></aside><div class="pl-[232px] min-h-screen flex flex-col"><header class="fixed top-0 left-[232px] right-0 h-16 bg-surface-container-lowest border-b border-border-default z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-muted px-space-sm py-1.5 rounded border border-border-default"><span class="material-symbols-outlined text-[18px] text-text-secondary">location_on</span><span class="font-caption text-caption text-text-secondary font-medium">Faena:</span><select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-space-xs"><option selected="" value="escondida">Minera Escondida Norte</option><option value="chuquicamata">Chuquicamata Subterránea</option><option value="centinela">Centinela Óxidos</option><option value="pelambres">Los Pelambres Cordillera</option></select></div></div><div class="flex items-center gap-space-md"><button aria-label="Notificaciones" class="relative p-2 rounded text-text-secondary hover:text-on-surface hover:bg-surface-hover transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden lg:block"><span class="font-label-sm text-label-sm text-on-surface leading-tight">Dra. Marcela Vega</span><span class="font-caption text-caption text-text-secondary leading-tight">Superintendente ESG</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-border-subtle"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 pt-16 bg-background-secondary w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Script para marcar navegación activa 'Perfil' en Shell global -->
+
+<!-- Encabezado de la Vista de Perfil -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between pb-6 gap-4 border-b border-border-default">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-caption text-caption text-text-secondary uppercase tracking-widest text-[11px] font-semibold">Configuración de Cuenta · Módulo 3.7</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary-container tracking-tight">Perfil de Usuario</h1>
+<p class="font-body-md text-body-md text-text-secondary max-w-3xl">
+        Gestión de credenciales de acceso, información personal y preferencias de seguridad en la plataforma DAR-Trace AI.
+      </p>
+</div>
+<div class="flex items-center gap-3 self-start lg:self-center">
+<button class="h-[44px] px-5 rounded-[6px] bg-surface-container-lowest text-secondary border border-border-interactive font-label-md text-label-md hover:bg-secondary-soft hover:border-secondary transition-colors cursor-pointer" type="button">
+        Descartar
+      </button>
+<button class="h-[44px] px-6 rounded-[6px] bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary-hover active:bg-primary-active transition-colors flex items-center gap-2 cursor-pointer shadow-sm" id="btn-save-profile" type="button">
+<span class="material-symbols-outlined text-[19px]">save</span>
+<span>Guardar Cambios</span>
+</button>
+</div>
+</div>
+<!-- Contenedor Principal: Layout Asimétrico 12 Columnas -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter pt-6">
+<!-- Columna Izquierda: Tarjeta de Identidad y Datos Personales (7 Cols) -->
+<div class="xl:col-span-7 flex flex-col gap-6">
+<!-- Panel de Resumen de Identidad Institucional -->
+<div class="bg-surface-container-lowest border border-border-default rounded-[6px] p-6 shadow-sm">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-border-subtle">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="w-20 h-20 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-lg text-headline-lg ring-4 ring-secondary-soft select-none">
+                MV
+              </div>
+<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-status-success ring-2 ring-surface-container-lowest" title="Usuario en línea y verificado"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Dra. Marcela Vega</span>
+<span class="inline-flex items-center gap-1 h-6 px-2.5 rounded-[4px] bg-status-success-bg text-status-success font-badge text-badge">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                  Activo / Verificado
+                </span>
+</div>
+<span class="font-label-md text-label-md text-text-secondary mt-0.5">Superintendente ESG &amp; Recursos Hídricos</span>
+<span class="font-body-sm text-body-sm text-text-secondary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">corporate_fare</span>
+                Minera Escondida Norte — Región de Antofagasta
+              </span>
+</div>
+</div>
+<button class="h-[36px] px-3.5 rounded-[6px] border border-border-default text-text-secondary hover:text-on-surface hover:bg-surface-hover text-label-sm font-label-sm flex items-center gap-1.5 transition-colors cursor-pointer self-start sm:self-center" type="button">
+<span class="material-symbols-outlined text-[17px]">photo_camera</span>
+<span>Actualizar Foto</span>
+</button>
+</div>
+<!-- Formulario de Información Personal y de Faena -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-4 pt-6">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface flex items-center gap-1.5" for="nombre-completo">
+<span>Nombre Completo</span>
+<span class="text-status-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">person</span>
+<input class="w-full h-[42px] pl-10 pr-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-all font-body-md" id="nombre-completo" type="text" value="Dra. Marcela Vega"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface flex items-center gap-1.5" for="correo-institucional">
+<span>Correo Institucional</span>
+<span class="text-status-error">*</span>
+</label>
+<span class="font-caption text-caption text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">lock</span> SSO Corporativo
+              </span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">mail</span>
+<input class="w-full h-[42px] pl-10 pr-24 rounded-[6px] bg-surface-muted border border-border-default text-body-md text-text-body cursor-not-allowed select-all font-body-md" id="correo-institucional" readonly="" type="email" value="m.vega@mineraescondida.cl"/>
+<div class="absolute right-2.5 top-2.5">
+<span class="inline-flex items-center gap-1 h-5 px-2 rounded-[4px] bg-status-success-bg text-status-success font-badge text-[11px]">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> SSO Activo
+                </span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="cargo-tecnico">Cargo / Especialidad Técnica</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">science</span>
+<input class="w-full h-[42px] pl-10 pr-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-all font-body-md" id="cargo-tecnico" type="text" value="Hidrogeoquímica &amp; Monitoreo Ambiental"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="departamento">Departamento / Gerencia</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">domain</span>
+<input class="w-full h-[42px] pl-10 pr-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-all font-body-md" id="departamento" type="text" value="Gerencia de Medio Ambiente y Sustentabilidad"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="telefono-faena">Teléfono Contacto Operativo / Faena</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">call</span>
+<input class="w-full h-[42px] pl-10 pr-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-all font-body-md" id="telefono-faena" type="tel" value="+56 9 8412 3098"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="faena-primaria">Faena Asignada (Base Operacional)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">location_on</span>
+<select class="w-full h-[42px] pl-10 pr-8 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-all font-body-md appearance-none cursor-pointer" id="faena-primaria">
+<option selected="" value="escondida-norte">Minera Escondida Norte — Riqueza &amp; Tranque</option>
+<option value="chuquicamata">Chuquicamata Subterránea</option>
+<option value="centinela">Centinela Óxidos</option>
+<option value="pelambres">Los Pelambres Cordillera</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-text-secondary pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Alerta Informativa Institucional SSO -->
+<div class="mt-6 p-4 rounded-[6px] bg-secondary-soft border border-border-subtle flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] mt-0.5">info</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary-container">Integración de Directorio Activo BHP/MEL</span>
+<span class="font-body-sm text-body-sm text-text-secondary mt-0.5">
+              Las modificaciones de correo y nombre legal deben ser solicitadas mediante ticket IT corporativo. Las credenciales de plataforma DAR-Trace sincronizan autenticación biométrica y tokens FIDO2 asignados en faena.
+            </span>
+</div>
+</div>
+</div>
+<!-- Tarjeta de Contexto Operativo y Registro en DAR-Trace AI -->
+<div class="bg-surface-container-lowest border border-border-default rounded-[6px] p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">history_toggle_off</span>
+<h3 class="font-headline-sm text-headline-sm text-primary-container">Métricas de Actividad &amp; Registro Operativo</h3>
+</div>
+<span class="font-caption text-caption text-text-secondary">Última sincronización satelital: Hoy 08:32 CLT</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<span class="font-caption text-caption text-text-secondary uppercase">Inspecciones DAR</span>
+<div class="font-kpi-metric text-kpi-metric text-primary-container mt-1">142</div>
+<span class="font-body-sm text-body-sm text-status-success flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">north_east</span> +8 este mes
+            </span>
+</div>
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<span class="font-caption text-caption text-text-secondary uppercase">Alertas Resueltas</span>
+<div class="font-kpi-metric text-kpi-metric text-primary-container mt-1">29</div>
+<span class="font-body-sm text-body-sm text-text-secondary mt-0.5">99.4% SLA cumplimiento</span>
+</div>
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<span class="font-caption text-caption text-text-secondary uppercase">Informes Visados</span>
+<div class="font-kpi-metric text-kpi-metric text-primary-container mt-1">37</div>
+<span class="font-body-sm text-body-sm text-text-secondary mt-0.5">Firma PGP válida</span>
+</div>
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<span class="font-caption text-caption text-text-secondary uppercase">Antigüedad Faena</span>
+<div class="font-kpi-metric text-kpi-metric text-primary-container mt-1">4.2 <span class="font-label-md text-[16px] text-text-secondary">años</span></div>
+<span class="font-body-sm text-body-sm text-text-secondary mt-0.5">Ingreso: Marzo 2021</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Columna Derecha: Seguridad, Contraseña y Sesiones Activas (5 Cols) -->
+<div class="xl:col-span-5 flex flex-col gap-6">
+<!-- Sección 3.7 Requerida: Tarjeta de Seguridad y Cambio de Contraseña -->
+<div class="bg-surface-container-lowest border border-border-default rounded-[6px] p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[22px]">lock_reset</span>
+<h3 class="font-headline-md text-headline-md text-primary-container">Seguridad y Contraseña</h3>
+</div>
+<span class="inline-flex items-center gap-1 h-5 px-2 rounded-[4px] bg-secondary-soft text-primary-container font-badge text-[11px]">
+            Estándar NERC-CIP
+          </span>
+</div>
+<form class="flex flex-col gap-4 pt-5" data-stitch-submit="event.preventDefault();" id="password-form">
+<!-- Contraseña Actual -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface flex items-center justify-between" for="current-password">
+<span>Contraseña Actual</span>
+<a class="font-caption text-caption text-secondary hover:underline" href="/recuperar-acceso">¿Olvidó su contraseña?</a>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">key</span>
+<input class="w-full h-[42px] pl-10 pr-10 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo font-body-md tracking-wider" id="current-password" type="password" value="SuperSecure2024#Alpha"/>
+<button class="password-toggle absolute right-3 top-2.5 text-text-secondary hover:text-on-surface focus:outline-none" data-target="current-password" title="Mostrar/Ocultar contraseña" type="button">
+<span class="material-symbols-outlined text-[19px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Nueva Contraseña -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="new-password">Nueva Contraseña</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">lock</span>
+<input class="w-full h-[42px] pl-10 pr-10 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo font-body-md" id="new-password" placeholder="Ingrese nueva contraseña" type="password"/>
+<button class="password-toggle absolute right-3 top-2.5 text-text-secondary hover:text-on-surface focus:outline-none" data-target="new-password" title="Mostrar/Ocultar contraseña" type="button">
+<span class="material-symbols-outlined text-[19px]">visibility</span>
+</button>
+</div>
+<!-- Indicador de Robustez -->
+<div class="flex flex-col gap-1 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-text-secondary">Robustez de la clave:</span>
+<span class="font-caption text-caption text-status-success font-semibold" id="strength-label">Robusta (88%)</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="bg-status-success rounded-full"></div>
+<div class="bg-status-success rounded-full"></div>
+<div class="bg-status-success rounded-full"></div>
+<div class="bg-status-success/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Confirmar Nueva Contraseña -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="confirm-password">Confirmar Nueva Contraseña</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-secondary text-[18px]">verified_user</span>
+<input class="w-full h-[42px] pl-10 pr-10 rounded-[6px] bg-surface-container-lowest border border-border-interactive text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo font-body-md" id="confirm-password" placeholder="Repita la nueva contraseña" type="password"/>
+<button class="password-toggle absolute right-3 top-2.5 text-text-secondary hover:text-on-surface focus:outline-none" data-target="confirm-password" title="Mostrar/Ocultar contraseña" type="button">
+<span class="material-symbols-outlined text-[19px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Requisitos Institucionales Estrictos -->
+<div class="p-3.5 bg-surface-muted rounded-[6px] border border-border-subtle flex flex-col gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">policy</span>
+              Requisitos de Seguridad Institucional:
+            </span>
+<ul class="space-y-1.5 pl-1 font-body-sm text-body-sm text-text-secondary">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
+<span>Mínimo 10 caracteres alfanuméricos</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
+<span>Al menos una letra mayúscula (A-Z) y una minúscula (a-z)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
+<span>Al menos un número (0-9) y un símbolo especial (@, #, $, %, etc.)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-status-success">check_circle</span>
+<span>No haber sido utilizada en las últimas 5 rotaciones de faena</span>
+</li>
+</ul>
+</div>
+<div class="pt-2">
+<button class="w-full h-[44px] rounded-[6px] bg-secondary text-on-primary font-label-md text-label-md hover:bg-secondary-hover active:bg-primary-container transition-colors flex items-center justify-center gap-2 cursor-pointer" id="btn-update-pwd" type="submit">
+<span class="material-symbols-outlined text-[18px]">security_update_good</span>
+<span>Actualizar Contraseña</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Tarjeta de Sesiones Activas y Permisos Técnicos -->
+<div class="bg-surface-container-lowest border border-border-default rounded-[6px] p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">shield_person</span>
+<h3 class="font-headline-sm text-headline-sm text-primary-container">Nivel de Permisos &amp; Sesiones</h3>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4">
+<!-- Nivel Asignado -->
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-text-secondary uppercase">Privilegios en Sistema</span>
+<span class="inline-flex items-center gap-1 h-5 px-2 rounded-[4px] bg-secondary-soft text-primary-container font-badge text-[11px]">
+                Nivel 4 / Sernageomin
+              </span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Administrador Técnico ESG &amp; Aprobador Oficial</span>
+<span class="font-body-sm text-body-sm text-text-secondary">
+              Facultad para visado de informes de drenaje ácido, despacho de rutas geofísicas y firma de cierres de hallazgo.
+            </span>
+</div>
+<!-- Firma Criptográfica PGP -->
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-[20px]">enhanced_encryption</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Firma Digital PGP Registrada</span>
+<span class="font-caption text-caption text-text-secondary font-mono">ID: 0x8F92A14D2025 · RSA 4096b</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 h-5 px-2 rounded-[4px] bg-status-success-bg text-status-success font-badge text-[11px]">
+              Vigente
+            </span>
+</div>
+<!-- Registro de Sesión Actual -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Dispositivos y Sesiones Conectadas</span>
+<!-- Sesión 1: Actual -->
+<div class="p-3 rounded-[6px] bg-status-success-bg/40 border border-status-success/30 flex items-start justify-between">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-status-success text-[22px] mt-0.5">laptop_mac</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Estación Santiago — Mac OS / Chrome</span>
+<span class="inline-flex items-center h-4 px-1.5 rounded-[2px] bg-status-success text-on-primary text-[10px] font-bold uppercase">Actual</span>
+</div>
+<span class="font-caption text-caption text-text-secondary">IP: 190.161.42.10 · Las Condes HQ · Sesión iniciada hoy a las 07:15</span>
+</div>
+</div>
+</div>
+<!-- Sesión 2: Tablet Terreno -->
+<div class="p-3 rounded-[6px] bg-surface-container-lowest border border-border-subtle flex items-start justify-between">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-text-secondary text-[22px] mt-0.5">tablet_android</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Getac Rugged F110 — Faena Escondida</span>
+<span class="font-caption text-caption text-text-secondary">IP: 10.240.18.91 · Red Satelital Starlink · Activa hace 2 días</span>
+</div>
+</div>
+<button class="text-text-secondary hover:text-status-error p-1 rounded" title="Revocar acceso de esta sesión" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Acción Cerrar Otras Sesiones -->
+<button class="w-full h-[38px] rounded-[6px] border border-border-default bg-surface-container-lowest text-status-error hover:bg-status-error-bg hover:border-status-error text-label-sm font-label-sm flex items-center justify-center gap-1.5 transition-colors cursor-pointer mt-1" id="btn-terminate-sessions" type="button">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Cerrar todas las demás sesiones activas</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Toast Notificador de Interacciones -->
+<div class="fixed bottom-6 right-6 hidden bg-primary-container text-on-primary px-4 py-3 rounded-[6px] shadow-lg flex items-center gap-3 z-50 transition-all border border-secondary" id="toast-notification">
+<span class="material-symbols-outlined text-status-success text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-message">Cambios guardados exitosamente.</span>
+</div>
+<!-- Micro-interactividad con Vanilla JavaScript -->
+
+</div></main></div>

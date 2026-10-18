@@ -1,0 +1,1 @@
+Vistas HTML procedentes de la exportación de Stitch. Se eliminaron scripts inline y eventos ejecutables; la aplicación Angular controla navegación e interacciones desde TypeScript. No interpolar HTML remoto en estas vistas.
