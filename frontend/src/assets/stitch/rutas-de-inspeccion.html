@@ -1,0 +1,565 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased -->
+<aside class="fixed left-0 top-0 h-screen w-[232px] bg-surface-container-lowest border-r border-border-default z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-md border-b border-border-subtle gap-space-sm"><div class="flex items-center h-full w-full py-2"><img alt="DAR-Trace AI" class="h-9 w-auto max-w-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/></div></div><div class="px-space-md py-space-sm"><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs mb-space-xs">Operación y Análisis</div></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="panel-general" href="/app/panel-general" style="background-color: transparent; color: #4A4A4A; font-weight: 500; border-left: none;"><span class="material-symbols-outlined text-[20px]" style="color: #64748B;">grid_view</span><span class="">Panel general</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="sectores-priorizados" href="/app/sectores-priorizados" style="background-color: transparent; color: #4A4A4A; font-weight: 500; border-left: none;"><span class="material-symbols-outlined text-[20px]" style="color: #64748B;">radar</span><span class="">Sectores priorizados</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg transition-colors font-label-md text-label-md bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]" data-path="rutas-de-inspeccion" href="/app/rutas-de-inspeccion" style="background-color: #E8F0FE; color: #00205B; font-weight: 600; border-left: 4px solid #0056B3; padding-left: 12px; border-radius: 0 6px 6px 0;"><span class="material-symbols-outlined text-[20px] text-primary-container" style="color: #0056B3;">route</span><span class="">Rutas de inspección</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="analisis-temporal" href="/app/analisis-temporal" style="background-color: transparent; color: #4A4A4A; font-weight: 500; border-left: none;"><span class="material-symbols-outlined text-[20px]" style="color: #64748B;">timeline</span><span class="">Análisis temporal</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="informes" href="/app/informes" style="background-color: transparent; color: #4A4A4A; font-weight: 500; border-left: none;"><span class="material-symbols-outlined text-[20px]" style="color: #64748B;">description</span><span class="">Informes</span></a><div class="pt-space-sm pb-space-xs"><div class="border-t border-border-subtle my-space-xs"></div><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs my-space-xs">Sistema</div></div><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="configuracion" href="/app/configuracion" style="background-color: transparent; color: #4A4A4A; font-weight: 500; border-left: none;"><span class="material-symbols-outlined text-[20px]" style="color: #64748B;">settings</span><span class="">Configuración</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="perfil" href="/app/perfil" style="background-color: transparent; color: #4A4A4A; font-weight: 500; border-left: none;"><span class="material-symbols-outlined text-[20px]" style="color: #64748B;">account_circle</span><span class="">Perfil</span></a></nav></div><div class="p-space-sm border-t border-border-default bg-surface-container-lowest mt-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-status-error hover:bg-status-error-bg transition-colors font-label-md text-label-md" data-path="login" href="/login"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Salir</span></a></div></aside><div class="pl-[232px] min-h-screen flex flex-col"><header class="fixed top-0 left-[232px] right-0 h-16 bg-surface-container-lowest border-b border-border-default z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-muted px-space-sm py-1.5 rounded border border-border-default"><span class="material-symbols-outlined text-[18px] text-text-secondary">location_on</span><span class="font-caption text-caption text-text-secondary font-medium">Faena:</span><select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-space-xs"><option value="escondida">Minera Escondida Norte</option><option value="chuquicamata">Chuquicamata Subterránea</option><option value="centinela">Centinela Óxidos</option><option value="pelambres">Los Pelambres Cordillera</option></select></div></div><div class="flex items-center gap-space-md"><button aria-label="Notificaciones" class="relative p-2 rounded text-text-secondary hover:text-on-surface hover:bg-surface-hover transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden lg:block"><span class="font-label-sm text-label-sm text-on-surface leading-tight">Dra. Marcela Vega</span><span class="font-caption text-caption text-text-secondary leading-tight">Superintendente ESG</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-border-subtle"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 pt-16 bg-background-secondary w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Cabecera de Página Técnica y Modos Operacionales -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-text-secondary font-caption text-caption uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">navigation</span>
+<span>Planificación Geoespacial Operacional</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">Minera Escondida Norte</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Rutas de inspección</h1>
+<p class="font-body-md text-body-md text-text-body mt-0.5">
+        Planificación geoespacial y generación de misiones de sobrevuelo con dron y patrullaje terrestre.
+      </p>
+</div>
+<!-- Pestañas de Modo Operacional -->
+<div class="flex items-center gap-space-sm bg-surface-container-high p-1 rounded">
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm transition-all" data-stitch-action="switchMode('drone')" id="tab-drone">
+<span class="material-symbols-outlined text-[18px]">flight_takeoff</span>
+<span>Misiones Aéreas (Dron)</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-semibold bg-primary text-on-primary ml-1">Autónomo</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" data-stitch-action="switchMode('ground')" id="tab-ground">
+<span class="material-symbols-outlined text-[18px]">minor_crash</span>
+<span>Patrullaje Terrestre</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-semibold bg-secondary-soft text-secondary ml-1">In Situ</span>
+</button>
+</div>
+</div>
+<!-- Resumen de Telemetría Global -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg"><div class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-border-default flex items-center justify-between"><div><p class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold text-[12px]">Misiones Programadas</p><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-xl text-[34px] leading-tight font-bold text-primary">4</span><span class="font-body-md text-body-md text-text-secondary font-medium">activas</span></div></div><div class="w-11 h-11 rounded-lg bg-secondary-soft flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[24px]">calendar_month</span></div></div><div class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-border-default flex items-center justify-between"><div><p class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold text-[12px]">Ventana Meteorológica</p><div class="flex items-center gap-2 mt-1"><span class="inline-block w-3 h-3 rounded-full bg-status-success ring-2 ring-status-success/30"></span><span class="font-headline-lg text-[22px] font-bold text-status-success">Favorable</span></div><p class="font-body-sm text-[12px] text-text-secondary font-medium mt-0.5">Viento: 11 km/h (Óptimo para vuelo)</p></div><div class="w-11 h-11 rounded-lg bg-status-success-bg flex items-center justify-center text-status-success"><span class="material-symbols-outlined text-[24px]">air</span></div></div><div class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-border-default flex items-center justify-between"><div><p class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold text-[12px]">Resolución Espectral Estimada</p><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-xl text-[34px] leading-tight font-bold text-primary">3.2</span><span class="font-body-md text-body-md text-text-secondary font-medium">cm/px GSD</span></div></div><div class="w-11 h-11 rounded-lg bg-secondary-soft flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[24px]">camera</span></div></div><div class="bg-surface-container-lowest p-5 rounded-lg shadow-sm border border-border-default flex items-center justify-between"><div><p class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold text-[12px]">Cobertura de Monitoreo</p><div class="flex items-baseline gap-2 mt-1"><span class="font-headline-xl text-[34px] leading-tight font-bold text-primary">82.4%</span><span class="font-badge text-badge px-2 py-0.5 rounded bg-status-success-bg text-status-success font-semibold">+4.1%</span></div></div><div class="w-11 h-11 rounded-lg bg-secondary-soft flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-[24px]">verified</span></div></div></div>
+<!-- SECCIÓN 3.3.A: MODO DRON (Misiones Aéreas Autónomas) -->
+<div class="flex flex-col gap-space-lg" id="view-drone">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Panel Lateral Izquierdo: Configuración de Vuelo y Parámetros -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Tarjeta de Selección de Zonas -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-sm border border-border-default">
+<div class="flex items-center justify-between pb-space-xs border-b border-border-subtle mb-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">target</span>
+              Zonas de Escaneo Aéreo
+            </h2>
+<span class="font-caption text-caption text-text-secondary">1 de 3 seleccionada</span>
+</div>
+<div class="space-y-space-xs">
+<!-- Zona 1: Sector 04 (Activo) -->
+<label class="flex items-start gap-space-sm p-space-sm rounded bg-secondary-soft border border-secondary cursor-pointer">
+<input checked="" class="mt-1 h-4 w-4 rounded border-border-interactive text-secondary focus:ring-0" type="checkbox"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Sector 04 - Cuenca Depósito Norte</span>
+<span class="font-badge text-badge px-2 py-0.5 rounded bg-status-error-bg text-status-error">Prioridad Alta</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-body mt-0.5">Relave Borde Norte - Detección de humedad por filtración</p>
+<div class="flex items-center gap-space-md mt-2 font-caption text-caption text-text-secondary">
+<span>Área: 42.5 Ha</span>
+<span>•</span>
+<span>Inclinación: 14°</span>
+</div>
+</div>
+</label>
+<!-- Zona 2: Sector 02 -->
+<label class="flex items-start gap-space-sm p-space-sm rounded hover:bg-surface-hover border border-transparent cursor-pointer transition-colors">
+<input class="mt-1 h-4 w-4 rounded border-border-interactive text-secondary focus:ring-0" type="checkbox"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Sector 02 - Relave Espesado B</span>
+<span class="font-badge text-badge px-2 py-0.5 rounded bg-status-warning-bg text-status-warning">Media</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">Control de subsidencia y secado de superficie</p>
+<div class="flex items-center gap-space-md mt-1 font-caption text-caption text-text-secondary">
+<span>Área: 68.1 Ha</span>
+<span>•</span>
+<span>Inclinación: 4°</span>
+</div>
+</div>
+</label>
+<!-- Zona 3: Sector 07 -->
+<label class="flex items-start gap-space-sm p-space-sm rounded hover:bg-surface-hover border border-transparent cursor-pointer transition-colors">
+<input class="mt-1 h-4 w-4 rounded border-border-interactive text-secondary focus:ring-0" type="checkbox"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Sector 07 - Tranque de Relaves Sur</span>
+<span class="font-badge text-badge px-2 py-0.5 rounded bg-surface-muted text-text-secondary">Rutinaria</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mt-0.5">Sobrevuelo batimétrico y orillas perimetrales</p>
+<div class="flex items-center gap-space-md mt-1 font-caption text-caption text-text-secondary">
+<span>Área: 110.2 Ha</span>
+<span>•</span>
+<span>Inclinación: 2°</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Parámetros de Vuelo Calculados -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-sm border border-border-default">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-space-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">speed</span>
+            Parámetros de Vuelo Calculados
+          </h2>
+<div class="grid grid-cols-2 gap-space-sm mb-space-sm">
+<div class="p-space-sm bg-surface-muted rounded">
+<span class="font-caption text-caption text-text-secondary block">Distancia Total</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">4.8 km</span>
+<span class="font-caption text-caption text-text-secondary block mt-0.5">8 waypoints</span>
+</div>
+<div class="p-space-sm bg-surface-muted rounded">
+<span class="font-caption text-caption text-text-secondary block">Altitud Relativa (AGL)</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">85 m</span>
+<span class="font-caption text-caption text-text-secondary block mt-0.5">Constante DEM</span>
+</div>
+<div class="p-space-sm bg-surface-muted rounded">
+<span class="font-caption text-caption text-text-secondary block">Autonomía de Batería</span>
+<span class="font-headline-md text-headline-md text-status-success font-bold">22 min</span>
+<span class="font-caption text-caption text-text-secondary block mt-0.5">Consumo: 68% (1 LiPo)</span>
+</div>
+<div class="p-space-sm bg-surface-muted rounded">
+<span class="font-caption text-caption text-text-secondary block">Velocidad de Muestreo</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">9.2 m/s</span>
+<span class="font-caption text-caption text-text-secondary block mt-0.5">Solapamiento: 75/70</span>
+</div>
+</div>
+<div class="p-space-sm bg-secondary-soft rounded mb-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-caption text-caption text-text-secondary">Carga Útil / Payload Activo:</span>
+<span class="font-badge text-badge text-secondary font-semibold">Calibrado</span>
+</div>
+<p class="font-label-md text-label-md text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+              MicaSense RedEdge-P Dual + RGB 4K
+            </p>
+<p class="font-caption text-caption text-text-secondary mt-1">Bandas: Azul, Verde, Rojo, RedEdge, NIR, LWIR Térmico</p>
+</div>
+<!-- Acciones de Descarga de Plan de Vuelo -->
+<div class="flex flex-col gap-space-xs">
+<button class="w-full bg-primary-container text-on-primary hover:bg-primary-hover active:bg-primary-active py-2.5 px-space-md rounded font-label-md text-label-md font-semibold flex items-center justify-center gap-space-sm shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Descargar Plan de Vuelo (KML / KMZ)</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="bg-surface-container-lowest text-secondary border border-border-default hover:bg-surface-hover py-2 px-space-sm rounded font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>Misión QGround (.plan)</span>
+</button>
+<button class="bg-surface-container-lowest text-secondary border border-border-default hover:bg-surface-hover py-2 px-space-sm rounded font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">data_table</span>
+<span>Waypoints (.CSV)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Visor Cartográfico Técnico (Dron) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded shadow-sm border border-border-default overflow-hidden flex flex-col">
+<!-- Barra de Herramientas del Mapa -->
+<div class="px-space-md py-2.5 bg-surface-muted border-b border-border-default flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-caption text-caption text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">explore</span>
+              WGS 84 / UTM Zona 19S
+            </span>
+<span class="text-border-default">|</span>
+<span class="font-caption text-caption text-text-secondary">24°15'32" S - 69°04'18" W</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex items-center bg-surface-container-lowest rounded border border-border-default p-0.5">
+<button class="px-2 py-1 text-xs font-semibold rounded bg-secondary text-on-primary">Satélite RGB</button>
+<button class="px-2 py-1 text-xs font-semibold rounded text-on-surface-variant hover:text-on-surface">NDVI / NDRE</button>
+<button class="px-2 py-1 text-xs font-semibold rounded text-on-surface-variant hover:text-on-surface">DEM Térmico</button>
+</div>
+<button class="p-1.5 rounded bg-surface-container-lowest border border-border-default text-text-secondary hover:text-primary" title="Capas Geoespaciales">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container-lowest border border-border-default text-text-secondary hover:text-primary" title="Centrar Escena">
+<span class="material-symbols-outlined text-[18px]">my_location</span>
+</button>
+</div>
+</div>
+<!-- Lienzo del Mapa con Interfaz Gráfica y Waypoints -->
+<div class="relative w-full h-[520px] bg-slate-900 overflow-hidden select-none">
+<!-- Capa de Mapa Real con Ubicación Específica -->
+<div class="absolute inset-0 bg-cover bg-center opacity-85" data-alt="Satellite imagery overview of open pit copper mine tailings facility in Atacama desert Chile with industrial infrastructure and geometric retention dikes in crisp light daylight" data-location="Minera Escondida, Antofagasta, Chile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD-EqXyl45cB12MzOu730V5fux_3rQKvAZsvAXwEF6ol44IDrkYlIS45_2ZT7sT8UiScAM4Te9_xPaK4lQcv2FSkYkiqpdRGr0iFViJ3YrDv6k3hZ6umHh7qaD4u1B0GbiHwXBb08IVdDeqzHIwt6PsH5bt-mOek_kYVooxpj4i-RlobdDSWZlhK0848ivdTaJ1VRNO25qMHTThUh-2rPIAtxgiIzYzLHkh8cK6r59Vm5keVb6PlpOm');"></div>
+<!-- Grilla Cartográfica y Trazados SVG Vectoriales -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="60" id="grid-pattern" patternunits="userSpaceOnUse" width="60">
+<path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"></path>
+</pattern>
+<!-- Marcador de flecha de dirección de vuelo -->
+<marker id="flight-arrow" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="6" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 8 5 L 0 9 z" fill="#79B8FF"></path>
+</marker>
+</defs>
+<rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+<!-- Polígono de Sector 04 Inspeccionado -->
+<polygon fill="rgba(0, 86, 179, 0.18)" points="120,80 540,95 620,380 180,410" stroke="#79B8FF" stroke-dasharray="6,4" stroke-width="2"></polygon>
+<!-- Área de concentración térmica / anomalía -->
+<polygon fill="rgba(180, 35, 24, 0.22)" points="260,180 430,190 390,300 240,280" stroke="#B42318" stroke-width="1.5"></polygon>
+<!-- Líneas de Misión de Vuelo Autónomo -->
+<polyline fill="none" marker-mid="url(#flight-arrow)" points="90,440 160,120 230,360 300,130 370,350 440,140 510,340 580,150 90,440" stroke="#79B8FF" stroke-dasharray="8,6" stroke-width="2.5"></polyline>
+</svg>
+<!-- Marcador Home / Despegue y Aterrizaje (RTH) -->
+<div class="absolute left-[70px] top-[420px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-pointer">
+<div class="w-9 h-9 rounded-full bg-status-success text-on-primary flex items-center justify-center shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-[20px]">home</span>
+</div>
+<span class="mt-1 px-1.5 py-0.5 rounded bg-dark-surface/90 text-on-primary text-[11px] font-mono font-semibold tracking-wider">HOME (RTH)</span>
+</div>
+<!-- Waypoints Interactivos Superpuestos -->
+<div class="absolute left-[160px] top-[120px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow">01</div>
+<div class="hidden group-hover:block absolute left-full ml-2 top-0 bg-dark-surface text-on-primary text-xs p-2 rounded shadow-md z-20 whitespace-nowrap">
+<p class="font-semibold text-dark-interactive">WP-01 | Elev: 85m</p>
+<p class="text-text-secondary text-[11px]">Altitud: 2,420 msnm</p>
+</div>
+</div>
+<div class="absolute left-[230px] top-[360px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow">02</div>
+</div>
+<div class="absolute left-[300px] top-[130px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow">03</div>
+</div>
+<!-- Waypoint sobre anomalía crítica -->
+<div class="absolute left-[370px] top-[260px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-7 h-7 rounded-full bg-status-error text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow animate-pulse">04</div>
+<div class="absolute left-8 -top-3 bg-dark-surface/95 text-on-primary text-xs p-2 rounded shadow-lg border border-status-error z-20 w-44">
+<p class="font-semibold text-status-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> WP-04 [Crítico]
+              </p>
+<p class="text-[11px] text-dark-text-secondary">Humedad alta detectada: 74%</p>
+<p class="text-[10px] text-text-secondary mt-0.5">Captura multiespectral 5 bandas</p>
+</div>
+</div>
+<div class="absolute left-[440px] top-[140px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow">05</div>
+</div>
+<div class="absolute left-[510px] top-[340px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow">06</div>
+</div>
+<div class="absolute left-[580px] top-[150px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-primary flex items-center justify-center text-xs font-bold ring-2 ring-white shadow">07</div>
+</div>
+<!-- Controles Flotantes del Mapa (Derecha) -->
+<div class="absolute right-4 top-4 flex flex-col gap-1.5 shadow-md">
+<button class="w-9 h-9 rounded bg-surface-container-lowest text-primary flex items-center justify-center border border-border-default hover:bg-surface-hover" title="Acercar">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<button class="w-9 h-9 rounded bg-surface-container-lowest text-primary flex items-center justify-center border border-border-default hover:bg-surface-hover" title="Alejar">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<button class="w-9 h-9 rounded bg-surface-container-lowest text-primary flex items-center justify-center border border-border-default hover:bg-surface-hover" title="Orientar al Norte">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+</button>
+</div>
+<!-- Leyenda Flotante (Izquierda Inferior) -->
+<div class="absolute left-4 bottom-4 bg-surface-container-lowest/95 backdrop-blur-sm p-space-sm rounded border border-border-default text-xs shadow-md">
+<p class="font-label-sm text-label-sm text-primary mb-1.5">Simbología Cartográfica</p>
+<div class="space-y-1 text-text-body font-caption text-caption">
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-0.5 bg-secondary-container inline-block"></span>
+<span>Trayectoria de Vuelo Planificada</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-status-error inline-block"></span>
+<span>Punto de Interés Hidrotermal</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-status-error/30 border border-status-error inline-block"></span>
+<span>Zona de Filtración Probable</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-status-success text-white flex items-center justify-center text-[9px] font-bold">H</span>
+<span>Estación Base y RTH</span>
+</div>
+</div>
+<!-- Escala gráfica -->
+<div class="mt-2 pt-2 border-t border-border-subtle flex items-center justify-between text-[11px] text-text-secondary">
+<span>0</span>
+<div class="h-1 w-20 bg-primary mx-1"></div>
+<span>250 m</span>
+</div>
+</div>
+</div>
+<!-- Tabla de Waypoints de la Misión Aérea -->
+<div class="p-space-md border-t border-border-default">
+<div class="flex items-center justify-between mb-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-primary">Tabla de Navegación Waypoint</h3>
+<span class="font-caption text-caption text-text-secondary">Velocidad crucero: 33.1 km/h</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-muted text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider text-[11px]">
+<tr>
+<th class="py-2 px-space-sm">Hito</th>
+<th class="py-2 px-space-sm">Latitud / Longitud</th>
+<th class="py-2 px-space-sm text-right">Altitud (m)</th>
+<th class="py-2 px-space-sm text-right">Gimbal Pitch</th>
+<th class="py-2 px-space-sm">Acción Programada</th>
+<th class="py-2 px-space-sm text-right">Estado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle">
+<tr class="hover:bg-surface-hover">
+<td class="py-2 px-space-sm font-semibold text-primary">WP-01</td>
+<td class="py-2 px-space-sm font-mono text-xs">24.2589° S, 69.0718° W</td>
+<td class="py-2 px-space-sm text-right font-mono">85.0</td>
+<td class="py-2 px-space-sm text-right font-mono">-90° (Nadir)</td>
+<td class="py-2 px-space-sm">Disparo continuo intervalo 2s</td>
+<td class="py-2 px-space-sm text-right"><span class="font-badge text-badge px-2 py-0.5 rounded bg-status-success-bg text-status-success">Verificado</span></td>
+</tr>
+<tr class="hover:bg-surface-hover bg-status-error-bg/30">
+<td class="py-2 px-space-sm font-semibold text-status-error">WP-04</td>
+<td class="py-2 px-space-sm font-mono text-xs">24.2612° S, 69.0684° W</td>
+<td class="py-2 px-space-sm text-right font-mono font-bold text-status-error">65.0</td>
+<td class="py-2 px-space-sm text-right font-mono">-65° (Oblicua)</td>
+<td class="py-2 px-space-sm text-status-error font-medium">Parada 6s + Ráfaga Multiespectral</td>
+<td class="py-2 px-space-sm text-right"><span class="font-badge text-badge px-2 py-0.5 rounded bg-status-error text-on-primary">Alerta DAR</span></td>
+</tr>
+<tr class="hover:bg-surface-hover">
+<td class="py-2 px-space-sm font-semibold text-primary">WP-07</td>
+<td class="py-2 px-space-sm font-mono text-xs">24.2635° S, 69.0641° W</td>
+<td class="py-2 px-space-sm text-right font-mono">85.0</td>
+<td class="py-2 px-space-sm text-right font-mono">-90° (Nadir)</td>
+<td class="py-2 px-space-sm">Alineación de retorno RTH</td>
+<td class="py-2 px-space-sm text-right"><span class="font-badge text-badge px-2 py-0.5 rounded bg-status-success-bg text-status-success">Verificado</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECCIÓN 3.3.B: MODO TERRESTRE (Patrullaje e Inspección Hidroquímica) -->
+<div class="hidden flex-col gap-space-lg" id="view-ground">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Panel Lateral Izquierdo: Puntos de Muestreo y Accesos Mineros -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Selector de Cuadrante Terrestre -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-sm border border-border-default">
+<div class="flex items-center justify-between pb-space-xs border-b border-border-subtle mb-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">route</span>
+              Vías de Acceso Minero
+            </h2>
+<span class="font-caption text-caption text-text-secondary">Ruta Activa: RT-03</span>
+</div>
+<div class="space-y-space-xs">
+<div class="p-space-sm rounded bg-secondary-soft border border-secondary flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-semibold">Berma de Contención Norte &amp; Pie de Talud</span>
+<span class="font-badge text-badge px-2 py-0.5 rounded bg-status-success-bg text-status-success">Transitable 4x4</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-body">Acceso vehicular por Camino de Acarreo C-14 hacia drenajes basales.</p>
+<div class="flex items-center gap-space-md mt-1 text-xs text-text-secondary">
+<span>Longitud: 3.2 km</span>
+<span>•</span>
+<span>Tiempo Est.: 45 min</span>
+</div>
+</div>
+<div class="p-space-sm rounded border border-border-subtle hover:bg-surface-hover flex flex-col gap-1 cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Pata de Relave Espesado B - Canal Oeste</span>
+<span class="font-badge text-badge px-2 py-0.5 rounded bg-status-warning-bg text-status-warning">Solo Peatonal</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Requiere EPP específico para suelo inestable y medidor multigas.</p>
+<div class="flex items-center gap-space-md mt-1 text-xs text-text-secondary">
+<span>Longitud: 1.6 km</span>
+<span>•</span>
+<span>Tiempo Est.: 35 min</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fichas Técnicas de Puntos de Muestreo In Situ -->
+<div class="bg-surface-container-lowest p-space-md rounded shadow-sm border border-border-default">
+<div class="flex items-center justify-between pb-space-xs border-b border-border-subtle mb-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">science</span>
+              Estaciones Hidroquímicas (3)
+            </h2>
+<span class="font-badge text-badge bg-status-warning-bg text-status-warning px-2 py-0.5 rounded">Prioridad Alta</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Punto M-01 -->
+<div class="p-space-sm rounded bg-surface-muted border-l-4 border-status-error">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">Punto M-01: Aforador de Drenaje</span>
+<span class="font-caption text-caption font-mono text-status-error font-bold">pH: 4.1 (Crítico)</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-body mt-1">Aforador Parshall secundario. Parámetros a registrar: pH, Conductividad Eléctrica (CE), y toma de muestra para Cu/Fe disuelto.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="font-caption text-caption bg-surface-container-lowest px-1.5 py-0.5 rounded border border-border-default text-text-secondary">Botella Ácida 500ml</span>
+<span class="font-caption text-caption bg-surface-container-lowest px-1.5 py-0.5 rounded border border-border-default text-text-secondary">Sonda Multiparámetro</span>
+</div>
+</div>
+<!-- Punto M-02 -->
+<div class="p-space-sm rounded bg-surface-muted border-l-4 border-status-warning">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">Punto M-02: Pie de Escollera</span>
+<span class="font-caption text-caption font-mono text-status-warning font-bold">Sulfatos: Efluente</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-body mt-1">Afloramiento difuso con eflorescencias blanquecinas. Verificación visual y muestreo directo de humedad basal.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="font-caption text-caption bg-surface-container-lowest px-1.5 py-0.5 rounded border border-border-default text-text-secondary">Fotografía Geo</span>
+<span class="font-caption text-caption bg-surface-container-lowest px-1.5 py-0.5 rounded border border-border-default text-text-secondary">Test Rápido SO4</span>
+</div>
+</div>
+<!-- Punto M-03 -->
+<div class="p-space-sm rounded bg-surface-muted border-l-4 border-secondary">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold">Punto M-03: Piezómetro PZ-14</span>
+<span class="font-caption text-caption font-mono text-secondary font-bold">Nivel Freático</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-body mt-1">Lectura de nivel hidrostático con sonda luminosa y extracción de purga con bailer para laboratorio externo.</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="font-caption text-caption bg-surface-container-lowest px-1.5 py-0.5 rounded border border-border-default text-text-secondary">Sonda Pozos 100m</span>
+<span class="font-caption text-caption bg-surface-container-lowest px-1.5 py-0.5 rounded border border-border-default text-text-secondary">Bailer Desechable</span>
+</div>
+</div>
+</div>
+<!-- Opciones de Descarga Terrestre y Offline -->
+<div class="mt-space-md flex flex-col gap-space-xs">
+<button class="w-full bg-primary text-on-primary hover:bg-primary-hover active:bg-primary-active py-2.5 px-space-md rounded font-label-md text-label-md font-semibold flex items-center justify-center gap-space-sm shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+<span>Descargar Ruta Terrestre (KML / GPX)</span>
+</button>
+<button class="w-full bg-surface-container-lowest text-secondary border border-secondary hover:bg-secondary-soft py-2 px-space-md rounded font-label-md text-label-md font-semibold flex items-center justify-center gap-space-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">map</span>
+<span>Mapa Offline (PDF Georreferenciado / MBTiles)</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Visor Cartográfico Terrestre -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded shadow-sm border border-border-default overflow-hidden flex flex-col">
+<!-- Barra de Herramientas del Mapa Terrestre -->
+<div class="px-space-md py-2.5 bg-surface-muted border-b border-border-default flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1 font-caption text-caption text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px] text-secondary">alt_route</span>
+              Ruta Terrestre Activa: Tranque Norte - Acceso Acarreo 04
+            </span>
+<span class="text-border-default">|</span>
+<span class="font-caption text-caption text-status-success font-medium">Habilitada para Camioneta 4x4</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-caption text-caption text-text-secondary bg-surface-container-lowest px-2 py-1 rounded border border-border-default">Hitos de seguridad: 6</span>
+<button class="p-1.5 rounded bg-surface-container-lowest border border-border-default text-text-secondary hover:text-primary" title="Imprimir Ficha de Ruta">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</div>
+<!-- Lienzo del Mapa Terrestre -->
+<div class="relative w-full h-[520px] bg-slate-900 overflow-hidden select-none">
+<div class="absolute inset-0 bg-cover bg-center opacity-85" data-alt="Topographic and satellite high contrast map of copper mining haul roads perimeter dikes tailings drainage channels and terrain elevation contour lines" data-location="Minera Escondida Tailings Dam, Antofagasta" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArg3Fslu-IeCy_s8pOnoHUm2vEtR743tAd145LdWS-Ud_OLMgMNdhAiPvPP0mdURd84ZdB6-njF0ceXmcB0rdSY81pNQT2ab3WR-9vJ4d9BxqL4UZp_6MS-JfxhQZjyJaUnRHmyHb4rbJgfti9ierf-AEGSE7CNidaCw-eLZ2xfedBIwKNYy7-H0k6zOeXipHqkwaJqUdAVM4SNohEmWC2riPYTb77KVFlE_VrgDlEygg_gNNF87eu');"></div>
+<!-- Trazado de Ruta Terrestre (Línea sólida continua con marcadores kilométricos) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ground-arrow" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="5" refy="5" viewbox="0 0 10 10">
+<path d="M 0 2 L 6 5 L 0 8 z" fill="#00205B"></path>
+</marker>
+</defs>
+<!-- Camino de acarreo principal (Gris técnico) -->
+<path d="M 50,490 Q 200,430 310,340 T 520,220 T 720,110" fill="none" opacity="0.6" stroke="#64748B" stroke-linecap="round" stroke-width="8"></path>
+<!-- Ruta de Inspección In Situ (Azul Marino Profundo #00205B sólido con flechas) -->
+<path d="M 60,480 Q 200,420 310,330 T 450,260 T 560,180" fill="none" marker-mid="url(#ground-arrow)" stroke="#00205B" stroke-dasharray="12,4" stroke-width="4"></path>
+<!-- Sendero peatonal de muestreo específico -->
+<path d="M 450,260 L 490,300 L 520,330" fill="none" stroke="#8A4B00" stroke-dasharray="4,4" stroke-width="3"></path>
+</svg>
+<!-- Punto Inicial: Garita de Seguridad y Despacho -->
+<div class="absolute left-[60px] top-[480px] -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg border-2 border-white">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest/95 text-primary text-xs font-bold border border-border-default shadow">Garita Norte PK 0.0</span>
+</div>
+<!-- Punto M-01: Aforador de drenaje secundario -->
+<div class="absolute left-[310px] top-[330px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10">
+<div class="w-8 h-8 rounded-full bg-status-error text-on-primary flex items-center justify-center font-bold text-xs shadow-lg ring-4 ring-status-error/30">M-01</div>
+<div class="absolute left-9 -top-6 bg-surface-container-lowest p-2 rounded shadow-lg border border-status-error w-52 z-30">
+<p class="font-label-sm text-label-sm text-status-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">emergency</span> Estación M-01
+              </p>
+<p class="font-body-sm text-body-sm text-on-surface font-semibold mt-0.5">Aforador Drenaje Norte</p>
+<div class="mt-1 pt-1 border-t border-border-subtle flex justify-between font-caption text-caption text-text-secondary">
+<span>Parámetro: pH &amp; Metales</span>
+<span class="font-bold text-status-error">URGENTE</span>
+</div>
+</div>
+</div>
+<!-- Punto M-02: Pie de escollera -->
+<div class="absolute left-[450px] top-[260px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10">
+<div class="w-8 h-8 rounded-full bg-status-warning text-on-primary flex items-center justify-center font-bold text-xs shadow-lg ring-4 ring-status-warning/30">M-02</div>
+<div class="absolute left-9 -top-4 bg-surface-container-lowest p-2 rounded shadow-lg border border-status-warning w-48 z-30">
+<p class="font-label-sm text-label-sm text-status-warning font-bold">Estación M-02</p>
+<p class="font-body-sm text-body-sm text-on-surface">Pie de Escollera / Sulfatos</p>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Inspección de eflorescencia</p>
+</div>
+</div>
+<!-- Punto M-03: Piezómetro PZ-14 -->
+<div class="absolute left-[560px] top-[180px] -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-primary flex items-center justify-center font-bold text-xs shadow-lg ring-4 ring-secondary/30">M-03</div>
+<div class="absolute right-9 -top-4 bg-surface-container-lowest p-2 rounded shadow-lg border border-border-default w-48 z-30">
+<p class="font-label-sm text-label-sm text-secondary font-bold">Estación M-03</p>
+<p class="font-body-sm text-body-sm text-on-surface">Piezómetro PZ-14</p>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Nivel Freático Profundo</p>
+</div>
+</div>
+<!-- Puntos Kilométricos de Seguridad Minera -->
+<div class="absolute left-[200px] top-[410px] -translate-x-1/2 -translate-y-1/2 bg-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-mono font-bold text-text-secondary border border-border-default">
+            PK 1.2 km
+          </div>
+<div class="absolute left-[400px] top-[290px] -translate-x-1/2 -translate-y-1/2 bg-surface-container-lowest px-1.5 py-0.5 rounded text-[10px] font-mono font-bold text-text-secondary border border-border-default">
+            PK 2.5 km
+          </div>
+<!-- Leyenda Terrestre Flotante -->
+<div class="absolute left-4 bottom-4 bg-surface-container-lowest/95 backdrop-blur-sm p-space-sm rounded border border-border-default text-xs shadow-md">
+<p class="font-label-sm text-label-sm text-primary mb-1.5">Ruta de Patrullaje e Hidroquímica</p>
+<div class="space-y-1 text-text-body font-caption text-caption">
+<div class="flex items-center gap-2">
+<span class="w-4 h-1 bg-primary inline-block"></span>
+<span>Traza Vehicular Aprobada (4x4)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-4 h-0.5 border-t-2 border-dotted border-status-warning inline-block"></span>
+<span>Tránsito Peatonal con Respirador</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-status-error inline-block"></span>
+<span>Punto Crítico de Drenaje Ácido</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span>
+<span>Piezómetro de Monitoreo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Protocolo de Seguridad y Check-in de Terreno -->
+<div class="p-space-md border-t border-border-default bg-surface-muted flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[24px] text-secondary">health_and_safety</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Protocolo de Rescate y Comunicación Radial</p>
+<p class="font-caption text-caption text-text-secondary">Canal 03 VHF «Tranque Norte». Check-in obligatorio cada 30 minutos con Central de Control.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="bg-surface-container-lowest border border-border-default hover:bg-surface-hover text-on-surface px-space-md py-2 rounded font-label-sm text-label-sm font-semibold transition-colors">
+              Validar Check-list EPP
+            </button>
+<button class="bg-primary-container text-on-primary hover:bg-primary-hover px-space-md py-2 rounded font-label-sm text-label-sm font-semibold transition-colors">
+              Iniciar Misión Terrestre
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main></div>

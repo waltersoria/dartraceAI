@@ -1,0 +1,468 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased -->
+<aside class="fixed left-0 top-0 h-screen w-[232px] bg-surface-container-lowest border-r border-border-default z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-md border-b border-border-subtle gap-space-sm"><div class="flex items-center h-full w-full py-2"><img alt="DAR-Trace AI" class="h-9 w-auto max-w-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/></div></div><div class="px-space-md py-space-sm"><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs mb-space-xs">Operación y Análisis</div></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="panel-general" href="/app/panel-general"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="">Panel general</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="sectores-priorizados" href="/app/sectores-priorizados"><span class="material-symbols-outlined text-[20px]">radar</span><span class="">Sectores priorizados</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rutas-de-inspeccion" href="/app/rutas-de-inspeccion"><span class="material-symbols-outlined text-[20px]">route</span><span class="">Rutas de inspección</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg transition-colors font-label-md text-label-md bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]" data-path="analisis-temporal" href="/app/analisis-temporal"><span class="material-symbols-outlined text-[20px] text-primary-container">timeline</span><span class="">Análisis temporal</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="informes" href="/app/informes"><span class="material-symbols-outlined text-[20px]">description</span><span class="">Informes</span></a><div class="pt-space-sm pb-space-xs"><div class="border-t border-border-subtle my-space-xs"></div><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs my-space-xs">Sistema</div></div><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="configuracion" href="/app/configuracion"><span class="material-symbols-outlined text-[20px]">settings</span><span class="">Configuración</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="perfil" href="/app/perfil"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="">Perfil</span></a></nav></div><div class="p-space-sm border-t border-border-default bg-surface-container-lowest mt-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-status-error hover:bg-status-error-bg transition-colors font-label-md text-label-md" data-path="login" href="/login"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Salir</span></a></div></aside><div class="pl-[232px] min-h-screen flex flex-col"><header class="fixed top-0 left-[232px] right-0 h-16 bg-surface-container-lowest border-b border-border-default z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-muted px-space-sm py-1.5 rounded border border-border-default"><span class="material-symbols-outlined text-[18px] text-text-secondary">location_on</span><span class="font-caption text-caption text-text-secondary font-medium">Faena:</span><select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-space-xs"><option selected="" value="escondida">Minera Escondida Norte</option><option value="chuquicamata">Chuquicamata Subterránea</option><option value="centinela">Centinela Óxidos</option><option value="pelambres">Los Pelambres Cordillera</option></select></div></div><div class="flex items-center gap-space-md"><button aria-label="Notificaciones" class="relative p-2 rounded text-text-secondary hover:text-on-surface hover:bg-surface-hover transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden lg:block"><span class="font-label-sm text-label-sm text-on-surface leading-tight">Dra. Marcela Vega</span><span class="font-caption text-caption text-text-secondary leading-tight">Superintendente ESG</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-border-subtle"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 pt-16 bg-background-secondary w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- SCRIPT PARA REACTIVAR SIDEBAR SEGÚN ESPECIFICACIÓN -->
+
+<!-- ENCABEZADO DE PÁGINA (Sección 1) -->
+<header class="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-border-default gap-4">
+<div class="flex flex-col">
+<nav class="flex items-center gap-2 font-caption text-caption text-text-secondary mb-1">
+<span>Sistema</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary-container font-semibold">Configuración</span>
+</nav>
+<h1 class="font-headline-xl text-headline-xl text-primary-container tracking-tight">
+        Configuración
+      </h1>
+<p class="font-body-md text-body-md text-text-body mt-0.5 max-w-3xl">
+        Administración de fuentes de datos geoespaciales, servicios cartográficos y parámetros del motor de inteligencia artificial.
+      </p>
+</div>
+<div class="flex items-center gap-3 self-start lg:self-center">
+<button class="h-[44px] px-4 rounded-[6px] bg-surface-container-lowest text-secondary border border-secondary hover:bg-secondary-soft transition-colors font-label-md text-label-md flex items-center gap-2" id="btn-reset" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+        Restablecer valores predeterminados
+      </button>
+<button class="h-[44px] px-5 rounded-[6px] bg-primary-container text-on-primary hover:bg-primary-hover active:bg-primary-active transition-colors font-label-md text-label-md flex items-center gap-2 shadow-sm" id="btn-save" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+        Guardar Cambios
+      </button>
+</div>
+</header>
+<!-- CONTENIDO PRINCIPAL: 3 SECCIONES ESTRUCTURADAS (3.6.A, 3.6.B, 3.6.C) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 pt-6">
+<!-- COLUMNA IZQUIERDA: DATOS GEOESPACIALES (3.6.A) -->
+<section class="xl:col-span-12 bg-surface-container-lowest border border-border-default rounded-[6px] shadow-sm p-6">
+<div class="flex items-center justify-between border-b border-border-subtle pb-4 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-[6px] bg-secondary-soft text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">satellite_alt</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container">
+              3.6.A Ingestión y Fuentes de Datos Geoespaciales
+            </h2>
+<p class="font-caption text-caption text-text-secondary">
+              Parámetros de entrada para modelos ortomosaicos, índices espectrales satelitales y capas SIG de faena.
+            </p>
+</div>
+</div>
+<span class="font-badge text-badge text-status-success bg-status-success-bg px-2.5 py-1 rounded-[4px] border border-status-success/20 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success"></span>
+          Pipeline Operativo
+        </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- DRAG AND DROP ZONE -->
+<div class="lg:col-span-5 flex flex-col justify-between">
+<label class="font-label-sm text-label-sm text-on-surface mb-2 block">
+            Subir nueva capa ráster o vectorial
+          </label>
+<div class="flex-1 min-h-[220px] rounded-[6px] border border-dashed border-border-interactive bg-background-secondary hover:bg-surface-hover transition-colors p-6 flex flex-col items-center justify-center text-center cursor-pointer group" id="dropzone">
+<div class="w-12 h-12 rounded-full bg-secondary-soft text-secondary group-hover:scale-105 transition-transform flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[26px]">cloud_upload</span>
+</div>
+<p class="font-label-md text-label-md text-primary-container font-semibold">
+              Arrastre y suelte archivos geoespaciales aquí
+            </p>
+<p class="font-caption text-caption text-text-secondary mt-1 max-w-xs">
+              Admite GeoTIFF (.tif), Shapefile (.zip), GeoJSON (.geojson), Cloud Optimized GeoTIFF (COG), KML, LAS/LAZ (LiDAR).
+            </p>
+<span class="mt-3 inline-block font-caption text-caption text-text-disabled bg-surface-container-highest px-2 py-0.5 rounded-[4px]">
+              Máx. 500 MB por capa
+            </span>
+</div>
+</div>
+<!-- OPCIONES DE INGESTIÓN -->
+<div class="lg:col-span-7 flex flex-col justify-between">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="crs-selector">
+                Sistema de referencia (CRS)
+              </label>
+<select class="w-full h-[42px] px-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="crs-selector">
+<option selected="" value="epsg32719">WGS 84 / UTM Zona 19S (EPSG:32719)</option>
+<option value="epsg32718">WGS 84 / UTM Zona 18S (EPSG:32718)</option>
+<option value="epsg5361">SIRGAS-Chile / UTM Zona 19S (EPSG:5361)</option>
+<option value="epsg4326">WGS 84 Geográfico (EPSG:4326)</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="resampling-method">
+                Resolución y Remuestreo
+              </label>
+<select class="w-full h-[42px] px-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="resampling-method">
+<option selected="" value="bilinear">Bilineal (Recomendado para índices FeOx/NDWI)</option>
+<option value="nearest">Vecino más cercano (Preserva valores discretos)</option>
+<option value="cubic">Cúbica de convolución (Superficies de terreno)</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="sync-cadence">
+                Frecuencia de sincronización de catálogo satelital
+              </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<label class="flex items-center gap-2 p-2.5 rounded-[6px] border border-border-default bg-surface-container-low cursor-pointer hover:bg-surface-hover">
+<input checked="" class="text-secondary focus:ring-focus-halo h-4 w-4" name="sync_cadence" type="radio" value="daily"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface leading-tight">Diario Automático</span>
+<span class="font-caption text-caption text-text-secondary text-[11px]">Sentinel-2 &amp; Landsat-9</span>
+</div>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-[6px] border border-border-default bg-surface-container-low cursor-pointer hover:bg-surface-hover">
+<input class="text-secondary focus:ring-focus-halo h-4 w-4" name="sync_cadence" type="radio" value="weekly"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface leading-tight">Semanal Consolidado</span>
+<span class="font-caption text-caption text-text-secondary text-[11px]">Compósitos sin nubes</span>
+</div>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-[6px] border border-border-default bg-surface-container-low cursor-pointer hover:bg-surface-hover">
+<input class="text-secondary focus:ring-focus-halo h-4 w-4" name="sync_cadence" type="radio" value="manual"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface leading-tight">Manual / On-Demand</span>
+<span class="font-caption text-caption text-text-secondary text-[11px]">Solo ingestión por archivo</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- TABLA DE CAPAS ACTIVAS -->
+<div class="border border-border-default rounded-[6px] overflow-hidden">
+<div class="bg-surface-muted px-3 py-2 border-b border-border-default flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">
+                Capas Activas en el Repositorio de Faena
+              </span>
+<span class="font-caption text-caption text-text-secondary">3 capas persistentes</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="border-b border-border-subtle bg-surface-container-lowest text-text-secondary font-label-sm">
+<th class="px-3 py-2 font-semibold">Nombre de Capa</th>
+<th class="px-3 py-2 font-semibold">Tamaño</th>
+<th class="px-3 py-2 font-semibold">Actualización</th>
+<th class="px-3 py-2 font-semibold">Estado</th>
+<th class="px-3 py-2 font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle bg-surface-container-lowest">
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="px-3 py-2 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">layers</span>
+                      MDT_Escondida_1m.tif
+                    </td>
+<td class="px-3 py-2 text-text-secondary">412 MB</td>
+<td class="px-3 py-2 text-text-secondary">Hoy, 04:30</td>
+<td class="px-3 py-2">
+<span class="font-badge text-badge text-status-success bg-status-success-bg px-2 py-0.5 rounded-[4px]">
+                        En caché
+                      </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-secondary hover:text-primary-container mr-2" title="Reindexar capa" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+<button class="text-status-error hover:opacity-80" title="Eliminar capa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="px-3 py-2 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">cloud_upload</span>
+                      Poligonos_Relaves_v3.geojson
+                    </td>
+<td class="px-3 py-2 text-text-secondary">18.4 MB</td>
+<td class="px-3 py-2 text-text-secondary">12 Mar 2025</td>
+<td class="px-3 py-2">
+<span class="font-badge text-badge text-status-success bg-status-success-bg px-2 py-0.5 rounded-[4px]">
+                        Procesado
+                      </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-secondary hover:text-primary-container mr-2" title="Reindexar capa" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+<button class="text-status-error hover:opacity-80" title="Eliminar capa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-hover transition-colors">
+<td class="px-3 py-2 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">pin_drop</span>
+                      Piezometros_Coordenadas_2025.shp
+                    </td>
+<td class="px-3 py-2 text-text-secondary">4.2 MB</td>
+<td class="px-3 py-2 text-text-secondary">08 Mar 2025</td>
+<td class="px-3 py-2">
+<span class="font-badge text-badge text-status-success bg-status-success-bg px-2 py-0.5 rounded-[4px]">
+                        Procesado
+                      </span>
+</td>
+<td class="px-3 py-2 text-right">
+<button class="text-secondary hover:text-primary-container mr-2" title="Reindexar capa" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+<button class="text-status-error hover:opacity-80" title="Eliminar capa" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COLUMNA INFERIOR IZQUIERDA: MAPAS Y SERVICIOS CARTOGRÁFICOS (3.6.B) -->
+<section class="xl:col-span-6 bg-surface-container-lowest border border-border-default rounded-[6px] shadow-sm p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between border-b border-border-subtle pb-4 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-[6px] bg-secondary-soft text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">map</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container">
+                3.6.B Proveedores de Teselas y Mapas
+              </h2>
+<p class="font-caption text-caption text-text-secondary">
+                Configuración de APIs vectoriales, llaves de satélite y coordenadas iniciales.
+              </p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<!-- PROVEEDOR BASE -->
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="tile-provider">
+              Proveedor base primario
+            </label>
+<select class="w-full h-[42px] px-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="tile-provider">
+<option selected="" value="mapbox">Mapbox GL (Vector High Precision)</option>
+<option value="gee">Google Maps Platform &amp; Earth Engine</option>
+<option value="arcgis">ESRI ArcGIS Satellite World Imagery</option>
+<option value="osm">Carto Dark / OpenStreetMap (Bajo consumo)</option>
+</select>
+</div>
+<!-- MAPBOX ACCESS TOKEN -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="mapbox-token">
+                Mapbox Access Token / Key
+              </label>
+<span class="font-badge text-badge text-status-success bg-status-success-bg px-2 py-0.5 rounded-[4px] border border-status-success/20">
+                No configurado
+              </span>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<input class="w-full h-[42px] px-3 pr-10 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface tracking-wider focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="mapbox-token" type="password" value="" placeholder="Ingrese el token del mapa"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-text-secondary hover:text-on-surface p-1" id="toggle-mapbox-key" title="Mostrar/Ocultar" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<button class="h-[42px] px-3 rounded-[6px] border border-border-interactive bg-surface-container-lowest hover:bg-surface-hover text-primary-container font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+                Verificar conexión
+              </button>
+</div>
+</div>
+<!-- GOOGLE EARTH ENGINE SERVICE ACCOUNT -->
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="gee-account">
+              Google Earth Engine Service Account
+            </label>
+<div class="space-y-2">
+<input class="w-full h-[42px] px-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="gee-account" type="text" value="" placeholder="Cuenta de servicio no configurada"/>
+<div class="flex items-center justify-between p-2.5 rounded-[6px] border border-border-default bg-surface-muted text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-text-secondary">key</span>
+<span class="font-caption text-caption text-text-secondary">Llave privada vinculada: <strong class="text-on-surface">No configurada</strong></span>
+</div>
+<button class="font-label-sm text-label-sm text-secondary hover:underline" type="button">
+                  Cargar nueva llave
+                </button>
+</div>
+</div>
+</div>
+<!-- PARÁMETROS CARTOGRÁFICOS POR DEFECTO -->
+<div class="border-t border-border-subtle pt-4">
+<h3 class="font-label-md text-label-md text-primary-container mb-3">
+              Parámetros de visualización cartográfica inicial
+            </h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div>
+<label class="font-caption text-caption text-text-secondary block mb-1" for="lat-centroid">Centroide Lat</label>
+<input class="w-full h-[36px] px-2.5 rounded-[6px] bg-surface-container-lowest border border-border-default font-body-sm text-body-sm text-on-surface" id="lat-centroid" type="text" value="-24.2589°"/>
+</div>
+<div>
+<label class="font-caption text-caption text-text-secondary block mb-1" for="lon-centroid">Centroide Lon</label>
+<input class="w-full h-[36px] px-2.5 rounded-[6px] bg-surface-container-lowest border border-border-default font-body-sm text-body-sm text-on-surface" id="lon-centroid" type="text" value="-69.0718°"/>
+</div>
+<div>
+<label class="font-caption text-caption text-text-secondary block mb-1" for="zoom-init">Zoom inicial</label>
+<input class="w-full h-[36px] px-2.5 rounded-[6px] bg-surface-container-lowest border border-border-default font-body-sm text-body-sm text-on-surface" id="zoom-init" step="0.5" type="number" value="13.5"/>
+</div>
+<div>
+<label class="font-caption text-caption text-text-secondary block mb-1" for="opacity-dam">Opacidad DAM</label>
+<div class="flex items-center gap-1.5 h-[36px]">
+<input class="w-full accent-secondary" id="opacity-dam" max="80" min="10" type="range" value="30"/>
+<span class="font-caption text-caption text-text-secondary w-7 text-right">30%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between text-text-secondary font-caption text-caption">
+<span>Último sync de teselas: Hoy a las 05:00 UTC</span>
+<span class="text-secondary flex items-center gap-1 cursor-pointer hover:underline">
+<span class="material-symbols-outlined text-[15px]">refresh</span> Purgar caché de mapas
+        </span>
+</div>
+</section>
+<!-- COLUMNA INFERIOR DERECHA: INTELIGENCIA ARTIFICIAL (3.6.C) -->
+<section class="xl:col-span-6 bg-surface-container-lowest border border-border-default rounded-[6px] shadow-sm p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between border-b border-border-subtle pb-4 mb-5">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-[6px] bg-secondary-soft text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container">
+                3.6.C Modelos de Inteligencia Artificial e Inferencia
+              </h2>
+<p class="font-caption text-caption text-text-secondary">
+                Motor predictivo DAM espectral, LLM de diagnósticos técnicos y explicabilidad.
+              </p>
+</div>
+</div>
+<span class="font-badge text-badge text-status-success bg-status-success-bg px-2.5 py-1 rounded-[4px] border border-status-success/20">
+            Latencia: 240 ms
+          </span>
+</div>
+<div class="space-y-4">
+<!-- PROVEEDOR LLM -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="llm-provider">
+                Motor LLM para Diagnósticos Técnicos
+              </label>
+<select class="w-full h-[42px] px-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="llm-provider">
+<option selected="" value="gemini">Google Gemini 1.5 Pro (Contexto 1M)</option>
+<option value="claude">Anthropic Claude 3.5 Sonnet</option>
+<option value="openai">OpenAI GPT-4o (Empresarial)</option>
+<option value="ollama">Ollama / vLLM (Instancia On-Premise Faena)</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface block mb-1.5" for="ai-version">
+                Modelo Predictivo DAM (Inferencia)
+              </label>
+<select class="w-full h-[42px] px-3 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="ai-version">
+<option selected="" value="v2.4">GeoNet v2.4 (Random Forest + ResNet Espectral)</option>
+<option value="v2.3">GeoNet v2.3 Estable (Producción anterior)</option>
+<option value="v3.0-rc">GeoNet v3.0-RC (Experimental con LiDAR)</option>
+</select>
+</div>
+</div>
+<!-- API KEY LLM -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-sm text-label-sm text-on-surface" for="llm-key">
+                API Key del Modelo de Lenguaje
+              </label>
+<span class="font-caption text-caption text-text-secondary">Sin configurar</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<input class="w-full h-[42px] px-3 pr-10 rounded-[6px] bg-surface-container-lowest border border-border-interactive font-body-md text-body-md text-on-surface tracking-wider focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo" id="llm-key" type="password" value="" placeholder="Ingrese la clave del LLM"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-text-secondary hover:text-on-surface p-1" id="toggle-llm-key" title="Mostrar/Ocultar" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<button class="h-[42px] px-3 rounded-[6px] border border-border-interactive bg-surface-container-lowest hover:bg-surface-hover text-primary-container font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+                Test de Latencia
+              </button>
+</div>
+</div>
+<!-- UMBRALES ALGORÍTMICOS DAM -->
+<div class="border-t border-border-subtle pt-3">
+<h3 class="font-label-md text-label-md text-primary-container mb-2.5">
+              Umbrales y Calibración Algorítmica de Detección
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface">Umbral FeOx</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold" id="val-feox">0.70</span>
+</div>
+<input class="w-full accent-secondary" id="slider-feox" max="0.95" min="0.40" step="0.05" type="range" value="0.70"/>
+<span class="font-caption text-caption text-text-secondary text-[11px] block mt-1">Límite crítico alerta de oxidación</span>
+</div>
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface">Sensibilidad NDWI</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold" id="val-ndwi">0.30</span>
+</div>
+<input class="w-full accent-secondary" id="slider-ndwi" max="0.60" min="0.10" step="0.05" type="range" value="0.30"/>
+<span class="font-caption text-caption text-text-secondary text-[11px] block mt-1">Detección de surgencias hídricas</span>
+</div>
+<div class="p-3 bg-surface-muted rounded-[6px] border border-border-subtle">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-on-surface">Temperatura LLM</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">0.10</span>
+</div>
+<input class="w-full h-[28px] px-2 rounded bg-surface-container-lowest border border-border-default font-body-sm text-body-sm text-on-surface" max="1.0" min="0.0" readonly="" step="0.05" type="number" value="0.10"/>
+<span class="font-caption text-caption text-text-secondary text-[11px] block mt-1">Determinismo estricto para informes</span>
+</div>
+</div>
+</div>
+<!-- AUDITORÍA Y EXPLICABILIDAD -->
+<div class="border-t border-border-subtle pt-3 space-y-2">
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-1 w-4 h-4 rounded border-border-interactive text-secondary focus:ring-focus-halo" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">
+                  Generar mapa de calor SHAP y ponderación de variables en cada dictamen técnico
+                </span>
+<span class="font-caption text-caption text-text-secondary">
+                  Auditoría explicable requerida para cumplimiento de estándares regulatorios y Superintendencia del Medio Ambiente.
+                </span>
+</div>
+</label>
+<label class="flex items-start gap-2.5 cursor-pointer">
+<input checked="" class="mt-1 w-4 h-4 rounded border-border-interactive text-secondary focus:ring-focus-halo" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">
+                  Firmado criptográfico de inferencia ambiental
+                </span>
+<span class="font-caption text-caption text-text-secondary">
+                  Genera un hash SHA-256 inmutable asociado a la fecha satelital y el estado de la corrida.
+                </span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between text-text-secondary font-caption text-caption">
+<span>GeoNet v2.4 compilado en TensorRT con CUDA 12.2</span>
+<span class="text-status-success font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified_user</span> Validación de modelo vigente
+        </span>
+</div>
+</section>
+</div>
+<!-- TOAST DE CONFIRMACIÓN AL GUARDAR (Microinteracción vanilla JS) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-primary-container text-on-primary px-4 py-3 rounded-[6px] shadow-lg flex items-center gap-3 border border-border-subtle" id="toast-notification">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold">Configuración guardada exitosamente</span>
+<span class="font-caption text-caption text-slate-300">Los nuevos parámetros se aplicaron a Minera Escondida Norte.</span>
+</div>
+</div>
+<!-- SCRIPT PARA INTERACTIVIDAD DE INTERFAZ -->
+
+</div></main></div>

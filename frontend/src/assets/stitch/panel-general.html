@@ -1,0 +1,438 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased -->
+<aside class="fixed left-0 top-0 h-screen w-[232px] bg-surface-container-lowest border-r border-border-default z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 flex items-center px-space-md border-b border-border-subtle gap-space-sm"><div class="flex items-center h-full w-full py-2"><img alt="DAR-Trace AI" class="h-9 w-auto max-w-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/></div></div><div class="px-space-md py-space-sm"><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs mb-space-xs">Operación y Análisis</div></div><nav class="flex-1 px-space-sm space-y-1 overflow-y-auto" data-active-classes="bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg transition-colors bg-secondary-soft text-primary-container font-semibold border-l-4 border-primary-container pl-[12px]" data-path="panel-general" href="/app/panel-general"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="">Panel general</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="sectores-priorizados" href="/app/sectores-priorizados"><span class="material-symbols-outlined text-[20px]">radar</span><span class="">Sectores priorizados</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rutas-de-inspeccion" href="/app/rutas-de-inspeccion"><span class="material-symbols-outlined text-[20px]">route</span><span class="">Rutas de inspección</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="analisis-temporal" href="/app/analisis-temporal"><span class="material-symbols-outlined text-[20px]">timeline</span><span class="">Análisis temporal</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="informes" href="/app/informes"><span class="material-symbols-outlined text-[20px]">description</span><span class="">Informes</span></a><div class="pt-space-sm pb-space-xs"><div class="border-t border-border-subtle my-space-xs"></div><div class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[11px] font-semibold px-space-xs my-space-xs">Sistema</div></div><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="configuracion" href="/app/configuracion"><span class="material-symbols-outlined text-[20px]">settings</span><span class="">Configuración</span></a><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-on-surface-variant hover:bg-surface-hover hover:text-on-surface transition-colors font-label-md text-label-md" data-path="perfil" href="/app/perfil"><span class="material-symbols-outlined text-[20px]">account_circle</span><span class="">Perfil</span></a></nav></div><div class="p-space-sm border-t border-border-default bg-surface-container-lowest mt-auto"><a class="flex items-center gap-space-sm px-space-md py-[10px] rounded-lg text-status-error hover:bg-status-error-bg transition-colors font-label-md text-label-md" data-path="login" href="/login"><span class="material-symbols-outlined text-[20px]">logout</span><span class="">Salir</span></a></div></aside><div class="pl-[232px] min-h-screen flex flex-col"><header class="fixed top-0 left-[232px] right-0 h-16 bg-surface-container-lowest border-b border-border-default z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-muted px-space-sm py-1.5 rounded border border-border-default"><span class="material-symbols-outlined text-[18px] text-text-secondary">location_on</span><span class="font-caption text-caption text-text-secondary font-medium">Faena:</span><select class="bg-transparent font-label-sm text-label-sm text-on-surface outline-none cursor-pointer pr-space-xs"><option value="escondida">Minera Escondida Norte</option><option value="chuquicamata">Chuquicamata Subterránea</option><option value="centinela">Centinela Óxidos</option><option value="pelambres">Los Pelambres Cordillera</option></select></div></div><div class="flex items-center gap-space-md"><button aria-label="Notificaciones" class="relative p-2 rounded text-text-secondary hover:text-on-surface hover:bg-surface-hover transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-error"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden lg:block"><span class="font-label-sm text-label-sm text-on-surface leading-tight">Dra. Marcela Vega</span><span class="font-caption text-caption text-text-secondary leading-tight">Superintendente ESG</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ring-2 ring-border-subtle"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 pt-16 bg-background-secondary w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- ENCABEZADO DE PÁGINA -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary-container tracking-tight">Panel general</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-caption font-caption bg-secondary-soft text-secondary border border-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Resolución Sentinel-2 (10m)
+        </span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary">Monitoreo espectral multitemporal y predicción de lixiviación ácida</p>
+</div>
+<!-- Indicador de Sector Activo -->
+<div class="flex items-center gap-space-sm bg-surface-container-lowest border border-border-default rounded-lg px-space-md py-2 shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-text-secondary uppercase tracking-wider text-[10px]">Contexto espacial activo</span>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-primary font-semibold">Sector 04 - Cuenca Depósito Norte</span>
+<span class="font-badge text-badge bg-status-error-bg text-status-error px-1.5 py-0.2 rounded border border-status-error/20">Prioridad 1</span>
+</div>
+</div>
+<button aria-label="Cambiar sector" class="ml-2 text-text-secondary hover:text-primary transition-colors p-1 rounded hover:bg-surface-hover" id="toggle-sector-menu">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+</button>
+</div>
+</section>
+<!-- SECCIÓN A: MAPA DE RIESGO Y CONTROL GEOESPACIAL -->
+<section class="mb-space-lg">
+<div class="bg-surface-container-lowest border border-border-default rounded-lg shadow-sm overflow-hidden flex flex-col">
+<!-- Barra de herramientas espectrales superior -->
+<div class="border-b border-border-subtle bg-surface-container-low px-space-md py-2.5 flex flex-wrap items-center justify-between gap-space-md">
+<!-- Modos de visualización -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-0.5">
+<span class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold mr-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">layers</span> Capa:
+          </span>
+<button class="layer-tab active-layer px-3 py-1.5 rounded text-label-sm font-label-sm bg-primary-container text-on-primary shadow-sm flex items-center gap-1.5 transition-all" data-layer="dam" type="button">
+<span class="material-symbols-outlined text-[16px]">water_damage</span>
+<span class="">DAM (Drenaje Ácido)</span>
+</button>
+<button class="layer-tab px-3 py-1.5 rounded text-label-sm font-label-sm bg-surface-container-lowest text-text-body hover:bg-surface-hover border border-border-subtle flex items-center gap-1.5 transition-all" data-layer="fe-ox" type="button">
+<span class="material-symbols-outlined text-[16px]">grain</span>
+<span class="">Óxidos de hierro</span>
+</button>
+<button class="layer-tab px-3 py-1.5 rounded text-label-sm font-label-sm bg-surface-container-lowest text-text-body hover:bg-surface-hover border border-border-subtle flex items-center gap-1.5 transition-all" data-layer="ndvi" type="button">
+<span class="material-symbols-outlined text-[16px]">park</span>
+<span class="">NDVI</span>
+</button>
+<button class="layer-tab px-3 py-1.5 rounded text-label-sm font-label-sm bg-surface-container-lowest text-text-body hover:bg-surface-hover border border-border-subtle flex items-center gap-1.5 transition-all" data-layer="ndwi" type="button">
+<span class="material-symbols-outlined text-[16px]">waves</span>
+<span class="">NDWI</span>
+</button>
+</div>
+<!-- Metadatos de pase satelital -->
+<div class="flex items-center gap-space-md text-caption font-caption text-text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">schedule</span>
+            Último pase: 18 Feb 2025 (10:42 UTC)
+          </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">cloud</span>
+            Nubosidad: 0.4%
+          </span>
+</div>
+</div>
+<!-- Contenedor del Mapa Satelital Cartográfico -->
+<div class="relative w-full h-[510px] bg-[#111C30] overflow-hidden select-none" id="map-viewport">
+<!-- Render base de topografía satelital minera simulada con SVG ortofoto cartográfica de precisión -->
+<svg class="absolute inset-0 w-full h-full object-cover" preserveaspectratio="xMidYMid slice" viewbox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="50" id="grid-carto" patternunits="userSpaceOnUse" width="50">
+<path d="M 50 0 L 0 0 0 50" fill="none" opacity="0.35" stroke="#34445C" stroke-dasharray="2,2" stroke-width="0.5"></path>
+</pattern>
+<!-- Gradiente de falso color espectral para Drenaje Ácido -->
+<radialgradient cx="42%" cy="48%" id="dam-plume-1" r="30%">
+<stop offset="0%" stop-color="#B42318" stop-opacity="0.82"></stop>
+<stop offset="45%" stop-color="#8A4B00" stop-opacity="0.6"></stop>
+<stop offset="80%" stop-color="#115cb9" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#117548" stop-opacity="0.05"></stop>
+</radialgradient>
+<radialgradient cx="72%" cy="32%" id="dam-plume-2" r="22%">
+<stop offset="0%" stop-color="#B42318" stop-opacity="0.75"></stop>
+<stop offset="60%" stop-color="#8A4B00" stop-opacity="0.45"></stop>
+<stop offset="100%" stop-color="#117548" stop-opacity="0.05"></stop>
+</radialgradient>
+<radialgradient cx="24%" cy="68%" id="dam-plume-3" r="18%">
+<stop offset="0%" stop-color="#8A4B00" stop-opacity="0.7"></stop>
+<stop offset="70%" stop-color="#117548" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#117548" stop-opacity="0.0"></stop>
+</radialgradient>
+</defs>
+<!-- Topografía del terreno minero (curvas de nivel sutiles) -->
+<rect fill="#0d1726" height="100%" width="100%"></rect>
+<!-- Contornos de tajos abiertos y plataformas de lixiviación -->
+<path d="M50,120 Q220,90 380,140 T720,110 T1050,180 T1180,260 L1180,590 L20,590 Z" fill="#142136" opacity="0.9"></path>
+<path d="M120,200 C280,180 430,240 600,210 C780,180 940,250 1100,220 L1100,550 L120,550 Z" fill="#182942" opacity="0.85"></path>
+<path d="M220,280 C360,250 510,310 680,280 C840,260 980,320 1060,300 L1060,500 L220,500 Z" fill="#1f3454" opacity="0.6"></path>
+<!-- Plumas espectrales DAM calculadas por IA -->
+<ellipse class="mix-blend-screen" cx="490" cy="270" fill="url(#dam-plume-1)" rx="140" ry="85"></ellipse>
+<ellipse class="mix-blend-screen" cx="850" cy="180" fill="url(#dam-plume-2)" rx="90" ry="60"></ellipse>
+<ellipse class="mix-blend-screen" cx="280" cy="410" fill="url(#dam-plume-3)" rx="80" ry="55"></ellipse>
+<!-- Red de drenaje hidrológico superficial (vaguadas y escorrentías) -->
+<path d="M480,240 Q495,290 520,340 T580,410 T640,490 T710,560" fill="none" opacity="0.75" stroke="#acc7ff" stroke-dasharray="4,4" stroke-width="2.5"></path>
+<path d="M840,170 Q820,220 800,270 T750,360 T640,490" fill="none" opacity="0.6" stroke="#acc7ff" stroke-dasharray="4,4" stroke-width="2"></path>
+<path d="M260,390 Q290,420 340,460 T450,510" fill="none" opacity="0.5" stroke="#acc7ff" stroke-dasharray="4,4" stroke-width="1.8"></path>
+<!-- Cuadrícula UTM de coordenadas cartográficas -->
+<rect fill="url(#grid-carto)" height="100%" width="100%"></rect>
+<!-- POLÍGONOS DE SECTORES DELIMITADOS (Opacidad 30%, Borde 2px a 3px) -->
+<!-- Sector 01 -->
+<polygon fill="#117548" fill-opacity="0.25" points="120,110 320,90 390,210 180,240" stroke="#117548" stroke-width="2"></polygon>
+<text fill="#F8FAFC" font-family="Outfit" font-size="12" font-weight="600" letter-spacing="0.5" x="210" y="170">SECTOR 01</text>
+<!-- Sector 02 - Relave Antiguo (Alto Riesgo) -->
+<polygon fill="#B42318" fill-opacity="0.30" points="760,110 980,120 1020,250 820,270" stroke="#B42318" stroke-width="2.5"></polygon>
+<text fill="#F8FAFC" font-family="Outfit" font-size="12" font-weight="600" letter-spacing="0.5" x="840" y="195">SECTOR 02</text>
+<circle cx="890" cy="165" fill="#B42318" r="4"></circle>
+<!-- Sector 03 -->
+<polygon fill="#8A4B00" fill-opacity="0.25" points="170,310 380,300 400,470 210,480" stroke="#8A4B00" stroke-width="2"></polygon>
+<text fill="#F8FAFC" font-family="Outfit" font-size="12" font-weight="600" letter-spacing="0.5" x="250" y="390">SECTOR 03</text>
+<!-- Sector 04 - Cuenca Depósito Norte (SELECCIONADO: Borde azul eléctrico #0056B3, espesor 3px) -->
+<polygon fill="#B42318" fill-opacity="0.32" points="410,180 670,160 710,360 450,380" stroke="#0056B3" stroke-dasharray="8,0" stroke-width="3.5"></polygon>
+<!-- Pin del sensor y vector de selección para Sector 04 -->
+<circle class="animate-ping" cx="540" cy="270" fill="#0056B3" fill-opacity="0.35" r="14" stroke="#0056B3" stroke-width="2"></circle>
+<circle cx="540" cy="270" fill="#0056B3" r="7" stroke="#FFFFFF" stroke-width="2"></circle>
+<g transform="translate(470, 205)">
+<rect fill="#00205B" fill-opacity="0.9" height="26" rx="4" stroke="#acc7ff" stroke-width="1" width="145"></rect>
+<text fill="#FFFFFF" font-family="Outfit" font-size="12" font-weight="700" x="10" y="17">★ SECTOR 04 [ACTIVO]</text>
+</g>
+<!-- Sector 07 - Quebrada Sur -->
+<polygon fill="#8A4B00" fill-opacity="0.28" points="560,400 780,380 820,530 620,550" stroke="#8A4B00" stroke-width="2"></polygon>
+<text fill="#F8FAFC" font-family="Outfit" font-size="12" font-weight="600" letter-spacing="0.5" x="660" y="470">SECTOR 07</text>
+<!-- Marcadores de coordenadas geográficas en bordes -->
+<text fill="#7C8DA3" font-family="Inter" font-size="10" x="20" y="30">23°51'42" S | 69°04'18" W</text>
+<text fill="#7C8DA3" font-family="Inter" font-size="10" x="1050" y="580">WGS 84 / UTM 19S</text>
+</svg>
+<!-- Controles cartográficos flotantes discretos (40x40px, radio 6px, borde #D1D5DB) -->
+<div class="absolute top-4 right-4 flex flex-col gap-1.5 z-10">
+<button aria-label="Acercar zoom" class="w-10 h-10 rounded-lg bg-surface-container-lowest border border-border-default shadow-sm text-primary flex items-center justify-center hover:bg-surface-hover transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<button aria-label="Alejar zoom" class="w-10 h-10 rounded-lg bg-surface-container-lowest border border-border-default shadow-sm text-primary flex items-center justify-center hover:bg-surface-hover transition-colors">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="h-[1px] bg-border-default my-0.5"></div>
+<button aria-label="Restablecer vista centrada" class="w-10 h-10 rounded-lg bg-surface-container-lowest border border-border-default shadow-sm text-primary flex items-center justify-center hover:bg-surface-hover transition-colors" title="Restablecer encuadre">
+<span class="material-symbols-outlined text-[18px]">my_location</span>
+</button>
+<button aria-label="Conmutar cuadrícula analítica" class="w-10 h-10 rounded-lg bg-surface-container-lowest border border-border-default shadow-sm text-primary flex items-center justify-center hover:bg-surface-hover transition-colors" title="Cuadrícula UTM">
+<span class="material-symbols-outlined text-[18px]">grid_4x4</span>
+</button>
+<button aria-label="Exportar GeoTIFF" class="w-10 h-10 rounded-lg bg-surface-container-lowest border border-border-default shadow-sm text-primary flex items-center justify-center hover:bg-surface-hover transition-colors" title="Descargar Capa GeoTIFF">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+</button>
+</div>
+<!-- Mini Brújula y Escala gráfica cartográfica -->
+<div class="absolute bottom-4 left-4 bg-surface-container-lowest/95 border border-border-default px-3 py-1.5 rounded-lg flex items-center gap-3 z-10 shadow-sm backdrop-blur-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary text-secondary">explore</span>
+<span class="font-caption text-[11px] font-semibold text-primary">N</span>
+</div>
+<div class="h-3 w-[1px] bg-border-default"></div>
+<div class="flex flex-col items-center">
+<div class="w-16 h-1 bg-primary flex">
+<div class="w-1/2 h-full bg-surface-container-lowest"></div>
+</div>
+<span class="font-caption text-[9px] text-text-secondary mt-0.5">500 m</span>
+</div>
+</div>
+<!-- Leyenda técnica espectral de gradiente (Bajo, Medio, Alto) -->
+<div class="absolute bottom-4 right-4 bg-surface-container-lowest/95 border border-border-default p-3 rounded-lg shadow-sm z-10 w-64 backdrop-blur-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-[12px] font-semibold text-primary">Índice DAM Estimado</span>
+<span class="font-caption text-[10px] text-text-secondary">Bandas B4, B11, B12</span>
+</div>
+<!-- Barra de gradiente continuo -->
+<div class="h-2.5 w-full rounded-sm bg-gradient-to-r from-[#117548] via-[#8A4B00] to-[#B42318] mb-1.5"></div>
+<div class="flex justify-between items-center text-[11px] font-caption">
+<span class="flex items-center gap-1 text-[#117548] font-semibold">
+<span class="w-2 h-2 rounded-full bg-[#117548]"></span> Bajo (&lt;35)
+            </span>
+<span class="flex items-center gap-1 text-[#8A4B00] font-semibold">
+<span class="w-2 h-2 rounded-full bg-[#8A4B00]"></span> Medio (35-65)
+            </span>
+<span class="flex items-center gap-1 text-[#B42318] font-semibold">
+<span class="w-2 h-2 rounded-full bg-[#B42318]"></span> Alto (&gt;65)
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN B: MÉTRICAS GLOBALES (GRID 3 COLUMNAS) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-lg">
+<!-- Tarjeta 1: Índice de riesgo global (4 cols) -->
+<div class="md:col-span-4 bg-surface-container-lowest border border-border-default rounded-lg p-5 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<span class="font-headline-sm text-headline-sm text-primary">Índice de riesgo global</span>
+<span class="material-symbols-outlined text-text-secondary text-[20px]" title="Promedio ponderado geoespacial">info</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2"><span class="font-kpi-metric text-[52px] leading-none text-primary font-bold">42</span><span class="font-headline-sm text-text-secondary">/ 100</span></div>
+<div class="mt-3 flex items-center justify-between">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded text-badge font-badge bg-status-warning-bg text-status-warning border border-status-warning/20">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span class="">Riesgo medio</span>
+</div>
+<span class="font-caption text-caption text-text-secondary">Promedio total área activa</span>
+</div>
+</div>
+<div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between font-caption text-caption">
+<span class="text-text-secondary">Comparación temporal:</span>
+<span class="flex items-center gap-1 text-status-success font-semibold">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+          -3.2% vs. mes anterior
+        </span>
+</div>
+</div>
+<!-- Tarjeta 2: Zonas de alto riesgo (3 cols) -->
+<div class="md:col-span-3 bg-surface-container-lowest border border-border-default rounded-lg p-5 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<span class="font-headline-sm text-headline-sm text-primary">Zonas de alto riesgo</span>
+<span class="material-symbols-outlined text-status-error text-[20px]">warning_amber</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2"><span class="font-kpi-metric text-[52px] leading-none text-status-error font-bold">3</span><span class="font-headline-sm text-text-secondary">sectores críticos</span></div>
+<p class="mt-2.5 font-body-sm text-body-sm text-text-body">
+          Se detecta acumulación anómala de precipitados férricos y pH estimado &lt; 3.8.
+        </p>
+</div>
+<div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between">
+<span class="font-caption text-caption text-text-secondary">Requieren protocolo:</span>
+<span class="font-badge text-badge text-status-error bg-status-error-bg px-2 py-0.5 rounded font-semibold border border-status-error/20">Acción 48h</span>
+</div>
+</div>
+<!-- Tarjeta 3: Áreas prioritarias (Tabla técnica) (5 cols) -->
+<div class="md:col-span-5 bg-surface-container-lowest border border-border-default rounded-lg p-5 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-primary">Áreas prioritarias</span>
+<span class="font-caption text-[11px] bg-surface-muted text-text-secondary px-1.5 py-0.5 rounded border border-border-subtle">Top 3</span>
+</div>
+<span class="font-caption text-caption text-text-secondary">Ranking de criticidad</span>
+</div>
+<div class="mt-2 overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="h-9 border-b border-border-default text-text-secondary font-label-sm text-[12px]">
+<th class="py-1 font-semibold">Sector</th>
+<th class="py-1 text-right font-semibold">Riesgo</th>
+<th class="py-1 text-right font-semibold">Nivel</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle font-body-sm text-body-sm">
+<!-- Fila 1: Sector 04 Seleccionado -->
+<tr class="h-11 bg-secondary-soft/50 hover:bg-secondary-soft transition-colors cursor-pointer" title="Sector actualmente activo">
+<td class="py-1.5 font-medium text-primary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="truncate max-w-[150px]">Sector 04 - Depósito Norte</span>
+</td>
+<td class="py-1.5 text-right font-mono font-semibold text-status-error">78</td>
+<td class="py-1.5 text-right">
+<span class="inline-block px-2 py-0.5 rounded font-badge text-[11px] bg-status-error-bg text-status-error border border-status-error/20 font-semibold">Alto</span>
+</td>
+</tr>
+<!-- Fila 2: Sector 02 -->
+<tr class="h-11 hover:bg-background-secondary transition-colors cursor-pointer">
+<td class="py-1.5 font-medium text-text-body">
+<span class="truncate max-w-[150px] pl-3 inline-block">Sector 02 - Relave Antiguo</span>
+</td>
+<td class="py-1.5 text-right font-mono font-semibold text-status-error">71</td>
+<td class="py-1.5 text-right">
+<span class="inline-block px-2 py-0.5 rounded font-badge text-[11px] bg-status-error-bg text-status-error border border-status-error/20 font-semibold">Alto</span>
+</td>
+</tr>
+<!-- Fila 3: Sector 07 -->
+<tr class="h-11 hover:bg-background-secondary transition-colors cursor-pointer">
+<td class="py-1.5 font-medium text-text-body">
+<span class="truncate max-w-[150px] pl-3 inline-block">Sector 07 - Quebrada Sur</span>
+</td>
+<td class="py-1.5 text-right font-mono font-semibold text-status-warning">64</td>
+<td class="py-1.5 text-right">
+<span class="inline-block px-2 py-0.5 rounded font-badge text-[11px] bg-status-warning-bg text-status-warning border border-status-warning/20 font-semibold">Medio</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mt-2 text-right">
+<a class="font-caption text-caption text-secondary hover:text-primary-hover font-semibold inline-flex items-center gap-1" data-placeholder-link="true" href="#">
+          Ver inventario de 12 sectores
+          <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- SECCIÓN C: MÉTRICAS ZONALES (TARJETA CONTEXTUAL DESTACADA PARA SECTOR 04) -->
+<section>
+<div class="bg-surface-container-lowest border-2 border-secondary/40 rounded-lg p-space-lg shadow-sm">
+<!-- Encabezado contextual de la zona -->
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-border-default gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-soft text-secondary flex items-center justify-center border border-secondary/20">
+<span class="material-symbols-outlined text-[24px]">troubleshoot</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-primary font-bold">Métricas de Zona: Sector 04</span>
+</div>
+<span class="font-caption text-caption text-text-secondary">Depósito Norte • Coordenadas: 23°51'20"S 69°03'55"W • Superficie: 42.8 ha</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-border-default text-text-body hover:bg-surface-hover text-label-sm font-label-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span class="">Compartir Ficha</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary-hover text-label-sm font-label-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">assignment_add</span>
+<span class="">Generar Orden OT</span>
+</button>
+</div>
+</div>
+<!-- Contenido en rejilla: Indicadores Clave y Gráfico de Evolución -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mt-5">
+<!-- Panel Izquierdo: Valor de Riesgo & Recomendación de Acción Inmediata (5 cols) -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-4">
+<!-- Índice zonal y badge -->
+<div class="bg-surface-container-low p-4 rounded-lg border border-border-subtle">
+<span class="font-caption text-caption text-text-secondary uppercase tracking-wider font-semibold">Índice de riesgo zonal de DAM</span>
+<div class="flex items-baseline gap-3 mt-1.5">
+<span class="font-kpi-metric text-[44px] text-status-error font-bold leading-none">78</span>
+<span class="font-headline-sm text-headline-sm text-text-secondary">/ 100</span>
+<span class="ml-auto font-badge text-badge px-2.5 py-1 rounded bg-status-error-bg text-status-error border border-status-error/30 font-semibold uppercase">
+                Riesgo Crítico
+              </span>
+</div>
+<div class="w-full bg-border-default h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-status-error h-full rounded-full" style="width: 78%"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-caption text-text-secondary mt-1">
+<span class="">Umbral alerta: 65</span>
+<span class="">Desviación estándar: +2.1σ</span>
+</div>
+</div>
+<!-- Acción recomendada destacada -->
+<div class="bg-status-error-bg/60 border-l-4 border-status-error p-4 rounded-r-lg">
+<div class="flex items-center gap-2 text-status-error font-label-md text-label-md font-semibold mb-1">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+<span class="">Acción preventiva recomendada (SLA 48h):</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+              Inspección urgente mediante dron y toma de muestras de pH en efluente secundario antes de 48 horas.
+            </p>
+<div class="mt-3 flex items-center gap-3 text-caption font-caption text-text-body">
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">flight_takeoff</span> Brigada Dron B-3
+              </span>
+<span class="flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">science</span> Kit reactivo Fe2+/Fe3+
+              </span>
+</div>
+</div>
+</div>
+<!-- Panel Derecho: Gráfico Técnico de Evolución Histórica de los últimos 4 meses (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-border-default rounded-lg p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<div>
+<span class="font-label-md text-label-md text-primary font-semibold">Evolución histórica de los últimos 4 meses</span>
+<p class="font-caption text-caption text-text-secondary">Comportamiento secuencial del índice multiespectral</p>
+</div>
+<div class="flex items-center gap-3 font-caption text-caption">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="w-3 h-0.5 bg-[#0056B3]"></span> Índice DAM
+              </span>
+<span class="flex items-center gap-1 text-status-error font-semibold bg-status-error-bg px-2 py-0.5 rounded border border-status-error/20">
+                Tendencia: +16 pts (Ascendente)
+              </span>
+</div>
+</div>
+<!-- Gráfico SVG Sobrio y Científico (línea 2.5px #0056B3, puntos 6px, cuadrícula #E5E7EB) -->
+<div class="w-full h-44 relative mt-2">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 520 150">
+<!-- Cuadrícula técnica horizontal y etiquetas del eje Y -->
+<line stroke="#E5E7EB" stroke-dasharray="2,2" stroke-width="1" x1="40" x2="510" y1="15" y2="15"></line>
+<text fill="#94A3B8" font-family="Inter" font-size="10" text-anchor="end" x="32" y="19">80</text>
+<line stroke="#E5E7EB" stroke-dasharray="2,2" stroke-width="1" x1="40" x2="510" y1="55" y2="55"></line>
+<text fill="#94A3B8" font-family="Inter" font-size="10" text-anchor="end" x="32" y="59">70</text>
+<line stroke="#E5E7EB" stroke-dasharray="2,2" stroke-width="1" x1="40" x2="510" y1="95" y2="95"></line>
+<text fill="#94A3B8" font-family="Inter" font-size="10" text-anchor="end" x="32" y="99">60</text>
+<line stroke="#D1D5DB" stroke-width="1" x1="40" x2="510" y1="135" y2="135"></line>
+<text fill="#94A3B8" font-family="Inter" font-size="10" text-anchor="end" x="32" y="139">50</text>
+<!-- Línea de umbral crítico a 65 (y = 75) -->
+<line stroke="#FDEDEC" stroke-width="1.5" x1="40" x2="510" y1="75" y2="75"></line>
+<text fill="#B42318" font-family="Inter" font-size="9" font-weight="600" text-anchor="end" x="508" y="71">Umbral Alerta (65)</text>
+<!-- Trazado de datos históricos: Nov (62) -> Dic (68) -> Ene (74) -> Feb (78) -->
+<!-- Escala Y: 50 -> y=135, 80 -> y=15 (4px por punto de índice) -->
+<!-- X coords: Nov=75, Dic=205, Ene=340, Feb=475 -->
+<!-- 62 -> 135 - (12*4) = 87 -->
+<!-- 68 -> 135 - (18*4) = 63 -->
+<!-- 74 -> 135 - (24*4) = 39 -->
+<!-- 78 -> 135 - (28*4) = 23 -->
+<polyline fill="none" points="75,87 205,63 340,39 475,23" stroke="#0056B3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<!-- Puntos de datos (radio 4.5, circulo exterior 6px) con etiquetas -->
+<!-- Noviembre: 62 -->
+<circle cx="75" cy="87" fill="#FFFFFF" r="4.5" stroke="#0056B3" stroke-width="2.5"></circle>
+<text fill="#1b1c1c" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="75" y="78">62</text>
+<!-- Diciembre: 68 -->
+<circle cx="205" cy="63" fill="#FFFFFF" r="4.5" stroke="#0056B3" stroke-width="2.5"></circle>
+<text fill="#1b1c1c" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="205" y="54">68</text>
+<!-- Enero: 74 -->
+<circle cx="340" cy="39" fill="#FFFFFF" r="4.5" stroke="#0056B3" stroke-width="2.5"></circle>
+<text fill="#1b1c1c" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="340" y="30">74</text>
+<!-- Febrero: 78 (Actual) -->
+<circle cx="475" cy="23" fill="#B42318" r="6" stroke="#FFFFFF" stroke-width="2"></circle>
+<text fill="#B42318" font-family="Inter" font-size="12" font-weight="700" text-anchor="middle" x="475" y="13">78</text>
+<!-- Eje X: Etiquetas de meses -->
+<text fill="#64748B" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle" x="75" y="150">Noviembre</text>
+<text fill="#64748B" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle" x="205" y="150">Diciembre</text>
+<text fill="#64748B" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle" x="340" y="150">Enero</text>
+<text fill="#00205B" font-family="Inter" font-size="11" font-weight="700" text-anchor="middle" x="475" y="150">Febrero (Act)</text>
+</svg>
+</div>
+<!-- Pie técnico del gráfico -->
+<div class="mt-3 pt-2.5 border-t border-border-subtle flex items-center justify-between text-caption font-caption text-text-secondary">
+<span class="">Intervalo de remuestreo: Mensual continuo</span>
+<span class="text-primary font-medium">Validado con calibración espectral USGS 2024</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Script interactivo vanilla para alternancia de capas espectrales y simulación de selector -->
+
+</div></main></div>

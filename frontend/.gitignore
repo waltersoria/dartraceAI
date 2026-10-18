@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.angular/
+coverage/
+.env
+src/assets/stitch/*.html
+!src/assets/stitch/README.md

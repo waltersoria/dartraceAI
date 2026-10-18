@@ -1,0 +1,1 @@
+Capturas de Stitch utilizadas como referencia de fidelidad visual. Las pantallas se implementan como HTML bajo `src/assets/stitch` y las rutas corresponden a componentes de Angular.

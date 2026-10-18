@@ -1,0 +1,88 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-space-md -->
+<main class="w-full max-w-md bg-surface-container-lowest border border-border-default rounded-xl p-space-xl shadow-[0_4px_16px_rgba(0,32,91,0.08)]"><div class="flex flex-col w-full">
+<!-- Header Section with Badge Isotype, Brand Name and Slogan -->
+<div class="flex flex-col items-center mb-6 text-center">
+<div class="w-16 h-16 rounded-2xl bg-[#E8F0FE]/60 border border-[#DCEAFE] flex items-center justify-center p-2 mb-3.5 shadow-sm">
+<svg class="w-12 h-12" fill="none" viewbox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<circle cx="40" cy="40" fill="#FFFFFF" r="34" stroke="#00205B" stroke-dasharray="180" stroke-dashoffset="12" stroke-width="2.5"></circle>
+<path d="M 26 22 A 16 16 0 0 1 54 22" fill="none" stroke="#0056B3" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="58" cy="24" fill="#0056B3" r="3.5"></circle>
+<path d="M 18 52 L 36 28 L 50 46 L 60 36 L 68 52 Z" fill="#00205B"></path>
+<path d="M 36 28 L 44 38 L 32 52 L 18 52 Z" fill="#003B80"></path>
+<path d="M 42 44 Q 36 50 40 56 T 38 66" fill="none" stroke="#0056B3" stroke-linecap="round" stroke-width="2.5"></path>
+<g transform="translate(52, 42)">
+<path d="M 7 0 C 7 0 0 8 0 12 C 0 15.8 3.1 19 7 19 C 10.9 19 14 15.8 14 12 C 14 8 7 0 7 0 Z" fill="#0056B3"></path>
+<circle cx="5" cy="11" fill="#FFFFFF" r="1.2"></circle>
+<circle cx="9" cy="9.5" fill="#FFFFFF" r="1.2"></circle>
+<circle cx="7" cy="14" fill="#FFFFFF" r="1.2"></circle>
+<line stroke="#FFFFFF" stroke-width="0.6" x1="5" x2="9" y1="11" y2="9.5"></line>
+<line stroke="#FFFFFF" stroke-width="0.6" x1="5" x2="7" y1="11" y2="14"></line>
+</g>
+</svg>
+</div>
+<h1 class="font-headline-lg text-2xl font-bold text-primary mb-1 tracking-tight">DAR-Trace AI</h1>
+<p class="font-body-sm text-sm text-text-secondary leading-snug max-w-[280px]">
+      Anticipamos el riesgo antes de que llegue al agua
+    </p>
+</div>
+<!-- Toggle Tabs: Acceder / Registrarse -->
+<nav aria-label="Selector de acceso" class="flex p-1 bg-[#F1F3F9] rounded-lg mb-6 border border-border-subtle" role="tablist">
+<button aria-selected="true" class="flex-1 py-2 text-center text-sm font-semibold rounded-md transition-all duration-150 bg-white text-primary shadow-sm" data-stitch-action="setAuthTab('login')" id="tab-acceder" role="tab" type="button">
+      Acceder
+    </button>
+<button aria-selected="false" class="flex-1 py-2 text-center text-sm font-medium rounded-md transition-all duration-150 text-text-secondary hover:text-on-surface" data-stitch-action="setAuthTab('register')" id="tab-registrarse" role="tab" type="button">
+      Registrarse
+    </button>
+</nav>
+<!-- Form Section -->
+<form class="flex flex-col gap-4" data-stitch-submit="event.preventDefault();">
+<!-- Correo corporativo o institucional -->
+<div class="flex flex-col gap-1.5">
+<label class="text-sm font-semibold text-on-surface" for="auth-email">
+        Correo corporativo o institucional
+      </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[#94A3B8] text-[20px] pointer-events-none select-none">mail</span>
+<input autocomplete="email" class="w-full h-11 pl-11 pr-3.5 bg-white border border-border-default rounded text-on-surface text-sm placeholder:text-[#94A3B8] focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-colors" id="auth-email" placeholder="hidrologia@operacionminera.com" required="" type="email"/>
+</div>
+</div>
+<!-- Contraseña -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-on-surface" for="auth-password">
+          Contraseña
+        </label>
+<a class="text-xs text-[#0056B3] hover:underline focus:outline-none font-medium" href="/recuperar-acceso">
+          ¿Olvidaste tu contraseña?
+        </a>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[#94A3B8] text-[20px] pointer-events-none select-none">lock</span>
+<input autocomplete="current-password" class="w-full h-11 pl-11 pr-11 bg-white border border-border-default rounded text-on-surface text-sm placeholder:text-[#94A3B8] focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-colors" id="auth-password" placeholder="••••••••••••" required="" type="password"/>
+<button aria-label="Mostrar u ocultar contraseña" class="absolute right-3.5 text-[#94A3B8] hover:text-text-secondary focus:outline-none flex items-center justify-center p-0.5" data-stitch-action="const p = document.getElementById('auth-password'); const icon = this.querySelector('span'); if(p.type==='password'){ p.type='text'; icon.textContent='visibility_off'; } else { p.type='password'; icon.textContent='visibility'; }" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Checkbox Recordar estación de trabajo -->
+<div class="flex items-center gap-2.5 pt-0.5">
+<input class="w-4 h-4 rounded border-border-default text-secondary focus:ring-focus-halo focus:ring-2 accent-[#00205B] cursor-pointer" id="remember-device" type="checkbox"/>
+<label class="text-sm text-[#4A4A4A] select-none cursor-pointer" for="remember-device">
+        Recordar estación de trabajo
+      </label>
+</div>
+<!-- Botón Ingresar a la Plataforma -->
+<button class="w-full h-11 mt-1 bg-[#00205B] text-white text-sm font-semibold rounded flex items-center justify-center gap-2 transition-colors hover:bg-[#003B80] active:bg-[#001845] focus:outline-none focus:ring-2 focus:ring-focus-halo shadow-sm" type="submit">
+<span class="">Ingresar a la Plataforma</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Link: Contactar soporte técnico -->
+<div class="flex items-center justify-center pt-6 text-center">
+<a class="inline-flex items-center gap-1.5 text-sm font-medium text-[#0056B3] hover:underline focus:outline-none" href="#contacto">
+<span class="material-symbols-outlined text-[18px]">headset_mic</span>
+<span class="">Contactar soporte técnico</span>
+</a>
+</div>
+</div>
+</main>

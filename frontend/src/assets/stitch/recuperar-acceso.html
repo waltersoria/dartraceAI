@@ -1,0 +1,69 @@
+<!-- STITCH_BODY_CLASS: bg-background-secondary font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-space-md -->
+<main class="w-full max-w-md bg-surface-container-lowest border border-border-default rounded-xl p-space-xl shadow-[0_4px_16px_rgba(0,32,91,0.08)]"><div class="flex flex-col w-full">
+<!-- Brand / Identity Header -->
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 flex items-center justify-center mb-space-sm">
+<img alt="DAR-Trace AI Logo" class="w-full h-full object-contain" loading="lazy" src="/assets/media/dartrace-logo.svg"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+      DAR-Trace AI
+    </h1>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant font-medium mt-space-xs">
+      Recuperación de credenciales de acceso
+    </p>
+<p class="font-body-md text-body-md text-text-secondary mt-space-sm max-w-sm">
+      Introduce el correo institucional asociado a tu cuenta de faena para recibir el enlace seguro de restablecimiento de contraseña.
+    </p>
+</div>
+<!-- Form Section -->
+<form class="flex flex-col mt-space-lg" data-stitch-submit="event.preventDefault(); handleSubmit();" id="recoveryForm">
+<!-- Input: Correo Institucional -->
+<div class="flex flex-col mb-space-md">
+<label class="font-label-sm text-label-sm text-on-surface mb-space-xs flex items-center justify-between" for="corporate-email">
+<span>Correo electrónico institucional</span>
+<span class="font-caption text-caption text-text-secondary">Requerido</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-border-interactive text-[20px] pointer-events-none select-none">
+          mail
+        </span>
+<input autocomplete="email" class="w-full h-[42px] pl-10 pr-3 bg-surface-container-lowest border border-border-interactive rounded text-on-surface font-body-md text-body-md placeholder:text-text-disabled focus:outline-none focus:border-secondary focus:ring-2 focus:ring-focus-halo transition-colors" id="corporate-email" name="email" placeholder="nombre@operacionminera.com" required="" type="email"/>
+</div>
+<p class="font-caption text-caption text-status-error hidden mt-1 flex items-center gap-1" id="emailValidationMsg">
+<span class="material-symbols-outlined text-[14px]">error</span>
+        Ingresa una dirección de correo corporativa válida.
+      </p>
+</div>
+<!-- Security & Expiration Info Note -->
+<div class="bg-secondary-soft border border-border-default rounded p-space-sm mb-space-lg flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">
+        info
+      </span>
+<p class="font-caption text-caption text-secondary leading-snug">
+        Las instrucciones de restablecimiento tienen una validez de 15 minutos y requieren validación con el directorio activo corporativo.
+      </p>
+</div>
+<!-- Action Button -->
+<button class="w-full h-[44px] bg-primary-container text-on-primary hover:bg-primary-hover active:bg-primary-active rounded font-label-md text-label-md transition-colors flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-focus-halo" id="submitButton" type="submit">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span>Enviar instrucciones de recuperación</span>
+</button>
+</form>
+<!-- Secondary Actions & Navigation -->
+<div class="flex flex-col items-center mt-space-lg space-y-space-md">
+<!-- Return Link -->
+<a class="font-label-md text-label-md text-secondary hover:text-secondary-hover transition-colors inline-flex items-center gap-1.5 focus:outline-none focus:underline" href="/login">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>Volver a iniciar sesión</span>
+</a>
+<!-- Horizontal Divider -->
+<div class="w-full h-px bg-border-subtle"></div>
+<!-- Support Link -->
+<a class="font-body-sm text-body-sm text-text-secondary hover:text-primary transition-colors inline-flex items-center gap-1.5 focus:outline-none" href="#contacto">
+<span class="material-symbols-outlined text-[16px] text-text-secondary">support_agent</span>
+<span>¿Problemas con tu cuenta? <strong class="text-secondary hover:underline font-semibold ml-0.5">Contactar soporte técnico</strong></span>
+</a>
+</div>
+<!-- Micro-interaction / Feedback Overlay Script -->
+
+</div></main>
