@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { StitchPageComponent } from './stitch-page.component';
+
 export const routes: Routes = [
  {path:'',component:StitchPageComponent,data:{screen:'landing'}},
  {path:'login',component:StitchPageComponent,data:{screen:'login'}},

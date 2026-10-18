@@ -1,12 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+/**
+ * Punto de integración previsto con FastAPI. No se realizan llamadas por defecto:
+ * las vistas de Stitch contienen datos de DEMOSTRACIÓN.
+ * Nunca almacenar tokens de mapas, llaves LLM ni contraseñas en localStorage.
+ */
 @Injectable({providedIn:'root'})
-export class ApiService {
- readonly baseUrl='/api/v1';
- constructor(private http:HttpClient){}
- getProjects(){return this.http.get(this.baseUrl+'/projects');}
- getSectors(id:string){return this.http.get(this.baseUrl+'/projects/'+encodeURIComponent(id)+'/sectors');}
- getRiskMap(id:string){return this.http.get(this.baseUrl+'/projects/'+encodeURIComponent(id)+'/risk-map');}
- getInspections(id:string){return this.http.get(this.baseUrl+'/projects/'+encodeURIComponent(id)+'/inspections');}
- getReports(id:string){return this.http.get(this.baseUrl+'/projects/'+encodeURIComponent(id)+'/reports');}
+export class DarTraceApiService {
+  private readonly http = inject(HttpClient);
+  readonly baseUrl = '/api/v1';
+
+  get<T>(resource: string): Observable<T> {
+    return this.http.get<T>(`${this.baseUrl}/${resource.replace(/^\//,'')}`);
+  }
+  post<T>(resource:string, body: unknown): Observable<T> {
+    return this.http.post<T>(`${this.baseUrl}/${resource.replace(/^\//,'')}`, body);
+  }
 }
